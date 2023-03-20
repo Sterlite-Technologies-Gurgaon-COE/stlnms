@@ -1,0 +1,83 @@
+
+
+ SMP  ⏱  
+General output time took 50.78 secs
+
+ SMP  ⏱  Plugins
+UglifyJsPlugin took 19.051 secs
+ExtractTextPlugin took 6.43 secs
+LoaderOptionsPlugin took 0.23 secs
+CopyPlugin took 0.1 secs
+AssetsWebpackPlugin took 0.036 secs
+DefinePlugin took 0.001 secs
+
+ SMP  ⏱  Loaders
+modules with no loaders took 22.033 secs
+  module count = 858
+string-replace-webpack-plugin, and 
+cache-loader, and 
+css-loader, and 
+postcss-loader, and 
+sass-loader took 19.27 secs
+  module count = 1
+cache-loader, and 
+css-loader, and 
+postcss-loader, and 
+sass-loader took 19.25 secs
+  module count = 14
+babel-loader, and 
+eslint-loader took 17.98 secs
+  module count = 100
+expose-loader took 16.86 secs
+  module count = 10
+expose-loader, and 
+expose-loader, and 
+script-loader took 16.82 secs
+  module count = 2
+expose-loader, and 
+babel-loader, and 
+eslint-loader took 12.065 secs
+  module count = 1
+extract-text-webpack-plugin, and 
+style-loader, and 
+css-loader took 11.89 secs
+  module count = 14
+extract-text-webpack-plugin, and 
+style-loader, and 
+string-replace-webpack-plugin, and 
+cache-loader, and 
+css-loader, and 
+postcss-loader, and 
+sass-loader took 11.7 secs
+  module count = 1
+extract-text-webpack-plugin, and 
+style-loader, and 
+cache-loader, and 
+css-loader, and 
+postcss-loader, and 
+sass-loader took 11.58 secs
+  module count = 14
+file-loader took 4.88 secs
+  module count = 70
+raw-loader, and 
+babel-loader, and 
+eslint-loader took 2.82 secs
+  module count = 3
+css-loader took 2.54 secs
+  module count = 43
+imports-loader took 1.66 secs
+  module count = 3
+ngtemplate-loader, and 
+html-loader took 1.53 secs
+  module count = 76
+raw-loader took 0.5 secs
+  module count = 1
+script-loader, and 
+babel-loader, and 
+eslint-loader took 0.005 secs
+  module count = 3
+script-loader took 0.001 secs
+  module count = 1
+
+
+

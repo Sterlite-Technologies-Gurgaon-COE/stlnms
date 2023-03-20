@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features name="jmxconfiggenerator" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+    <feature name="jmxconfiggenerator" version="27.2.0" description="OpenNMS JMX Configuration Generator">
+        <feature>guava</feature>
+        <feature>commons-io</feature>
+        <bundle>mvn:org.opennms.features/jmxconfiggenerator/27.2.0</bundle>
+        <bundle>wrap:mvn:args4j/args4j/2.32</bundle>
+        <bundle>wrap:mvn:org.jvnet.opendmk/jmxremote_optional/1.0_01-ea</bundle>
+        <bundle>mvn:org.apache.velocity/velocity/1.7</bundle>
+        <bundle>mvn:org.opennms.features/org.opennms.features.name-cutter/27.2.0</bundle>
+        <!-- I know we're not supposed to be using JAXB *anywhere* but without this, we get strange parameter issues in the database report servlet. -->
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-impl/2.2.6_1</bundle>
+    </feature>
+</features>
