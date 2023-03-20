@@ -9632,7 +9632,7 @@ module.exports = "/*!\n\nHolder - client side image placeholders\nVersion 2.9.6+
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! !./node_modules/script-loader/addScript.js */ "./node_modules/script-loader/addScript.js")(__webpack_require__(/*! !./node_modules/raw-loader!./node_modules/holderjs/holder.js */ "./node_modules/raw-loader/index.js!./node_modules/holderjs/holder.js")+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///home/administrator/Desktop/master27/core/web-assets/node_modules/holderjs/holder.js")
+__webpack_require__(/*! !./node_modules/script-loader/addScript.js */ "./node_modules/script-loader/addScript.js")(__webpack_require__(/*! !./node_modules/raw-loader!./node_modules/holderjs/holder.js */ "./node_modules/raw-loader/index.js!./node_modules/holderjs/holder.js")+"\n\n// SCRIPT-LOADER FOOTER\n//# sourceURL=script:///home/administrator/Desktop/testnms/core/web-assets/node_modules/holderjs/holder.js")
 
 /***/ }),
 

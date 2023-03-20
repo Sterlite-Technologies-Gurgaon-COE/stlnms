@@ -120,7 +120,7 @@ To include a resource in a JSP file, use the following syntax:
 ## Configuring OpenNMS for Development
 
 While developing JSPs that load assets, it can be convenient to not have to keep copying resources into the `assets/` directory.
-To do so, just delete the `$OPENNMS_HOME/jetty-webapps/opennms/assets/` directory and then symlink it to the `target/dist/assets` directory in this project.
+To do so, just delete the `$OPENNMS_HOME/jetty-webapps/stlnms/assets/` directory and then symlink it to the `target/dist/assets` directory in this project.
 
 You can also configure the JSP `AssetLocator` class to use minified or un-minified versions of the assets.
 To do so, create an asset property file in `$OPENNMS_HOME/etc/opennms.properties.d/` and set the following property:

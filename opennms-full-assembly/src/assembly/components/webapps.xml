@@ -40,7 +40,7 @@
       <useProjectArtifact>false</useProjectArtifact>
       <useStrictFiltering>true</useStrictFiltering>
       <useTransitiveDependencies>false</useTransitiveDependencies>
-      <outputDirectory>jetty-webapps/opennms</outputDirectory>
+      <outputDirectory>jetty-webapps/stlnms</outputDirectory>
       <includes><include>org.opennms.assemblies:org.opennms.assemblies.webapp-full:war:${project.version}</include></includes>
     </dependencySet>
     <dependencySet>
@@ -49,7 +49,7 @@
       <useProjectArtifact>false</useProjectArtifact>
       <useStrictFiltering>true</useStrictFiltering>
       <useTransitiveDependencies>false</useTransitiveDependencies>
-      <outputDirectory>jetty-webapps/opennms/META-INF</outputDirectory>
+      <outputDirectory>jetty-webapps/stlnms/META-INF</outputDirectory>
       <outputFileNameMapping></outputFileNameMapping>
       <includes><include>org.opennms:opennms-webapp:tar.gz:meta-inf:${project.version}</include></includes>
     </dependencySet>
