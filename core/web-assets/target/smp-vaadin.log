@@ -36,3 +36,79 @@ script-loader took 0 secs
 
 
 
+
+
+ SMP  ⏱  
+General output time took 3 mins, 9.57 secs
+
+ SMP  ⏱  Plugins
+ExtractTextPlugin took 5 mins, 23.71 secs
+UglifyJsPlugin took 2 mins, 44.29 secs
+CopyPlugin took 0.23 secs
+LoaderOptionsPlugin took 0.063 secs
+AssetsWebpackPlugin took 0.049 secs
+DefinePlugin took 0 secs
+
+ SMP  ⏱  Loaders
+expose-loader, and 
+expose-loader, and 
+script-loader took 6.5 secs
+  module count = 2
+modules with no loaders took 6.27 secs
+  module count = 386
+babel-loader took 2.94 secs
+  module count = 20
+expose-loader took 1.12 secs
+  module count = 5
+imports-loader took 0.716 secs
+  module count = 3
+raw-loader took 0.21 secs
+  module count = 1
+expose-loader, and 
+babel-loader took 0.038 secs
+  module count = 1
+file-loader took 0.03 secs
+  module count = 5
+script-loader took 0 secs
+  module count = 1
+
+
+
+
+
+ SMP  ⏱  
+General output time took 28.13 secs
+
+ SMP  ⏱  Plugins
+UglifyJsPlugin took 6.89 secs
+ExtractTextPlugin took 6.74 secs
+CopyPlugin took 5.76 secs
+LoaderOptionsPlugin took 0.056 secs
+AssetsWebpackPlugin took 0.035 secs
+DefinePlugin took 0 secs
+
+ SMP  ⏱  Loaders
+modules with no loaders took 5.72 secs
+  module count = 386
+expose-loader, and 
+expose-loader, and 
+script-loader took 2.98 secs
+  module count = 2
+babel-loader took 1.77 secs
+  module count = 20
+expose-loader took 0.742 secs
+  module count = 5
+imports-loader took 0.481 secs
+  module count = 3
+raw-loader took 0.241 secs
+  module count = 1
+file-loader took 0.062 secs
+  module count = 5
+expose-loader, and 
+babel-loader took 0.028 secs
+  module count = 1
+script-loader took 0 secs
+  module count = 1
+
+
+

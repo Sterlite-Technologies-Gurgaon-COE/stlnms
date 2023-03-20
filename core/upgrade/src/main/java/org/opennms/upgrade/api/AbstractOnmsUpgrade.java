@@ -450,7 +450,7 @@ public abstract class AbstractOnmsUpgrade implements OnmsUpgrade {
      */
     protected String getOpennmsVersion() throws OnmsUpgradeException {
         if (onmsVersion == null) {
-            File versionFile = new File(getHomeDirectory(), "jetty-webapps/opennms/WEB-INF/version.properties");
+            File versionFile = new File(getHomeDirectory(), "jetty-webapps/stlnms/WEB-INF/version.properties");
             Properties properties = new Properties();
             try {
                 properties.load(new FileInputStream(versionFile));

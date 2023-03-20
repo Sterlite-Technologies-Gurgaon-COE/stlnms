@@ -60,5 +60,5 @@ image:users/custom-roles.png[]
 
 To define permissions associated with the custom security role, manually update the application context of the Spring Security here: 
 ```
-/opt/opennms/jetty-webapps/opennms/WEB-INF/applicationContext-spring-security.xml
+/opt/opennms/jetty-webapps/stlnms/WEB-INF/applicationContext-spring-security.xml
 ```

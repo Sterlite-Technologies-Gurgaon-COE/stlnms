@@ -46,12 +46,12 @@ public class ApproveAbsolutePathAliasesTest {
 
         // If the alias and file only differ by a double slash, it should be approved
         String path = "/WEB-INF/jsp//support/index.jsp";
-        String uri = "file:///opt/opennms/jetty-webapps/opennms/WEB-INF/jsp//support/index.jsp";
+        String uri = "file:///opt/opennms/jetty-webapps/stlnms/WEB-INF/jsp//support/index.jsp";
         assertThat(aliasCheck.check(path, new PathResource(new URI(uri)) {
             @Override
             public URI getAlias() {
                 try {
-                    return new URI("file:///opt/opennms/jetty-webapps/opennms/WEB-INF/jsp/support/index.jsp");
+                    return new URI("file:///opt/opennms/jetty-webapps/stlnms/WEB-INF/jsp/support/index.jsp");
                 } catch (URISyntaxException e) {
                     throw new RuntimeException(e);
                 }
@@ -59,12 +59,12 @@ public class ApproveAbsolutePathAliasesTest {
         }), equalTo(true));
 
         // Other differences should not be approved
-        uri = "file:///opt/opennms/jetty-webapps/opennms/WEB-INF/jsp/support/index.jsp";
+        uri = "file:///opt/opennms/jetty-webapps/stlnms/WEB-INF/jsp/support/index.jsp";
         assertThat(aliasCheck.check(path, new PathResource(new URI(uri)) {
             @Override
             public URI getAlias() {
                 try {
-                    return new URI("file:///opt/opennms/jetty-webapps/opennms/WEB-INF/jsp/.support/index.jsp");
+                    return new URI("file:///opt/opennms/jetty-webapps/stlnms/WEB-INF/jsp/.support/index.jsp");
                 } catch (URISyntaxException e) {
                     throw new RuntimeException(e);
                 }
