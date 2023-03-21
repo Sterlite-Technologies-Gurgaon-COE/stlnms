@@ -1,37 +1,37 @@
 
 
  SMP  ⏱  
-General output time took 43.018 secs
+General output time took 9 mins, 9.67 secs
 
  SMP  ⏱  Plugins
-UglifyJsPlugin took 19.47 secs
-ExtractTextPlugin took 6.86 secs
-CopyPlugin took 0.37 secs
-LoaderOptionsPlugin took 0.056 secs
-AssetsWebpackPlugin took 0.047 secs
+UglifyJsPlugin took 6 mins, 24.55 secs
+ExtractTextPlugin took 47.57 secs
+CopyPlugin took 0.535 secs
+LoaderOptionsPlugin took 0.462 secs
+AssetsWebpackPlugin took 0.319 secs
 DefinePlugin took 0 secs
 
  SMP  ⏱  Loaders
-expose-loader, and 
-expose-loader, and 
-script-loader took 7.16 secs
-  module count = 2
-modules with no loaders took 3.83 secs
+modules with no loaders took 1 min, 0.171 secs
   module count = 386
-babel-loader took 3.3 secs
+babel-loader took 51.19 secs
   module count = 20
-expose-loader took 0.93 secs
+expose-loader took 14.98 secs
   module count = 5
-imports-loader took 0.464 secs
-  module count = 3
-raw-loader took 0.176 secs
-  module count = 1
 expose-loader, and 
-babel-loader took 0.072 secs
+expose-loader, and 
+script-loader took 7.99 secs
+  module count = 2
+imports-loader took 0.547 secs
+  module count = 3
+raw-loader took 0.2 secs
   module count = 1
-file-loader took 0.049 secs
+file-loader took 0.154 secs
   module count = 5
-script-loader took 0 secs
+expose-loader, and 
+babel-loader took 0.051 secs
+  module count = 1
+script-loader took 0.004 secs
   module count = 1
 
 

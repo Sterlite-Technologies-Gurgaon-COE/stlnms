@@ -3,8 +3,11 @@
     "js": "manifest.js",
     "text": "(function webpackUniversalModuleDefinition(root, factory) {\n\tif(typeof exports === 'object' && typeof module === 'object')\n\t\tmodule.exports = factory();\n\telse if(typeof define === 'function' && define.amd)\n\t\tdefine([], factory);\n\telse {\n\t\tvar a = factory();\n\t\tfor(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];\n\t}\n})(window, function() {\nreturn (window[\"webpackJsonp\"] = window[\"webpackJsonp\"] || []).push([[\"manifest\"],{\n\n/***/ \"./src/main/assets/js/vendor/manifest.js\":\n/*!***********************************************!*\\\n  !*** ./src/main/assets/js/vendor/manifest.js ***!\n  \\***********************************************/\n/*! no static exports found */\n/***/ (function(module, exports, __webpack_require__) {\n\n\"use strict\";\n\n\n/***/ })\n\n},[[\"./src/main/assets/js/vendor/manifest.js\",\"vendor\"]]]);\n});\n//# sourceMappingURL=manifest.js.map"
   },
-  "onms-central-search": {
-    "js": "onms-central-search.js"
+  "add-to-ksc": {
+    "js": "add-to-ksc.js"
+  },
+  "angular-js": {
+    "js": "angular-js.js"
   },
   "angular-status": {
     "js": "angular-status.js"
@@ -106,9 +109,6 @@
   "loader": {
     "js": "loader.js"
   },
-  "add-to-ksc": {
-    "js": "add-to-ksc.js"
-  },
   "minion-elementList": {
     "js": "minion-elementList.js"
   },
@@ -121,8 +121,8 @@
   "onms-assets": {
     "js": "onms-assets.js"
   },
-  "angular-js": {
-    "js": "angular-js.js"
+  "onms-central-search": {
+    "js": "onms-central-search.js"
   },
   "onms-classifications": {
     "js": "onms-classifications.js"

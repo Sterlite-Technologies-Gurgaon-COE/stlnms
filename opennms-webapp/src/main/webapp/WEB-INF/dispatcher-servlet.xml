@@ -353,6 +353,11 @@
                                 <property name="url" value="pathOutage/index.jsp"/>
                                 <property name="locationMatch" value="pathOutage"/>
                             </bean>
+                            <bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
+                                <property name="name" value="Garv Dashboard"/>
+                                <property name="url" value="garvDashboard/index.jsp"/>
+                                <property name="locationMatch" value="garvDashboard"/>
+                            </bean>
                         </list>
                     </property>
                 </bean>
