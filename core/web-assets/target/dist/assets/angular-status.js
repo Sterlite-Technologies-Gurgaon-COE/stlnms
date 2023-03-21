@@ -344,7 +344,7 @@ angular.element(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/kevlin/Documents/gracybranch/core/web-assets/src/main/assets/js/apps/angular-status/templates/filter.html';
+var path = '/home/kevlin/Documents/UAT_branch/core/web-assets/src/main/assets/js/apps/angular-status/templates/filter.html';
 var html = "<div class=\"\">\n    <span class=\"h4\" style=\"line-height:2.8;\">\n        Filters&nbsp;&nbsp;\n        <a href ng-click=\"resetFilter()\" title=\"Reset filter\"><i class=\"fa fa-eraser fa-lg\"></i></a>\n    </span>\n    <severity-filter model=\"severityFilter\"></severity-filter>\n\n    <ng-transclude></ng-transclude>\n\n</div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
@@ -358,7 +358,7 @@ module.exports = path;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/kevlin/Documents/gracybranch/core/web-assets/src/main/assets/js/apps/angular-status/templates/severity-filter.html';
+var path = '/home/kevlin/Documents/UAT_branch/core/web-assets/src/main/assets/js/apps/angular-status/templates/severity-filter.html';
 var html = "<div class=\"btn-group ml-2\" role=\"group\" aria-label=\"Severity filter\">\n    <button type=\"button\" class=\"btn btn-outline-secondary\" ng-class=\"{'active': severity.Normal}\" ng-click=\"severity.Normal = !severity.Normal\">Normal</button>\n    <button type=\"button\" class=\"btn btn-outline-secondary\" ng-class=\"{'active': severity.Warning}\" ng-click=\"severity.Warning = !severity.Warning\">Warning</button>\n    <button type=\"button\" class=\"btn btn-outline-secondary\" ng-class=\"{'active': severity.Minor}\" ng-click=\"severity.Minor = !severity.Minor\">Minor</button>\n    <button type=\"button\" class=\"btn btn-outline-secondary\" ng-class=\"{'active': severity.Major}\" ng-click=\"severity.Major = !severity.Major\">Major</button>\n    <button type=\"button\" class=\"btn btn-outline-secondary\" ng-class=\"{'active': severity.Critical}\" ng-click=\"severity.Critical = !severity.Critical\">Critical</button>\n</div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
@@ -372,7 +372,7 @@ module.exports = path;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/kevlin/Documents/gracybranch/core/web-assets/src/main/assets/js/apps/angular-status/views/applications.html';
+var path = '/home/kevlin/Documents/UAT_branch/core/web-assets/src/main/assets/js/apps/angular-status/views/applications.html';
 var html = "<div ng-controller=\"ApplicationStatusController\">\n    <filter-controls>\n\n    </filter-controls>\n    <pagination model=\"query\">\n        <div class=\"\">\n            <table class=\"table table-bordered severity\">\n                <tbody>\n                <tr>\n                    <th>\n                        <a href ng-click=\"changeOrderBy('severity')\">Severity</a>\n                        <i ng-show=\"query.orderBy === 'severity' &amp;&amp; query.order === 'asc'\" class=\"fa fa-sort-asc\"/>\n                        <i ng-show=\"query.orderBy === 'severity' &amp;&amp; query.order === 'desc'\" class=\"fa fa-sort-desc\"/>\n                    </th>\n                    <th>\n                        <a href ng-click=\"changeOrderBy('name')\">Name</a>\n                        <i ng-show=\"query.orderBy === 'name' &amp;&amp; query.order === 'asc'\" class=\"fa fa-sort-asc\"/>\n                        <i ng-show=\"query.orderBy === 'name' &amp;&amp; query.order === 'desc'\" class=\"fa fa-sort-desc\"/>\n                    </th>\n                </tr>\n\n                <tr ng-repeat=\"item in items\" class=\"severity-{{item.severity | lowercase}}\">\n                    <td class=\"divider bright\">\n                        {{item['severity'] | severity}}\n                    </td>\n                    <td>\n                        <a href=\"topology?provider=Application&focus-vertices={{item['id']}}&layout=Hierarchy Layout\">\n                            {{item['name']}}\n                        </a>\n                    </td>\n                </tr>\n                </tbody>\n            </table>\n        </div>\n    </pagination>\n</div>\n";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
@@ -386,7 +386,7 @@ module.exports = path;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/kevlin/Documents/gracybranch/core/web-assets/src/main/assets/js/apps/angular-status/views/business-services.html';
+var path = '/home/kevlin/Documents/UAT_branch/core/web-assets/src/main/assets/js/apps/angular-status/views/business-services.html';
 var html = "<div ng-controller=\"BusinessServiceStatusController\">\n    <filter-controls>\n\n    </filter-controls>\n\n    <pagination model=\"query\">\n        <div class=\"\">\n            <table class=\"table table-bordered severity\">\n                <tbody>\n                <tr>\n                    <th>\n                        <a href ng-click=\"changeOrderBy('severity')\">Severity</a>\n                        <i ng-show=\"query.orderBy === 'severity' &amp;&amp; query.order === 'asc'\" class=\"fa fa-sort-asc\"/>\n                        <i ng-show=\"query.orderBy === 'severity' &amp;&amp; query.order === 'desc'\" class=\"fa fa-sort-desc\"/>\n                    </th>\n                    <th>\n                        <a href ng-click=\"changeOrderBy('name')\">Name</a>\n                        <i ng-show=\"query.orderBy === 'name' &amp;&amp; query.order === 'asc'\" class=\"fa fa-sort-asc\"/>\n                        <i ng-show=\"query.orderBy === 'name' &amp;&amp; query.order === 'desc'\" class=\"fa fa-sort-desc\"/>\n                    </th>\n                </tr>\n\n                <tr ng-repeat=\"item in items\" class=\"severity-{{item.severity | lowercase}}\">\n                    <td class=\"divider bright\">\n                        {{item['severity'] | severity}}\n                    </td>\n                    <td>\n                        <a href=\"topology?provider=Business Services&focus-vertices={{item['id']}}&layout=Hierarchy Layout\">\n                            {{item['name']}}\n                        </a>\n                    </td>\n                </tr>\n                </tbody>\n            </table>\n        </div>\n    </pagination>\n</div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
@@ -400,7 +400,7 @@ module.exports = path;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/kevlin/Documents/gracybranch/core/web-assets/src/main/assets/js/apps/angular-status/views/nodes.html';
+var path = '/home/kevlin/Documents/UAT_branch/core/web-assets/src/main/assets/js/apps/angular-status/views/nodes.html';
 var html = "<div ng-controller=\"NodeStatusController\">\n    <filter-controls>\n        <!-- Additional strategy controls -->\n        <div class=\"btn-group ml-2\">\n            <button type=\"button\" ng-click=\"setStrategy('alarms')\" class=\"btn btn-secondary {{query.strategy === 'alarms' ? 'active' : ''}}\" title=\"Calculate status based on unacknowledged alarms\">Alarms</button>\n            <button type=\"button\" ng-click=\"setStrategy('outages')\" class=\"btn btn-secondary {{query.strategy === 'outages' ? 'active' : ''}}\" title=\"Calculate status base on current outages\">Outages</button>\n        </div>\n    </filter-controls>\n    <pagination model=\"query\" class=\"mt-4\">\n        <div class=\"\">\n            <table class=\"table table-bordered severity\">\n                <tbody>\n                <tr>\n                    <th>\n                        <a href ng-click=\"changeOrderBy('severity')\">Severity</a>\n                        <i ng-show=\"query.orderBy === 'severity' &amp;&amp; query.order === 'asc'\" class=\"fa fa-sort-asc\"/>\n                        <i ng-show=\"query.orderBy === 'severity' &amp;&amp; query.order === 'desc'\" class=\"fa fa-sort-desc\"/>\n                    </th>\n                    <th>\n                        <a href ng-click=\"changeOrderBy('label')\">Node Label</a>\n                        <i ng-show=\"query.orderBy === 'label' &amp;&amp; query.order === 'asc'\" class=\"fa fa-sort-asc\"/>\n                        <i ng-show=\"query.orderBy === 'label' &amp;&amp; query.order === 'desc'\" class=\"fa fa-sort-desc\"/>\n                    </th>\n                    <th>\n                        Actions\n                    </th>\n                </tr>\n\n                <tr ng-repeat=\"item in items\" class=\"severity-{{item.severity | lowercase}}\">\n                    <td class=\"divider bright\">\n                        {{item['severity'] | severity}}\n                    </td>\n                    <td>\n                        <a href=\"element/node.jsp?node={{item['id']}}\">\n                            {{item['name']}}\n                        </a>\n                    </td>\n                    <td>\n                        <a href=\"outage/list?outtype=current&filter=node={{item['id']}}\" ng-show=\"item.severity != 'NORMAL' && query.strategy === 'outages'\">\n                            <i class=\"fa fa-external-link-square\"></i> View Outages\n                        </a>\n                        <a href=\"alarm/list?sortby=lasteventtime&acktype=unack&filter=node={{item['id']}}\" ng-show=\"item.severity != 'NORMAL' && query.strategy === 'alarms'\">\n                            <i class=\"fa fa-external-link-square\"></i> View Alarms\n                        </a>\n                    </td>\n                </tr>\n                </tbody>\n            </table>\n        </div>\n    </pagination>\n</div>\n";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
@@ -414,7 +414,7 @@ module.exports = path;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/kevlin/Documents/gracybranch/core/web-assets/src/main/assets/js/apps/angular-status/views/unknown.html';
+var path = '/home/kevlin/Documents/UAT_branch/core/web-assets/src/main/assets/js/apps/angular-status/views/unknown.html';
 var html = "<div>Unknown type.</div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
@@ -1175,7 +1175,7 @@ module.exports = {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/kevlin/Documents/gracybranch/core/web-assets/src/main/assets/js/apps/onms-elementList/templates/angular-onms-elementList-editInPlace.html';
+var path = '/home/kevlin/Documents/UAT_branch/core/web-assets/src/main/assets/js/apps/onms-elementList/templates/angular-onms-elementList-editInPlace.html';
 var html = "<form class=\"form-inline\" ng-submit=\"submit()\" style=\"margin: 0;\">\n\t<!-- Editing input -->\n\t<input ng-show=\"editing\" ng-keyup=\"onKeyup($event)\" type=\"{{valueType}}\" step=\"{{step}}\" ng-model=\"value\"/>\n\n\t<!-- Text label -->\n\t<span style=\"line-height:24px;\" ng-hide=\"editing\" ng-click=\"edit()\">{{value}}&nbsp;</span>\n\n\t<!-- Edit button -->\n\t<a href style=\"text-decoration: none;\" ng-click=\"edit()\" ng-hide=\"editing\"><i class=\"fa fa-edit fa-lg\"/></a>\n\t<a href style=\"text-decoration: none;\" ng-click=\"submit()\" ng-show=\"editing\"><i class=\"fa fa-check fa-lg\"/></a>\n\t<a href style=\"text-decoration: none;\" ng-click=\"cancel()\" ng-show=\"editing\"><i class=\"fa fa-close fa-lg\"/></a>\n\n\t<!-- Transclude any content inside the tag -->\n\t<span ng-transclude/>\n</form>\n";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
@@ -1189,7 +1189,7 @@ module.exports = path;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/kevlin/Documents/gracybranch/core/web-assets/src/main/assets/js/apps/onms-elementList/templates/angular-onms-elementList-editListInPlace.html';
+var path = '/home/kevlin/Documents/UAT_branch/core/web-assets/src/main/assets/js/apps/onms-elementList/templates/angular-onms-elementList-editListInPlace.html';
 var html = "<!-- Show all of the current values -->\n<span ng-repeat=\"value in values\">\n\t<button class=\"btn btn-sm btn-secondary\" ng-click=\"confirmAndRemove(values, value)\" style=\"margin-bottom:3px;margin-right:3px;\">\n\t\t{{value}}&nbsp;<i class=\"fa fa-close\"/>\n\t</button>\n</span>\n\n<!-- Edit button -->\n<span style=\"line-height:24px;\" ng-hide=\"editing\">\n\t<a href style=\"text-decoration: none;\" ng-click=\"edit()\"><i class=\"fa fa-edit fa-lg\"/></a>&nbsp;\n</span>\n\n<!-- TODO: Add the ability to support select controls -->\n<!-- Input for new item -->\n<span ng-show=\"editing\" class=\"text-nowrap\">\n\t<input type=\"{{valueType}}\" ng-keyup=\"onKeyup($event)\" ng-model=\"newValue\"/>\n\t<a href style=\"text-decoration: none;\" ng-click=\"add(values, newValue)\"><i class=\"fa fa-plus fa-lg\"/></a>\n\t<a href style=\"text-decoration: none;\" ng-click=\"unedit()\"><i class=\"fa fa-close fa-lg\"/></a>\n</span>\n\n<!-- Transclude any content inside the tag -->\n<span ng-transclude/>\n";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
@@ -1203,7 +1203,7 @@ module.exports = path;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/kevlin/Documents/gracybranch/core/web-assets/src/main/assets/js/apps/onms-elementList/templates/angular-onms-elementList-editMapInPlace.html';
+var path = '/home/kevlin/Documents/UAT_branch/core/web-assets/src/main/assets/js/apps/onms-elementList/templates/angular-onms-elementList-editMapInPlace.html';
 var html = "<!-- Show all of the current values -->\n<span ng-repeat=\"(key,value) in values\">\n\t<button class=\"btn btn-sm btn-secondary\" ng-click=\"confirmAndRemove(values, key)\" style=\"margin-bottom:3px;margin-right:3px;\">\n\t\t<b>{{key}}:</b> {{value}}&nbsp;<i class=\"fa fa-close\"/>\n\t</button>\n</span>\n\n<!-- Edit button -->\n<span style=\"line-height:24px;\" ng-hide=\"editing\">\n\t<a href style=\"text-decoration: none;\" ng-click=\"edit()\"><i class=\"fa fa-edit fa-lg\"/></a>&nbsp;\n</span>\n\n<!-- TODO: Add the ability to support select controls -->\n<!-- Input for new item -->\n<span ng-show=\"editing\" class=\"text-nowrap\">\n\t<input type=\"{{keyType}}\" ng-keyup=\"onKeyup($event)\" ng-model=\"newKey\"/>\n\t<input type=\"{{valueType}}\" ng-keyup=\"onKeyup($event)\" ng-model=\"newValue\"/>\n\t<a href style=\"text-decoration: none;\" ng-click=\"add(values, newKey, newValue)\"><i class=\"fa fa-plus fa-lg\"/></a>\n\t<a href style=\"text-decoration: none;\" ng-click=\"unedit()\"><i class=\"fa fa-close fa-lg\"/></a>\n</span>\n\n<!-- Transclude any content inside the tag -->\n<span ng-transclude/>\n";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
@@ -1217,7 +1217,7 @@ module.exports = path;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/kevlin/Documents/gracybranch/core/web-assets/src/main/assets/js/lib/onms-http/403-permission-denied.html';
+var path = '/home/kevlin/Documents/UAT_branch/core/web-assets/src/main/assets/js/lib/onms-http/403-permission-denied.html';
 var html = "<div class=\"modal-header\">\n    <h3><i class=\"fa fa-exclamation-triangle text-warning\"></i> Permission Denied</h3>\n</div>\n<div class=\"modal-body\">\n    <h5>\n        You are not allowed to perform the requested action.\n    </h5>\n    <p class=\"text-muted\">\n        This is not supposed to happen.\n        Please reload the page and contact your administrator if this occurs more often.\n    </p>\n</div>\n<div class=\"modal-footer\">\n    <button class=\"btn btn-primary\" ng-click=\"reload()\">Reload</button>\n</div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
@@ -1360,7 +1360,7 @@ angular.module(MODULE_NAME, ['ui.bootstrap']).directive('pagination', function (
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/kevlin/Documents/gracybranch/core/web-assets/src/main/assets/js/lib/onms-pagination/pagination-toolbar.html';
+var path = '/home/kevlin/Documents/UAT_branch/core/web-assets/src/main/assets/js/lib/onms-pagination/pagination-toolbar.html';
 var html = "<div>\n    <!-- Content for pagination -->\n    <div ng-transclude ng-if=\"position === 'bottom'\"></div>\n\n    <!-- Paging controls -->\n    <div class=\"row\">\n        <div class=\"col-md-4 col-lg-6 col-sm-12\" ng-show=\"(model.totalItems / model.limit) > 1\">\n            <div style=\"margin: 0px;\"\n                 uib-pagination\n                 ng-model=\"model.page\"\n                 total-items=\"model.totalItems\"\n                 items-per-page=\"model.limit\"\n                 rotate=\"true\"\n                 boundary-links=\"true\"\n                 max-size=\"5\"\n                 boundary-link-numbers=\"true\"\n                 ng-change=\"onChange()\">\n            </div>\n        </div>\n        <div class=\"col-md-8 col-lg-6 col-sm-12 mt-4\">\n            <pre class=\"pull-right\" ng-show=\"model.totalItems == 0\">No items found.</pre>\n            <pre class=\"pull-right\" ng-show=\"model.totalItems > 0\">{{model.totalItems / model.page === 1\n            ? \"Item \" + (model.offset + 1)\n            : \"Items \" + ((model.page - 1) * model.limit + 1) + \" - \" + (model.page * model.limit > model.totalItems ? model.totalItems : model.page * model.limit)}} ({{model.totalItems}} total)</pre>\n        </div>\n    </div>\n\n    <!-- Content for pagination -->\n    <div ng-transclude ng-if=\"position === 'top' || position === undefined\"></div>\n\n</div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;

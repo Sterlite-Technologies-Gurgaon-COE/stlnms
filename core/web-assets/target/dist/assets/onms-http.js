@@ -17,7 +17,7 @@ return (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["onms-http
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/kevlin/Documents/gracybranch/core/web-assets/src/main/assets/js/lib/onms-http/403-permission-denied.html';
+var path = '/home/kevlin/Documents/UAT_branch/core/web-assets/src/main/assets/js/lib/onms-http/403-permission-denied.html';
 var html = "<div class=\"modal-header\">\n    <h3><i class=\"fa fa-exclamation-triangle text-warning\"></i> Permission Denied</h3>\n</div>\n<div class=\"modal-body\">\n    <h5>\n        You are not allowed to perform the requested action.\n    </h5>\n    <p class=\"text-muted\">\n        This is not supposed to happen.\n        Please reload the page and contact your administrator if this occurs more often.\n    </p>\n</div>\n<div class=\"modal-footer\">\n    <button class=\"btn btn-primary\" ng-click=\"reload()\">Reload</button>\n</div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;

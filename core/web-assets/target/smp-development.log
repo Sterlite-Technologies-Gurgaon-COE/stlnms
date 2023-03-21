@@ -1,81 +1,81 @@
 
 
  SMP  ⏱  
-General output time took 7 mins, 55.093 secs
+General output time took 4 mins, 40.066 secs
 
  SMP  ⏱  Plugins
-ExtractTextPlugin took 1 min, 41.33 secs
-CopyPlugin took 5.19 secs
-LoaderOptionsPlugin took 2.52 secs
-AssetsWebpackPlugin took 1.24 secs
-DefinePlugin took 0.017 secs
+ExtractTextPlugin took 58.99 secs
+LoaderOptionsPlugin took 2.086 secs
+CopyPlugin took 1.38 secs
+AssetsWebpackPlugin took 0.693 secs
+DefinePlugin took 0.006 secs
 
  SMP  ⏱  Loaders
-modules with no loaders took 6 mins, 22.43 secs
+modules with no loaders took 3 mins, 47.77 secs
   module count = 858
-expose-loader took 6 mins, 10.68 secs
+expose-loader took 3 mins, 42.051 secs
   module count = 10
-cache-loader, and 
-css-loader, and 
-postcss-loader, and 
-sass-loader took 6 mins, 9.57 secs
-  module count = 14
 string-replace-webpack-plugin, and 
 cache-loader, and 
 css-loader, and 
 postcss-loader, and 
-sass-loader took 6 mins, 9.56 secs
+sass-loader took 3 mins, 32.17 secs
   module count = 1
+cache-loader, and 
+css-loader, and 
+postcss-loader, and 
+sass-loader took 3 mins, 30.39 secs
+  module count = 14
 expose-loader, and 
 expose-loader, and 
-script-loader took 5 mins, 35.13 secs
+script-loader took 3 mins, 10.096 secs
   module count = 2
 expose-loader, and 
 babel-loader, and 
-eslint-loader took 5 mins, 32.33 secs
+eslint-loader took 3 mins, 9.67 secs
   module count = 1
-extract-text-webpack-plugin, and 
-style-loader, and 
-cache-loader, and 
-css-loader, and 
-postcss-loader, and 
-sass-loader took 3 mins, 49.06 secs
-  module count = 14
 extract-text-webpack-plugin, and 
 style-loader, and 
 string-replace-webpack-plugin, and 
 cache-loader, and 
 css-loader, and 
 postcss-loader, and 
-sass-loader took 3 mins, 49.025 secs
+sass-loader took 2 mins, 27.88 secs
   module count = 1
+extract-text-webpack-plugin, and 
+style-loader, and 
+cache-loader, and 
+css-loader, and 
+postcss-loader, and 
+sass-loader took 2 mins, 18.74 secs
+  module count = 14
 babel-loader, and 
-eslint-loader took 2 mins, 7.23 secs
+eslint-loader took 1 min, 38.12 secs
   module count = 100
 extract-text-webpack-plugin, and 
 style-loader, and 
-css-loader took 1 min, 24.84 secs
+css-loader took 49.22 secs
   module count = 14
-ngtemplate-loader, and 
-html-loader took 48.19 secs
-  module count = 76
 raw-loader, and 
 babel-loader, and 
-eslint-loader took 42.27 secs
+eslint-loader took 38.33 secs
   module count = 3
-css-loader took 16.39 secs
+ngtemplate-loader, and 
+html-loader took 37.24 secs
+  module count = 76
+css-loader took 10.25 secs
   module count = 43
-file-loader took 14.69 secs
+file-loader took 5.93 secs
   module count = 70
-imports-loader took 4.67 secs
+imports-loader took 2.73 secs
   module count = 3
-raw-loader took 1.77 secs
+raw-loader took 1.73 secs
   module count = 1
 script-loader, and 
 babel-loader, and 
-eslint-loader took 0.006 secs
+eslint-loader took 0.004 secs
   module count = 3
-script-loader took 0.002 secs
+script-loader took 0.001 secs
   module count = 1
 
 
