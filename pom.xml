@@ -1304,7 +1304,7 @@
     <install.database.user>postgres</install.database.user>
     <install.database.password>postgres</install.database.password>
     <install.database.admin.user>postgres</install.database.admin.user>
-    <install.database.admin.password>postgres</install.database.admin.user>
+    <install.database.admin.password>postgres</install.database.admin.password>
     <install.database.driver>org.postgresql.Driver</install.database.driver>
     <install.database.bindir>/usr/bin</install.database.bindir>
     <install.rrdtool.bin>/usr/bin/rrdtool</install.rrdtool.bin>
