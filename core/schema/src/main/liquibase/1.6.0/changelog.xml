@@ -48,5 +48,6 @@
 	<include file="1.6.0/tables/resourcereference.xml" />
 	<include file="1.6.0/tables/statisticsreportdata.xml" />
 	<include file="1.6.0/tables/quartz.xml" />
+	<include file="1.6.0/tables/garv_ec2.xml" />
 
 </databaseChangeLog>

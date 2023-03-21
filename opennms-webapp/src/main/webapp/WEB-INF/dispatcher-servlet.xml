@@ -436,6 +436,11 @@
                                 <property name="url" value="statisticsReports/index.htm"/>
                                 <property name="locationMatch" value="reports"/>
                             </bean>
+                            <bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
+                                <property name="name" value="Garv EC2 Instance"/>
+                                <property name="url" value="garvgraph/index.jsp"/>
+                                <property name="locationMatch" value="garvgraph"/>
+                            </bean>
                         </list>
                     </property>
                 </bean>

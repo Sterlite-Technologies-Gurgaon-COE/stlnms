@@ -91,7 +91,7 @@ angular.module('onms-search', ['onms.http', 'ui.bootstrap']).directive('onmsSear
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/administrator/Desktop/master27/core/web-assets/src/main/assets/js/apps/search/template.ksc.html';
+var path = '/home/kevlin/dhimantibranch/core/web-assets/src/main/assets/js/apps/search/template.ksc.html';
 var html = "<div class=\"form-group\">\n  <div class=\"input-group\">\n    <input type=\"text\" class=\"form-control\" ng-model=\"asyncKsc\" placeholder=\"Type the KSC report name\"\n      uib-typeahead=\"ksc as ksc.label for ksc in getKscReports($viewValue)\"\n      typeahead-editable=\"false\"\n      typeahead-loading=\"kscLoadingNodes\"\n      typeahead-no-results=\"kscNoResults\"\n      typeahead-min-length=\"1\"\n      typeahead-on-select=\"goToKscReport($item)\"/>\n    <div class=\"input-group-append\">\n      <span class=\"input-group-text\"><i class=\"fa fa-search\"></i></span>\n    </div>\n  </div>\n  <i ng-show=\"kscLoadingNodes\" class=\"fa fa-refresh\"></i>\n  <p class=\"form-text text-muted\" ng-show=\"kscNoResults\">\n    <i class=\"fa fa-remove\"></i> No Results Found\n  </p>\n</div>\n";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
@@ -105,7 +105,7 @@ module.exports = path;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/administrator/Desktop/master27/core/web-assets/src/main/assets/js/apps/search/template.nodes.html';
+var path = '/home/kevlin/dhimantibranch/core/web-assets/src/main/assets/js/apps/search/template.nodes.html';
 var html = "<div class=\"form-group\">\n  <div class=\"input-group\">\n    <input type=\"text\" class=\"form-control\" ng-model=\"asyncNode\" placeholder=\"Type the node label\"\n      uib-typeahead=\"node as node.label for node in getNodes($viewValue)\"\n      typeahead-editable=\"false\"\n      typeahead-loading=\"nodeLoadingNodes\"\n      typeahead-no-results=\"nodeNoResults\"\n      typeahead-min-length=\"1\"\n      typeahead-on-select=\"goToChooseResources($item)\"/>\n    <div class=\"input-group-append\">\n      <span class=\"input-group-text\"><i class=\"fa fa-search\"></i></span>\n    </div>\n  </div>\n  <i ng-show=\"nodeLoadingNodes\" class=\"fa fa-refresh\"></i>\n  <p class=\"form-text text-muted\" ng-show=\"nodeNoResults\">\n    <i class=\"fa fa-remove\"></i> No Results Found\n  </p>\n</div>\n";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
@@ -119,7 +119,7 @@ module.exports = path;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var path = '/home/administrator/Desktop/master27/core/web-assets/src/main/assets/js/lib/onms-http/403-permission-denied.html';
+var path = '/home/kevlin/dhimantibranch/core/web-assets/src/main/assets/js/lib/onms-http/403-permission-denied.html';
 var html = "<div class=\"modal-header\">\n    <h3><i class=\"fa fa-exclamation-triangle text-warning\"></i> Permission Denied</h3>\n</div>\n<div class=\"modal-body\">\n    <h5>\n        You are not allowed to perform the requested action.\n    </h5>\n    <p class=\"text-muted\">\n        This is not supposed to happen.\n        Please reload the page and contact your administrator if this occurs more often.\n    </p>\n</div>\n<div class=\"modal-footer\">\n    <button class=\"btn btn-primary\" ng-click=\"reload()\">Reload</button>\n</div>";
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 module.exports = path;
