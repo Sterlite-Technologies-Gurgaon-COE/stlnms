@@ -7,7 +7,7 @@
 
   <!-- This filter will pre-authenticate the user if the servlet request has the specified HTTP header set.
        NOTE: THIS IS A HUGE SECURITY RISK IF NOT CONFIGURED CORRECTLY!  ONLY ENABLE THIS WITH A PROXY THAT SETS THE HEADERS UNCONDITIONALLY!
-       Make sure your OpenNMS instance is:
+       Make sure your STL-NMS instance is:
          a) not reachable from the outside except through the proxy
          b) not able to receive the header if a malicious user passes it on their request
   -->

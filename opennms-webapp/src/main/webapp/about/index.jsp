@@ -1,28 +1,28 @@
 <%--
 /*******************************************************************************
- * This file is part of OpenNMS(R).
+ * This file is part of STL-NMS(R).
  *
- * Copyright (C) 2002-2021 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2021 The OpenNMS Group, Inc.
+ * Copyright (C) 2002-2021 The STL-NMS Group, Inc.
+ * STL-NMS(R) is Copyright (C) 1999-2021 The STL-NMS Group, Inc.
  *
- * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
+ * STL-NMS(R) is a registered trademark of The STL-NMS Group, Inc.
  *
- * OpenNMS(R) is free software: you can redistribute it and/or modify
+ * STL-NMS(R) is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License,
  * or (at your option) any later version.
  *
- * OpenNMS(R) is distributed in the hope that it will be useful,
+ * STL-NMS(R) is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with OpenNMS(R).  If not, see:
+ * along with STL-NMS(R).  If not, see:
  *      http://www.gnu.org/licenses/
  *
  * For more information contact:
- *     OpenNMS(R) Licensing <license@opennms.org>
+ *     STL-NMS(R) Licensing <license@opennms.org>
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
@@ -150,15 +150,10 @@
   </div>
   <div class="card-body">
   <p>
-    <a href="http://www.opennms.org/">OpenNMS&reg;</a> is a registered
-    trademark, and Horizon&trade;, Meridian&trade;, and Compass&trade; are
-    trademarks, of <a href="http://www.opennms.com">The OpenNMS Group, Inc.</a>
-    Horizon&trade; software by OpenNMS&reg; and Meridian&trade; software by OpenNMS&reg;, as
-    distributed here, are copyright &copy; 2002-2021
-    <a href="http://www.opennms.com/">The OpenNMS Group, Inc.</a>
+    <a href="">STL-NMS&reg;
   </p>
   <p>
-    OpenNMS is a derivative work, containing both original code, included
+    STL-NMS is a derivative work, containing both original code, included
     code and modified code that was published under the GNU Affero General Public
     License. Please see the source for detailed copyright notices.
   </p>

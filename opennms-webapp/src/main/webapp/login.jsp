@@ -5,29 +5,29 @@
 <%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 <%--
 /*******************************************************************************
- * This file is part of OpenNMS(R).
+ * This file is part of STL-NMS(R).
  *
- * Copyright (C) 2006-2015 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2015 The OpenNMS Group, Inc.
+ * Copyright (C) 2006-2015 The STL-NMS Group, Inc.
+ * STL-NMS(R) is Copyright (C) 1999-2015 The STL-NMS Group, Inc.
  *
- * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
+ * STL-NMS(R) is a registered trademark of The STL-NMS Group, Inc.
  *
- * OpenNMS(R) is free software: you can redistribute it and/or modify
+ * STL-NMS(R) is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License,
  * or (at your option) any later version.
  *
- * OpenNMS(R) is distributed in the hope that it will be useful,
+ * STL-NMS(R) is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with OpenNMS(R).  If not, see:
+ * along with STL-NMS(R).  If not, see:
  *      http://www.gnu.org/licenses/
  *
  * For more information contact:
- *     OpenNMS(R) Licensing <license@opennms.org>
+ *     STL-NMS(R) Licensing <license@opennms.org>
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
@@ -42,7 +42,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/wallpapers/background_dark.png');
+    background-image: url('images/wallpapers/bg_image.jpeg');
     background-size: cover;
   }
 
@@ -147,7 +147,7 @@
 <div class="login-page">
     <div class="card login-form rounded">
       <div style="padding-bottom: 36px; padding-top: 60px">
-        <img src="images/opennms_horizon_title.svg" class="horizon" width="185px" />
+        <img src="images/stl-expanded.png" class="horizon" width="185px" />
       </div>
 
       <form class="" name="loginForm" role="form" method="post" action="<c:url value='j_spring_security_check'/>">
@@ -188,7 +188,7 @@
 
   <div class="" style="position: absolute; bottom: 0px; right: 10px; font-size: 3em; padding: 20pt 20pt 5pt 20pt">
        <div style="padding-bottom: 20px; padding-top: 20px">
-          <img src="images/opennms-logo-light.svg" class="" width="180px" />
+          <img src="images/stl_logo_main.png" class="" width="180px" />
        </div>
   </div>
 
