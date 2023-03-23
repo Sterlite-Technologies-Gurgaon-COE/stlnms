@@ -13,7 +13,6 @@ Please make sure to give complete description of your commit while commiting you
 
 
 Merge description  on 23-03-2023 :-
-
---> Merged the label11 branch with main UAT branch.
---> label11 branch had changes regarding logo changes and landing page 
+1. Merged the label11 branch with main UAT branch.
+2. label11 branch had changes regarding logo changes and landing page 
 
