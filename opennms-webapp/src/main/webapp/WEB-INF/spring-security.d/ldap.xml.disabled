@@ -72,7 +72,7 @@
         </beans:entry>
         -->
         <beans:entry>
-          <!-- Name of the LDAP group for normal (non-admin) OpenNMS users -->
+          <!-- Name of the LDAP group for normal (non-admin) STL-NMS users -->
           <beans:key><beans:value>opennms-users</beans:value></beans:key>
           <beans:list>
             <beans:value>ROLE_USER</beans:value>
@@ -80,7 +80,7 @@
           </beans:list>
         </beans:entry>
         <beans:entry>
-          <!-- Name of the LDAP group for OpenNMS administrators -->
+          <!-- Name of the LDAP group for STL-NMS administrators -->
           <beans:key><beans:value>opennms-admins</beans:value></beans:key>
           <beans:list>
             <beans:value>ROLE_USER</beans:value>

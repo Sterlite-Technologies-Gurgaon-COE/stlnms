@@ -1,28 +1,28 @@
 <%--
 /*******************************************************************************
- * This file is part of OpenNMS(R).
+ * This file is part of STL-NMS(R).
  *
- * Copyright (C) 2002-2014 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
+ * Copyright (C) 2002-2014 The STL-NMS Group, Inc.
+ * STL-NMS(R) is Copyright (C) 1999-2014 The STL-NMS Group, Inc.
  *
- * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
+ * STL-NMS(R) is a registered trademark of The STL-NMS Group, Inc.
  *
- * OpenNMS(R) is free software: you can redistribute it and/or modify
+ * STL-NMS(R) is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License,
  * or (at your option) any later version.
  *
- * OpenNMS(R) is distributed in the hope that it will be useful,
+ * STL-NMS(R) is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with OpenNMS(R).  If not, see:
+ * along with STL-NMS(R).  If not, see:
  *      http://www.gnu.org/licenses/
  *
  * For more information contact:
- *     OpenNMS(R) Licensing <license@opennms.org>
+ *     STL-NMS(R) Licensing <license@opennms.org>
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
@@ -67,25 +67,25 @@ function toggleDiv(divName) {
 
 <div class="card">
 <div class="card-header">
-  <span>The OpenNMS Web User Interface Has Experienced an Error</span>
+  <span>The STL-NMS Web User Interface Has Experienced an Error</span>
 </div>
 <div class="card-body">
 
 <p>
-  The OpenNMS web UI has encountered an error that it does
+  The STL-NMS web UI has encountered an error that it does
   not know how to handle.
 </p>
 
 <p>
   Possible causes could be that the database is not responding,
-  the OpenNMS application has stopped or is not running, or there
+  the STL-NMS application has stopped or is not running, or there
   is an issue with the servlet container.
 </p>
 
 <p>
   Please bring this message to the attention of the
-  person responsible for maintaining OpenNMS for your organization,
-  and have him or her check that OpenNMS, the external servlet container
+  person responsible for maintaining STL-NMS for your organization,
+  and have him or her check that STL-NMS, the external servlet container
   (if applicable), and the database are all running without errors.
 </p>
 
@@ -101,7 +101,7 @@ if(showStrackTrace) {
 String errorDetails = 
 "System Details\n" +
 "--------------\n" +
-"OpenNMS Version: " + Vault.getProperty("version.display") + "\n" +
+"STL-NMS Version: " + Vault.getProperty("version.display") + "\n" +
 "Java Version: " + System.getProperty("java.version") + " " + System.getProperty("java.vendor") + "\n" +
 "Java Virtual Machine: " + System.getProperty("java.vm.version") + " " + System.getProperty("java.vm.vendor") + "\n" +
 "Operating System: " + System.getProperty("os.name") + " " +  System.getProperty("os.version") + " " + (System.getProperty("os.arch")) + "\n" +
@@ -216,7 +216,7 @@ userSession.setAttribute("errorReportDetails", errorDetails);
   </div>
   <table class="table table-sm table-bordered">
     <tr>
-      <th>OpenNMS Version:</th>
+      <th>STL-NMS Version:</th>
       <td><%=Vault.getProperty("version.display")%></td>
     </tr>
     <tr>
@@ -251,18 +251,18 @@ userSession.setAttribute("errorReportDetails", errorDetails);
     There are two options for reporting this problem outside your own organization.
     </p>
 
-    <strong>OpenNMS Bug Tracker</strong>
+    <strong>STL-NMS Bug Tracker</strong>
     <p>
-    If you have an account on the <a href="http://issues.opennms.org/">OpenNMS issue tracker</a>,
-    please consider reporting this problem. Bug reports help us make OpenNMS better, and are
+    If you have an account on the <a href="http://issues.opennms.org/">STL-NMS issue tracker</a>,
+    please consider reporting this problem. Bug reports help us make STL-NMS better, and are
     often the only way we become aware of problems. Please do search the tracker first to check
     that others have not already reported the problem that you have encountered.
     </p>
 
-    <strong>OpenNMS Commercial Support</strong>
+    <strong>STL-NMS Commercial Support</strong>
     <p>
     If you have a commercial support agreement with <a href="http://www.opennms.com/">The
-    OpenNMS Group</a>, please consider opening a support ticket about this problem at
+    STL-NMS Group</a>, please consider opening a support ticket about this problem at
     <strong><a href="https://support.opennms.com/">support.opennms.com</a></strong> or via
     e-mail. Tickets from our customers receive priority treatment from our support staff.
     If you create a support ticket and the support engineer handling the ticket determines

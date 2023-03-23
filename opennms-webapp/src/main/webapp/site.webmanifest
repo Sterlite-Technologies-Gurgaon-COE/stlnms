@@ -1,6 +1,6 @@
 {
-    "name": "OpenNMS Horizon",
-    "short_name": "OpenNMS",
+    "name": "STL-NMS Horizon",
+    "short_name": "STL-NMS",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",

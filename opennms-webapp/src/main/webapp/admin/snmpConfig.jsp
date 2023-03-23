@@ -1,28 +1,28 @@
 <%--
 /*******************************************************************************
- * This file is part of OpenNMS(R).
+ * This file is part of STL-NMS(R).
  *
- * Copyright (C) 2002-2016 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2016 The OpenNMS Group, Inc.
+ * Copyright (C) 2002-2016 The STL-NMS Group, Inc.
+ * STL-NMS(R) is Copyright (C) 1999-2016 The STL-NMS Group, Inc.
  *
- * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
+ * STL-NMS(R) is a registered trademark of The STL-NMS Group, Inc.
  *
- * OpenNMS(R) is free software: you can redistribute it and/or modify
+ * STL-NMS(R) is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License,
  * or (at your option) any later version.
  *
- * OpenNMS(R) is distributed in the hope that it will be useful,
+ * STL-NMS(R) is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with OpenNMS(R).  If not, see:
+ * along with STL-NMS(R).  If not, see:
  *      http://www.gnu.org/licenses/
  *
  * For more information contact:
- *     OpenNMS(R) Licensing <license@opennms.org>
+ *     STL-NMS(R) Licensing <license@opennms.org>
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
@@ -270,7 +270,7 @@
 <%
 if (request.getAttribute("success") != null) {
 %>
-  <h3 class="alert alert-success">Finished configuring SNMP. OpenNMS does not need to be restarted.</h3>
+  <h3 class="alert alert-success">Finished configuring SNMP. STL-NMS does not need to be restarted.</h3>
 <%
 }
 %>
@@ -328,7 +328,7 @@ if (request.getAttribute("success") != null) {
 			in a specific IP address and community string, or a range of IP
 			addresses and a community string, and other SNMP parameters.
 		</p>
-		<p>OpenNMS will optimize this list, so enter the most generic
+		<p>STL-NMS will optimize this list, so enter the most generic
 			first (i.e. the largest range) and the specific IP addresses last,
 			because if a range is added that includes a specific IP address, the
 			community name for the specific address will be changed to be that of
@@ -400,7 +400,7 @@ if (request.getAttribute("success") != null) {
           </div>
 
           <div class="form-group form-row">
-            <label for="timeout" class="col-sm-3 col-form-label" data-toggle="tooltip" data-placement="right" title="The amount of time, in milliseconds, that OpenNMS will wait for a response from the agent.">
+            <label for="timeout" class="col-sm-3 col-form-label" data-toggle="tooltip" data-placement="right" title="The amount of time, in milliseconds, that STL-NMS will wait for a response from the agent.">
             Timeout
             </label>
             <div class="col-sm-9">
@@ -469,7 +469,7 @@ if (request.getAttribute("success") != null) {
           </div>
 
           <div class="form-group form-row">
-            <label for="ttl" class="col-sm-3 col-form-label" data-toggle="tooltip" data-placement="right" title="The amount of time, in milliseconds, that OpenNMS will wait for a response from Minion.">
+            <label for="ttl" class="col-sm-3 col-form-label" data-toggle="tooltip" data-placement="right" title="The amount of time, in milliseconds, that STL-NMS will wait for a response from Minion.">
             TTL
             </label>
             <div class="col-sm-9">
@@ -500,7 +500,7 @@ if (request.getAttribute("success") != null) {
         </div>
 
         <div class="form-group form-row">
-          <label for="writeCommunityString" class="col-sm-4 col-form-label" data-toggle="tooltip" data-placement="right" title="The default 'write' community string for SNMP queries. Note that this is for future development - OpenNMS does not perform SNMP 'sets' at the moment.">
+          <label for="writeCommunityString" class="col-sm-4 col-form-label" data-toggle="tooltip" data-placement="right" title="The default 'write' community string for SNMP queries. Note that this is for future development - STL-NMS does not perform SNMP 'sets' at the moment.">
           Write Community String
           </label>
           <div class="col-sm-8">
@@ -639,7 +639,7 @@ if (request.getAttribute("success") != null) {
       </div>
       <div class="card-body">
         <div class="form-group form-row">
-          <label for="sendEventOption" class="col-sm-3 col-form-label" data-toggle="tooltip" data-placement="right" title="By default the snmp configuration is published to the system by sending an event. This is useful if you have multiple OpenNMS instances running and want to notify all of them about the changes. If you do not which to send the event, unmark the checkbox. Be aware that collectd must be activated to process the event!">
+          <label for="sendEventOption" class="col-sm-3 col-form-label" data-toggle="tooltip" data-placement="right" title="By default the snmp configuration is published to the system by sending an event. This is useful if you have multiple STL-NMS instances running and want to notify all of them about the changes. If you do not which to send the event, unmark the checkbox. Be aware that collectd must be activated to process the event!">
           Send Event
           </label>
           <div class="col-sm-9">

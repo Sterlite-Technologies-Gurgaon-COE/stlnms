@@ -52,7 +52,7 @@
     <property name="ticketValidator">
       <bean
         class="org.springframework.security.kerberos.authentication.sun.SunJaasKerberosTicketValidator">
-        <!-- Name of the Kerberos service principal designated for the OpenNMS webapp -->
+        <!-- Name of the Kerberos service principal designated for the STL-NMS webapp -->
         <property name="servicePrincipal" value="HTTP/opennms.example.org@EXAMPLE.ORG" />
         <!-- Location of the Kerberos keytab file. Must be of the form file:/path/to/keytab -->
         <property name="keyTabLocation" value="file:/opt/opennms/etc/HTTP_opennms.example.org.keytab" />
@@ -89,7 +89,7 @@
 
   <bean id="ldapLoginConfig"
     class="org.springframework.security.kerberos.client.config.SunJaasKrb5LoginConfig">
-    <!-- Name of the Kerberos service principal designated for the OpenNMS webapp -->
+    <!-- Name of the Kerberos service principal designated for the STL-NMS webapp -->
     <property name="servicePrincipal" value="HTTP/opennms.example.org@EXAMPLE.ORG" />
     <!-- Location of the Kerberos keytab file. Must be of the form file:/path/to/keytab -->
     <property name="keyTabLocation" value="file:/opt/opennms/etc/HTTP_opennms.example.org.keytab" />
@@ -118,7 +118,7 @@
     <property name="groupToRoleMap">
       <map>
         <entry>
-          <!-- Name of the LDAP group for normal (non-admin) OpenNMS users -->
+          <!-- Name of the LDAP group for normal (non-admin) STL-NMS users -->
           <key><value>opennms_users</value></key>
           <list>
             <value>ROLE_USER</value>
@@ -126,7 +126,7 @@
           </list>
         </entry>
         <entry>
-          <!-- Name of the LDAP group for OpenNMS administrators -->
+          <!-- Name of the LDAP group for STL-NMS administrators -->
           <key><value>opennms_admins</value></key>
           <list>
             <value>ROLE_USER</value>

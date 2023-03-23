@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-md navbar-dark opennms-bg-chromatic-black" id="header" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <a class="navbar-brand" href="${baseHref}index.jsp">
-        <img id="logo" src="${baseHref}images/opennms-horizon-logo.svg" alt="OpenNMS Horizon Logo" width="auto" height="22px" onerror="this.src='${baseHref}images/opennms-horizon-logo.png'" />
+        <img id="logo" src="${baseHref}images/stl_logo_main.png" alt="STL-NMS Horizon Logo" width="auto" height="22px" onerror="this.src='${baseHref}images/stl_logo_main.png'" />
     </a>
     <button type="button" title="Toggle navigation" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="navbar-toggler-icon"></span>
@@ -138,7 +138,7 @@
             </#if>
             <#if isAdmin >
                 <li class="nav-item">
-                    <a class="nav-link" style="font-size: 1.25rem" title="Configure OpenNMS" href="${baseHref}admin/index.jsp"><i class="fa fa-cogs"></i></a>
+                    <a class="nav-link" style="font-size: 1.25rem" title="Configure STL-NMS" href="${baseHref}admin/index.jsp"><i class="fa fa-cogs"></i></a>
                 </li>
             </#if>
         </#if>

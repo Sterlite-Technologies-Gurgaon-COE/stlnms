@@ -1,28 +1,28 @@
 <!doctype html><%--
 /*******************************************************************************
- * This file is part of OpenNMS(R).
+ * This file is part of STL-NMS(R).
  *
- * Copyright (C) 2015-2017 The OpenNMS Group, Inc.
- * OpenNMS(R) is Copyright (C) 1999-2017 The OpenNMS Group, Inc.
+ * Copyright (C) 2015-2017 The STL-NMS Group, Inc.
+ * STL-NMS(R) is Copyright (C) 1999-2017 The STL-NMS Group, Inc.
  *
- * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
+ * STL-NMS(R) is a registered trademark of The STL-NMS Group, Inc.
  *
- * OpenNMS(R) is free software: you can redistribute it and/or modify
+ * STL-NMS(R) is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License,
  * or (at your option) any later version.
  *
- * OpenNMS(R) is distributed in the hope that it will be useful,
+ * STL-NMS(R) is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with OpenNMS(R).  If not, see:
+ * along with STL-NMS(R).  If not, see:
  *      http://www.gnu.org/licenses/
  *
  * For more information contact:
- *     OpenNMS(R) Licensing <license@opennms.org>
+ *     STL-NMS(R) Licensing <license@opennms.org>
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
@@ -65,7 +65,7 @@
     <c:forEach var="headTitle" items="${paramValues.headTitle}">
       <c:out value="${headTitle}" escapeXml="false"/> |
     </c:forEach>
-    OpenNMS Web Console
+    STL-NMS Web Console
   </title>
   <c:if test="${param.nobase != 'true' }">
     <base href="<%= baseHref %>" />
@@ -108,10 +108,10 @@
     </jsp:include>
     <!-- we used to include the "print.css" here but it turns out it looks like crap -->
   </c:if>
-  <link rel="shortcut icon" href="<%= baseHref %>favicon.ico" />
+  <link rel="shortcut icon" href="<%= baseHref %>images/stl_ico_logo2.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="<%= baseHref %>apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="<%= baseHref %>favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="<%= baseHref %>favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="<%= baseHref %>images/stl_favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="<%= baseHref %>images/stl_favicon.png>
   <link rel="manifest" href="<%= baseHref %>site.webmanifest">
   <link rel="mask-icon" href="<%= baseHref %>safari-pinned-tab.svg" color="#4c9d45">
   <meta name="msapplication-TileColor" content="#e9e9e9">

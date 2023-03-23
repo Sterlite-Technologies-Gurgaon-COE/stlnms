@@ -77,7 +77,7 @@
         </beans:entry>
         -->
         <beans:entry>
-          <!-- Name of the AD group for normal (non-admin) OpenNMS users -->
+          <!-- Name of the AD group for normal (non-admin) STL-NMS users -->
           <beans:key><beans:value>OpenNMS-Users</beans:value></beans:key>
           <beans:list>
             <beans:value>ROLE_USER</beans:value>
@@ -85,7 +85,7 @@
           </beans:list>
         </beans:entry>
         <beans:entry>
-          <!-- Name of the AD group for OpenNMS administrators -->
+          <!-- Name of the AD group for STL-NMS administrators -->
           <beans:key><beans:value>OpenNMS-Admins</beans:value></beans:key>
           <beans:list>
             <beans:value>ROLE_USER</beans:value>
