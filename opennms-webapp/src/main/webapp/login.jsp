@@ -147,7 +147,7 @@
 <div class="login-page">
     <div class="card login-form rounded">
       <div style="padding-bottom: 36px; padding-top: 60px">
-        <img src="images/stl-expanded.png" class="horizon" width="185px" />
+        <img src="images/stl-expanded.png" class="horizon" width="485px" />
       </div>
 
       <form class="" name="loginForm" role="form" method="post" action="<c:url value='j_spring_security_check'/>">
