@@ -77,7 +77,7 @@ public class ChartsDashlet extends AbstractDashlet {
 
                 @Override
                 public void refresh() {
-                    String newImage = "/opennms/charts?chart-name=" + getDashletSpec().getParameters().get("chart");
+                    String newImage = "/stlnms/charts?chart-name=" + getDashletSpec().getParameters().get("chart");
 
                     String maximizeHeightString = getDashletSpec().getParameters().get("maximizeHeight");
                     String maximizeWidthString = getDashletSpec().getParameters().get("maximizeWidth");

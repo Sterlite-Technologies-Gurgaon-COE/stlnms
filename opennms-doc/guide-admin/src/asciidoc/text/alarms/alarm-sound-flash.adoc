@@ -68,6 +68,6 @@ opennms.alarmlist.sound.status=off
 opennms.alarmlist.unackflash=true
 ----
 
-The sound played is determined by the contents of the following file `${OPENNMS_HOME}/jetty-webapps/opennms/sounds/alert.wav`
+The sound played is determined by the contents of the following file `${OPENNMS_HOME}/jetty-webapps/stlnms/sounds/alert.wav`
 
 If you want to change the sound, create a new wav file with your desired sound, name it `alert.wav` and replace the default file in the same directory.

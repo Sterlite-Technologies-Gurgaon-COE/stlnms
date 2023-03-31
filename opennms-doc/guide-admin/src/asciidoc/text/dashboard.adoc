@@ -216,7 +216,7 @@ First, configure surveillance views and create dashboard users as above.
 For example, make two dashboards and two users called `dashboard1` and `dashboard2`.
 Test that you can log in as each of the new users and see the correct dashboard.
 Now create some aliases you can use to distinguish between dashboards.
-In `/opt/opennms/jetty-webapps/opennms/WEB-INF`, edit `web.xml`.
+In `/opt/opennms/jetty-webapps/stlnms/WEB-INF`, edit `web.xml`.
 Just before the first `<servlet-mapping>` tag, add the following servlet entries:
 [source, xml]
 ----

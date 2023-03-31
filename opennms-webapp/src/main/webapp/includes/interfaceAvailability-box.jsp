@@ -97,8 +97,8 @@
 
     long timelineEnd = new Date().getTime() / 1000;
     long timelineStart = timelineEnd - 3600 * 24;
-    String timelineHeaderUrl = "/opennms/rest/timeline/header/" + timelineStart + "/" + timelineEnd + "/";
-    String timelineEmptyUrl = "/opennms/rest/timeline/empty/" + timelineStart + "/" + timelineEnd + "/";
+    String timelineHeaderUrl = "/stlnms/rest/timeline/header/" + timelineStart + "/" + timelineEnd + "/";
+    String timelineEmptyUrl = "/stlnms/rest/timeline/empty/" + timelineStart + "/" + timelineEnd + "/";
 
     Outage[] outages = OutageModel.getCurrentOutagesForNode(nodeId);
 %>
@@ -135,7 +135,7 @@
             }
         }
 
-        String timelineUrl = "/opennms/rest/timeline/html/" + String.valueOf(nodeId) + "/" + java.net.URLEncoder.encode(ipAddr, "UTF-8") + "/" + java.net.URLEncoder.encode(service.getServiceName(), "UTF-8") + "/" + timelineStart + "/" + timelineEnd + "/";
+        String timelineUrl = "/stlnms/rest/timeline/html/" + String.valueOf(nodeId) + "/" + java.net.URLEncoder.encode(ipAddr, "UTF-8") + "/" + java.net.URLEncoder.encode(service.getServiceName(), "UTF-8") + "/" + timelineStart + "/" + timelineEnd + "/";
     %>
     <%
       String serviceClass;

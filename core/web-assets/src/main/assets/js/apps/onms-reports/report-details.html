@@ -25,7 +25,7 @@
         <!-- Grafana Parameters -->
         <div ng-show="report.isGrafanaReport() && !options.hideEndpointsChooser" class="form-group">
             <label>Grafana Endpoint</label>
-            <a href="/opennms/admin/endpoint/index.jsp" title="Configure Grafana Endpoints"> <i class="fa fa-plug"></i></a>
+            <a href="/stlnms/admin/endpoint/index.jsp" title="Configure Grafana Endpoints"> <i class="fa fa-plug"></i></a>
             <a href title="Reload Grafana Endpoints" ng-click="loadEndpoints()"> <i class="fa fa-refresh"></i></a>
             <ui-select
                     ng-model="selected.endpoint"
@@ -42,10 +42,10 @@
             </ui-select>
             <p class="alert alert-warning" ng-if="endpoints.length == 0">
                 There is no Grafana Endpoint defined.
-                Please <a href="/opennms/admin/endpoint/index.jsp">add a Grafana Endpoint</a>.
+                Please <a href="/stlnms/admin/endpoint/index.jsp">add a Grafana Endpoint</a>.
             </p>
             <div class="text-danger mt-1" style="font-size: 80%" ng-if="report.errors.GRAFANA_ENDPOINT_UID">
-                {{report.errors.GRAFANA_ENDPOINT_UID}}: <a href="/opennms/admin/endpoint/index.jsp#!/endpoints/grafana">Configure Grafana Endpoints</a>
+                {{report.errors.GRAFANA_ENDPOINT_UID}}: <a href="/stlnms/admin/endpoint/index.jsp#!/endpoints/grafana">Configure Grafana Endpoints</a>
             </div>
             <div class="text-danger mt-1" style="font-size: 80%" ng-if="report.errors.GRAFANA_DASHBOARD_UID">
                 {{report.errors.GRAFANA_DASHBOARD_UID}}

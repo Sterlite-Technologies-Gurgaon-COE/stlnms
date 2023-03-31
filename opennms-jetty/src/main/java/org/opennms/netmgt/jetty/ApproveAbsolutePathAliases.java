@@ -39,11 +39,11 @@ import org.eclipse.jetty.util.resource.Resource;
  * In certain Spring MVC pages, duplicate slashes are added to the URLs, leading to
  * aliases of the form:
  *
- *   /opt/opennms/jetty-webapps/opennms/WEB-INF/jsp/support/index.jsp
+ *   /opt/opennms/jetty-webapps/stlnms/WEB-INF/jsp/support/index.jsp
  * 
  * with resources of the form:
  *
- *   /opt/opennms/jetty-webapps/opennms/WEB-INF/jsp//support/index.jsp
+ *   /opt/opennms/jetty-webapps/stlnms/WEB-INF/jsp//support/index.jsp
  *
  * This {@link AliasCheck} will approve paths, if the resource points
  * to a file, and the absolute path of the file matches the alias.

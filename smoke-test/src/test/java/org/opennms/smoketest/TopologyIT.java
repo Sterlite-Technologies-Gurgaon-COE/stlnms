@@ -411,7 +411,7 @@ public class TopologyIT extends OpenNMSSeleniumIT {
 
         public TopologyUIPage(AbstractOpenNMSSeleniumHelper testCase, String baseUrl) {
             this.testCase = Objects.requireNonNull(testCase);
-            this.topologyUiUrl = Objects.requireNonNull(baseUrl) + "opennms/topology";
+            this.topologyUiUrl = Objects.requireNonNull(baseUrl) + "stlnms/topology";
         }
 
         public TopologyUIPage open() {

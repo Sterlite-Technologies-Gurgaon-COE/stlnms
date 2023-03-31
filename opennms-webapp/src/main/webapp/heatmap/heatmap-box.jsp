@@ -53,7 +53,7 @@
     String category = null;
     String monitoredService = null;
 
-    String url = "/opennms/rest/heatmap/";
+    String url = "/stlnms/rest/heatmap/";
 
     if (request.getParameterMap().containsKey("mode")) {
         mode = request.getParameter("mode");
@@ -218,7 +218,7 @@
 
                   if ("nodesByCategory".equals(heatmap) || "nodesByForeignSource".equals(heatmap) || "nodesByMonitoredService".equals(heatmap)) {
                 %>
-                location.href = "/opennms/element/node.jsp?node=" + encodeURIComponent(nodes[0].elementId);
+                location.href = "/stlnms/element/node.jsp?node=" + encodeURIComponent(nodes[0].elementId);
                 <%
                   }
                 %>

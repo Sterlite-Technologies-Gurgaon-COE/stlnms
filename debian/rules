@@ -269,18 +269,18 @@ install: build
 	##
 	## Setup the opennms-source package
 	##
-	install -d -m 755 debian/opennms-source/usr/share/opennms/jetty-webapps/opennms
-	mv debian/temp/jetty-webapps/opennms/source debian/opennms-source/usr/share/opennms/jetty-webapps/opennms/
-	find debian/opennms-webapp-jetty/usr/share/opennms/jetty-webapps/opennms* -type f -execdir chmod 644 {} \;
+	install -d -m 755 debian/opennms-source/usr/share/opennms/jetty-webapps/stlnms
+	mv debian/temp/jetty-webapps/stlnms/source debian/opennms-source/usr/share/opennms/jetty-webapps/stlnms/
+	find debian/opennms-webapp-jetty/usr/share/opennms/jetty-webapps/stlnms* -type f -execdir chmod 644 {} \;
 
 	##
 	## Setup the opennms-webapp-jetty package
 	##
 	install -m 644 debian/opennms-webapp-jetty.overrides debian/opennms-webapp-jetty/usr/share/lintian/overrides/opennms-webapp-jetty
 	install -d -m 755 debian/opennms-webapp-jetty/usr/share/opennms/jetty-webapps/{opennms,ROOT}
-	mv debian/temp/jetty-webapps/opennms/*          debian/opennms-webapp-jetty/usr/share/opennms/jetty-webapps/opennms/
+	mv debian/temp/jetty-webapps/stlnms/*          debian/opennms-webapp-jetty/usr/share/opennms/jetty-webapps/stlnms/
 	mv debian/temp/jetty-webapps/ROOT/*             debian/opennms-webapp-jetty/usr/share/opennms/jetty-webapps/ROOT/
-	find debian/opennms-webapp-jetty/usr/share/opennms/jetty-webapps/opennms* -type f -execdir chmod 644 {} \;
+	find debian/opennms-webapp-jetty/usr/share/opennms/jetty-webapps/stlnms* -type f -execdir chmod 644 {} \;
 
 	##
 	## Setup the opennms-webapp-hawtio package

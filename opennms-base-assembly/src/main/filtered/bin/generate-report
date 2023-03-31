@@ -15,7 +15,7 @@ ulimit -s 2048
 
 OPENNMS_HOME="${install.dir}"
 OPENNMS_BINDIR="${install.bin.dir}"
-OPENNMS_WEBAPP="$OPENNMS_HOME/jetty-webapps/opennms"
+OPENNMS_WEBAPP="$OPENNMS_HOME/jetty-webapps/stlnms"
 
 if [ $# -ne 6 ]; then
 	show_help

@@ -14,7 +14,7 @@
       border-top: 1px solid $table-border-color;
     }
     .bright, &.bright {
-      background-image: url(/opennms/images/bg#{$type}.png);
+      background-image: url(/stlnms/images/bg#{$type}.png);
       background-repeat: repeat-y;
       background-position: left top;
       padding-left: 18px;

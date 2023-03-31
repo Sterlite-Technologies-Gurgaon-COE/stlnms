@@ -128,7 +128,7 @@ public class AbstractMeasurementQueryExecutorTest {
 
     protected void verifyHttpCalls(int number) {
         // ensure a request was actually made and was only made <number> times
-        WireMock.verify(number, WireMock.postRequestedFor(WireMock.urlMatching("/opennms/rest/measurements"))
+        WireMock.verify(number, WireMock.postRequestedFor(WireMock.urlMatching("/stlnms/rest/measurements"))
                 .withoutHeader("Authorization")
                 .withHeader("Content-Type", WireMock.equalTo("application/xml")));
 

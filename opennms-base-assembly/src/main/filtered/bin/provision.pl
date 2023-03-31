@@ -70,7 +70,7 @@ $BUILD = (qw$LastChangedRevision 1 $)[-1];
 $XML = XML::Twig->new();
 
 # set defaults
-$url_root = 'http://localhost:8980/opennms/rest';
+$url_root = 'http://localhost:8980/stlnms/rest';
 $username = 'admin';
 $password = 'admin';
 
@@ -114,7 +114,7 @@ May be overridden by setting $password in $HOME/.opennms/provision.plrc
 =item B<--url>
 
 The URL of the OpenNMS REST interface.  Defaults to
-'http://localhost:8980/opennms/rest'.
+'http://localhost:8980/stlnms/rest'.
 
 May be overridden by setting $url_root in $HOME/.opennms/provision.plrc
 (UNIX) or %LOCALAPPDATA%\OpenNMS\provision.plrc (Windows).

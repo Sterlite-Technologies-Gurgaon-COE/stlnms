@@ -43,7 +43,7 @@ const determineRetryDelay = function() {
 
 const render = function(options) {
     // Set variables bases on options
-    const baseHref = isUndefinedOrNull(options.baseHref) ? '/opennms/' : options.baseHref;
+    const baseHref = isUndefinedOrNull(options.baseHref) ? '/stlnms/' : options.baseHref;
     const hideControlsOnStartup = isUndefinedOrNull(options.hideControlsOnStartup) ? false : options.hideControlsOnStartup;
     const mapId = isUndefinedOrNull(options.mapId) ? 'map' : options.mapId;
 

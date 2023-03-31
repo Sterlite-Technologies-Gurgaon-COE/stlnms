@@ -163,7 +163,7 @@ public class ChartsConfigurationWindow extends DashletConfigurationWindow {
         m_chartSelect.addValueChangeListener(new Property.ValueChangeListener() {
             @Override
             public void valueChange(Property.ValueChangeEvent valueChangeEvent) {
-                String newImage = "/opennms/charts?chart-name=" + valueChangeEvent.getProperty().getValue();
+                String newImage = "/stlnms/charts?chart-name=" + valueChangeEvent.getProperty().getValue();
                 Image image = new Image(null, new ExternalResource(newImage));
                 image.setStyleName("preview");
                 panel.setContent(image);

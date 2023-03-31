@@ -1,7 +1,7 @@
 /* eslint no-console: 0 */
 
 export default class OnmsLoader {
-  public prefix = '/opennms/assets/';
+  public prefix = '/stlnms/assets/';
   public extension = '.vaadin.js';
   private loaded = new Set<string>();
   private mappings: object;

@@ -247,7 +247,7 @@ const QuickNode = require('../model/QuickNode');
             $scope.errorHandler
           );
         } else {
-          window.location.href = Util.getBaseHref() + 'admin/opennms/index.jsp'; // TODO Is this the best way ?
+          window.location.href = Util.getBaseHref() + 'admin/stlnms/index.jsp'; // TODO Is this the best way ?
         }
       });
     };

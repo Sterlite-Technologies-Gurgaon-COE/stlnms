@@ -17,10 +17,10 @@
             Y
         </eventLog>
         <eventLogMsg>
-            A subscription to RTC for the  for http://localhost:8980/opennms/rtc/post/Network+Interfaces has been generated.
+            A subscription to RTC for the  for http://localhost:8980/stlnms/rtc/post/Network+Interfaces has been generated.
         </eventLogMsg>
         <eventParms>
-            url=http://localhost:8980/opennms/rtc/post/Network+Interfaces(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=Network Interfaces(string,text)
+            url=http://localhost:8980/stlnms/rtc/post/Network+Interfaces(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=Network Interfaces(string,text)
         </eventParms>
         <eventSeverity>
             0
@@ -55,10 +55,10 @@
             Y
         </eventLog>
         <eventLogMsg>
-            A subscription to RTC for the  for http://localhost:8980/opennms/rtc/post/Web+Servers has been generated.
+            A subscription to RTC for the  for http://localhost:8980/stlnms/rtc/post/Web+Servers has been generated.
         </eventLogMsg>
         <eventParms>
-            url=http://localhost:8980/opennms/rtc/post/Web+Servers(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=Web Servers(string,text)
+            url=http://localhost:8980/stlnms/rtc/post/Web+Servers(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=Web Servers(string,text)
         </eventParms>
         <eventSeverity>
             1
@@ -93,10 +93,10 @@
             Y
         </eventLog>
         <eventLogMsg>
-            A subscription to RTC for the  for http://localhost:8980/opennms/rtc/post/DNS+and+DHCP+Servers has been generated.
+            A subscription to RTC for the  for http://localhost:8980/stlnms/rtc/post/DNS+and+DHCP+Servers has been generated.
         </eventLogMsg>
         <eventParms>
-            url=http://localhost:8980/opennms/rtc/post/DNS+and+DHCP+Servers(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=DNS and DHCP Servers(string,text)
+            url=http://localhost:8980/stlnms/rtc/post/DNS+and+DHCP+Servers(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=DNS and DHCP Servers(string,text)
         </eventParms>
         <eventSeverity>
             2
@@ -131,10 +131,10 @@
             Y
         </eventLog>
         <eventLogMsg>
-            A subscription to RTC for the  for http://localhost:8980/opennms/rtc/post/Email+Servers has been generated.
+            A subscription to RTC for the  for http://localhost:8980/stlnms/rtc/post/Email+Servers has been generated.
         </eventLogMsg>
         <eventParms>
-            url=http://localhost:8980/opennms/rtc/post/Email+Servers(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=Email Servers(string,text)
+            url=http://localhost:8980/stlnms/rtc/post/Email+Servers(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=Email Servers(string,text)
         </eventParms>
         <eventSeverity>
             3
@@ -169,10 +169,10 @@
             Y
         </eventLog>
         <eventLogMsg>
-            A subscription to RTC for the  for http://localhost:8980/opennms/rtc/post/Database+Servers has been generated.
+            A subscription to RTC for the  for http://localhost:8980/stlnms/rtc/post/Database+Servers has been generated.
         </eventLogMsg>
         <eventParms>
-            url=http://localhost:8980/opennms/rtc/post/Database+Servers(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=Database Servers(string,text)
+            url=http://localhost:8980/stlnms/rtc/post/Database+Servers(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=Database Servers(string,text)
         </eventParms>
         <eventSeverity>
             4
@@ -207,10 +207,10 @@
             Y
         </eventLog>
         <eventLogMsg>
-            A subscription to RTC for the  for http://localhost:8980/opennms/rtc/post/JMX+Servers has been generated.
+            A subscription to RTC for the  for http://localhost:8980/stlnms/rtc/post/JMX+Servers has been generated.
         </eventLogMsg>
         <eventParms>
-            url=http://localhost:8980/opennms/rtc/post/JMX+Servers(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=JMX Servers(string,text)
+            url=http://localhost:8980/stlnms/rtc/post/JMX+Servers(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=JMX Servers(string,text)
         </eventParms>
         <eventSeverity>
             5
@@ -245,10 +245,10 @@
             Y
         </eventLog>
         <eventLogMsg>
-            A subscription to RTC for the  for http://localhost:8980/opennms/rtc/post/Other+Servers has been generated.
+            A subscription to RTC for the  for http://localhost:8980/stlnms/rtc/post/Other+Servers has been generated.
         </eventLogMsg>
         <eventParms>
-            url=http://localhost:8980/opennms/rtc/post/Other+Servers(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=Other Servers(string,text)
+            url=http://localhost:8980/stlnms/rtc/post/Other+Servers(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=Other Servers(string,text)
         </eventParms>
         <eventSeverity>
             6
@@ -283,10 +283,10 @@
             Y
         </eventLog>
         <eventLogMsg>
-            A subscription to RTC for the  for http://localhost:8980/opennms/rtc/post/Overall+Service+Availability has been generated.
+            A subscription to RTC for the  for http://localhost:8980/stlnms/rtc/post/Overall+Service+Availability has been generated.
         </eventLogMsg>
         <eventParms>
-            url=http://localhost:8980/opennms/rtc/post/Overall+Service+Availability(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=Overall Service Availability(string,text)
+            url=http://localhost:8980/stlnms/rtc/post/Overall+Service+Availability(string,text);user=rtc(string,text);passwd=rtc(string,text);catlabel=Overall Service Availability(string,text)
         </eventParms>
         <eventSeverity>
             3
