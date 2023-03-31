@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-@import "../stlnms/styles.css?v=${buildNumber}";
+@import "../opennms/styles.css?v=${buildNumber}";
 
 .opacity-50{
 	opacity: 0.5;
