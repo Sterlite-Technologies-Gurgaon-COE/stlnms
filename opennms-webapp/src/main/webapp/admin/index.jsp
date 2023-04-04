@@ -1,28 +1,28 @@
 <%--
 /*******************************************************************************
- * This file is part of STL-NMS(R).
+ * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2002-2014 The STL-NMS Group, Inc.
- * STL-NMS(R) is Copyright (C) 1999-2014 The STL-NMS Group, Inc.
+ * Copyright (C) 2002-2014 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
  *
- * STL-NMS(R) is a registered trademark of The STL-NMS Group, Inc.
+ * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
- * STL-NMS(R) is free software: you can redistribute it and/or modify
+ * OpenNMS(R) is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License,
  * or (at your option) any later version.
  *
- * STL-NMS(R) is distributed in the hope that it will be useful,
+ * OpenNMS(R) is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with STL-NMS(R).  If not, see:
+ * along with OpenNMS(R).  If not, see:
  *      http://www.gnu.org/licenses/
  *
  * For more information contact:
- *     STL-NMS(R) Licensing <license@opennms.org>
+ *     OpenNMS(R) Licensing <license@opennms.org>
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
@@ -127,7 +127,7 @@
   <div class="col-md-6">
     <div class="card">
       <div class="card-header">
-        <span>STL-NMS System</span>
+        <span>OpenNMS System</span>
       </div>
       <div class="card-body">
         <ul class="list-unstyled mb-0">
@@ -162,7 +162,7 @@
       </div>
       <div class="card-body">
         <ul class="list-unstyled mb-0">
-            <li><a href="admin/sendevent.htm">Manually Send an Event</a></li>
+            <!-- <li><a href="admin/sendevent.htm">Manually Send an Event</a></li> -->
             <!-- Secret function 
                     <a href="admin/eventconf/list.jsp">Configure Events</a> 
             -->
@@ -237,13 +237,13 @@
       <div class="card-body">
         <ul class="list-unstyled mb-0">
             <li><a href="locations/index.jsp">Manage Monitoring Locations</a></li>
-            <li><a href="admin/applications.htm">Manage Applications</a></li>
-            <li><a href="minion/index.jsp">Manage Minions</a></li>
+            <!-- <li><a href="admin/applications.htm">Manage Applications</a></li> -->
+            <!-- <li><a href="minion/index.jsp">Manage Minions</a></li> -->
         </ul>
       </div> <!-- card-body -->
     </div> <!-- panel -->
 
-    <div class="card">
+    <!-- <div class="card">
       <div class="card-header">
         <span>Additional Tools</span>
       </div>
@@ -253,8 +253,8 @@
             <li><a href="admin/nodemanagement/instrumentationLogReader.jsp">Instrumentation Log Reader</a></li>
             <%=getAdminPageNavEntries("operations")%>
         </ul>
-      </div> <!-- card-body -->
-    </div> <!-- panel -->
+      </div> card-body 
+    </div> panel -->
 
   </div> <!-- column -->
 
@@ -264,8 +264,8 @@
         <span>Descriptions</span>
       </div>
       <div class="card-body">
-        <p>Detailed Documentation on all options can be found on <a title="The STL-NMS Project wiki" href="" target="new">the STL-NMS wiki</a>.
-        </p>
+        <!-- <p>Detailed Documentation on all options can be found on <a title="The OpenNMS Project wiki" href="http://wiki.opennms.org" target="new">the OpenNMS wiki</a>.
+        </p> -->
 
         <p><b>Configure Users, Groups and On-Call Roles</b>: Add, modify or delete
             existing users. Groups contain users. Roles are built from groups and provide
@@ -275,11 +275,11 @@
 
 
         <p><b>Manage Provisioning Requisitions</b>: Add nodes, interfaces and services to
-            STL-NMS based partly or completely on the contents of a Requisition rather than 
-            strictly by having STL-NMS discover the network.
+            OpenNMS based partly or completely on the contents of a Requisition rather than 
+            strictly by having OpenNMS discover the network.
         </p>
 
-        <p><b>Import and Export Asset Information</b>: Export and import data into STL-NMS's asset inventory.             
+        <p><b>Import and Export Asset Information</b>: Export and import data into OpenNMS's asset inventory.             
             The comma-delimited file format is supported by most spreadsheet and
             database applications.
         </p>
@@ -288,7 +288,7 @@
             as node categories) and edit the list of nodes belonging to each category.
         </p>
 
-        <p><b>Configure Discovery</b>: Set up the IP addresses (individual addresses and/or ranges) that you want STL-NMS
+        <p><b>Configure Discovery</b>: Set up the IP addresses (individual addresses and/or ranges) that you want OpenNMS
             to scan periodically in order to detect new nodes.
         </p>
 
@@ -301,22 +301,22 @@
         </p>
 
 
-        <p><b>Manually Send an Event</b>: Allows you to build a specific event and send it to the system.</p>
+        <!-- <p><b>Manually Send an Event</b>: Allows you to build a specific event and send it to the system.</p> -->
 
         <p><b>Configure Notifications</b>: Create and manage notification escalation
             plans, called <em>destination paths</em>. A destination path is associated to
-            an STL-NMS event.  Each path can have any arbitrary number of escalations or 
+            an OpenNMS event.  Each path can have any arbitrary number of escalations or 
             targets (users, groups, on-call roles) and can send notices through email, pagers, et cetera.  
-            Each destination path can be triggered by any number of STL-NMS events and may 
+            Each destination path can be triggered by any number of OpenNMS events and may 
             further be associated with specific interfaces or services.
         </p>
 
         <p><b>Customize Event Configurations</b>: Add and edit configuration files for events definitions.</p>
 
         <p><b>Notification Status</b>: Notifications will be sent out only if this setting is switched to <em>On</em>.
-            This is a system-wide setting. As long as this is <em>Off</em>, STL-NMS will not create notifications.
+            This is a system-wide setting. As long as this is <em>Off</em>, OpenNMS will not create notifications.
             The current status of notifications is reflected by the bell icon in the upper right-hand
-            corner of every STL-NMS screen.
+            corner of every OpenNMS screen.
         </p>
 
 
@@ -331,13 +331,13 @@
             (or any combination of the four) for any interface/node for any time.  
         </p>
 
-        <P><B>Configure SNMP Community Names by IP Address</b>: Configure the Community String used in SNMP Data Collection and other SNMP operations. STL-NMS is shipped with a community string of "public".
+        <P><B>Configure SNMP Community Names by IP Address</b>: Configure the Community String used in SNMP Data Collection and other SNMP operations. OpenNMS is shipped with a community string of "public".
             If you have set a different <em>read</em> community on your devices you must put it here to be able to collect data from
             these devices.
         </P>
 
         <p><b>Manage and Unmanage Interfaces and Services</b>: <em>Managing</em> an interface or service means that
-            STL-NMS performs tests on this interface or service. If you want to explicitly enable or disable testing you
+            OpenNMS performs tests on this interface or service. If you want to explicitly enable or disable testing you
             can set that up here. A typical case is if a web server is listening on both an internal and an external interface.
             If you manage the service on both interfaces, you will get two notifications if it fails. If you want only one,
             unmanage the service on one of the interfaces.
@@ -354,17 +354,17 @@
         <p><b>Configure thresholds</b>: Allows you to add, remove, or modify thresholds.</p>
 
 
-        <p><b>Manage Applications</b>: Configure and administer 
-        the operation of perspective pollers that report back to this STL-NMS server to provide distributed
+        <!-- <p><b>Manage Applications</b>: Configure and administer 
+        the operation of perspective pollers that report back to this OpenNMS server to provide distributed
         status information.
-        </p>
+        </p> -->
 
-        <p><b>Manage Minions</b>: Configure and administer STL-NMS Minion servers that provide distributed 
-        data collection for this STL-NMS server.
-        </p>
+        <!-- <p><b>Manage Minions</b>: Configure and administer OpenNMS Minion servers that provide distributed 
+        data collection for this OpenNMS server.
+        </p> -->
 
-        <p><b>SNMP MIB Compiler</b>: Compile MIBs in order to generate events definitions from traps or
-            data collection groups for performance metrics.</p>
+        <!-- <p><b>SNMP MIB Compiler</b>: Compile MIBs in order to generate events definitions from traps or 
+            data collection groups for performance metrics.</p> -->
       </div> <!-- card-body -->
     </div> <!-- panel -->
   </div> <!-- column -->
@@ -400,3 +400,4 @@
         return retVal;
     }
 %>
+
