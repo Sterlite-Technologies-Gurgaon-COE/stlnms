@@ -14,6 +14,37 @@
     <jsp:param name="breadcrumb" value="Garv Dashboard" />
   </jsp:include>
 
+  <script>
+    angular.module('onms-garvDashboard', [])
+.controller('garvDashController', ['$scope', '$http', function ($scope, $http) {
+      $scope.text = "loading server status";
+      $scope.imgSrc = "/images/garv_server_status/load.gif";
+      var url = "https://appseksdemo.stlgarv.com/user/check";
+      $http.get(url).then(
+             function successCallback(response) {
+        $scope.text = "server running";
+        $scope.imgSrc = "/images/garv_server_status/yes.png";
+      },
+      function errorCallback(response) {
+        console.log("Unable to perform get request");
+        $scope.text = "server stopped";
+        $scope.imgSrc = "/images/garv_server_status/no.png";
+      }
+);
+
+  }]);
+
+</script>
+
+
+<div ng-controller="garvDashController">
+<img src="{{imgSrc}}" onmouseover="{{text}}"; style="width: 3%; height: 45px; display: inline-block;">
+<h5 style="display: inline-block; padding-left: 5px;"><b>{{text}}</b></h5>
+</div>
+</div>
+
+
+
 <%!
 String kioskId = "a";
 List<String> kioskIds = new ArrayList<String>();
