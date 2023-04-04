@@ -1,28 +1,28 @@
 <%--
 /*******************************************************************************
- * This file is part of STL-NMS(R).
+ * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2002-2014 The STL-NMS Group, Inc.
- * STL-NMS(R) is Copyright (C) 1999-2014 The STL-NMS Group, Inc.
+ * Copyright (C) 2002-2014 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2014 The OpenNMS Group, Inc.
  *
- * STL-NMS(R) is a registered trademark of The STL-NMS Group, Inc.
+ * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
- * STL-NMS(R) is free software: you can redistribute it and/or modify
+ * OpenNMS(R) is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License,
  * or (at your option) any later version.
  *
- * STL-NMS(R) is distributed in the hope that it will be useful,
+ * OpenNMS(R) is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with STL-NMS(R).  If not, see:
+ * along with OpenNMS(R).  If not, see:
  *      http://www.gnu.org/licenses/
  *
  * For more information contact:
- *     STL-NMS(R) Licensing <license@opennms.org>
+ *     OpenNMS(R) Licensing <license@opennms.org>
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
@@ -88,12 +88,12 @@
 	}
 %>
 
-<div class="card fix-subpixel">
-  <div class="card-header">
-    <span><%= titleName %></span>
+<div class="card fix-subpixel" style="background-color: #9FE2BF; border: 0; border-radius: 30px;">
+  <div class="card-header" style="background-color: #9FE2BF; border: 0;text-align:center; border-radius: 30px;">
+    <span style="color: white;font-size:20px;s"><b><%= titleName %></b></span>
   </div>
 
-<table class="table table-sm severity">
+<table class="table table-sm severity" style="border-radius: 30px;">
 <%
 	for (Iterator<String> i = categoryData.keySet().iterator(); i.hasNext(); ) {
 	    String sectionName = i.next();
@@ -134,3 +134,4 @@
 </table>
 <!-- </div> -->
 </div>
+
