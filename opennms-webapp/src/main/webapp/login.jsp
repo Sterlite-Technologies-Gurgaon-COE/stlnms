@@ -42,7 +42,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/wallpapers/bg_image.jpeg');
+    background-image: url('images/wallpapers/bgf.png');
     background-size: cover;
   }
 
@@ -146,8 +146,8 @@
 
 <div class="login-page">
     <div class="card login-form rounded">
-      <div style="padding-bottom: 36px; padding-top: 60px">
-        <img src="images/stl-expanded.png" class="horizon" width="485px" />
+      <div style="padding-bottom: 10px; padding-top: 60px">
+        <img src="images/stlnms_login_logo.png" class="horizon" width="485px" style="margin-left: 53px;" />
       </div>
 
       <form class="" name="loginForm" role="form" method="post" action="<c:url value='j_spring_security_check'/>">
@@ -188,7 +188,7 @@
 
   <div class="" style="position: absolute; bottom: 0px; right: 10px; font-size: 3em; padding: 20pt 20pt 5pt 20pt">
        <div style="padding-bottom: 20px; padding-top: 20px">
-          <img src="images/stl_logo_main.png" class="" width="180px" />
+          <img src="images/STL_logo.png" class="" width="180px" />
        </div>
   </div>
 
