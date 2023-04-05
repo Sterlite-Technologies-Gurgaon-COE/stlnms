@@ -243,18 +243,19 @@
       </div> <!-- card-body -->
     </div> <!-- panel -->
 
-    <!-- <div class="card">
+    <div class="card">
       <div class="card-header">
         <span>Additional Tools</span>
       </div>
       <div class="card-body">
         <ul class="list-unstyled mb-0">
-            <li><a href="admin/endpoint/index.jsp">Configure Grafana Endpoints (Reports only)</a></li>
+            <!-- <li><a href="admin/endpoint/index.jsp">Configure Grafana Endpoints (Reports only)</a></li>
             <li><a href="admin/nodemanagement/instrumentationLogReader.jsp">Instrumentation Log Reader</a></li>
-            <%=getAdminPageNavEntries("operations")%>
+            <%=getAdminPageNavEntries("operations")%> -->
+            <li><a href="admin/mibCompiler.jsp">SNMP MIB Compiler</a></li>
         </ul>
-      </div> card-body 
-    </div> panel -->
+      </div>
+    </div> 
 
   </div> <!-- column -->
 
