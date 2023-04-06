@@ -11,7 +11,7 @@ The finished CSS file will include this line, directly:
 */
 
 /*! string-replace-webpack-plugin: @import "/stlnms/VAADIN/themes/reindeer/legacy-styles.css"; */
-
+@import "/stlnms/VAADIN/themes/reindeer/legacy-styles.css";
 @import "bootstrap.scss";
 
 /* Reset these to their default value - the Vaadin elements do no display properly otherwise */
