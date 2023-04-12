@@ -528,7 +528,7 @@ public class GraphRestServiceIT extends OpenNMSSeleniumIT {
                 .setSeverity(criticalSeverity)
                 .getEvent();
 
-        getDriver().get(getBaseUrlInternal() + "opennms/topology");
+        getDriver().get(getBaseUrlInternal() + "stlnms/topology");
         waitForElement(By.xpath("//span[@class='v-menubar-menuitem-caption' and contains(text(), 'View')]"));
 
         clickElement(By.xpath("//span[@class='v-menubar-menuitem-caption' and contains(text(), 'View')]"));

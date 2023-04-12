@@ -288,7 +288,7 @@ public class TimelineRestService extends OnmsRestService {
             stringBuffer.append(",2,");
             stringBuffer.append(n2);
             stringBuffer.append(",18\" ");
-            stringBuffer.append("href=\"/opennms/outage/detail.htm?id=");
+            stringBuffer.append("href=\"/stlnms/outage/detail.htm?id=");
             stringBuffer.append(onmsOutage.getId());
             stringBuffer.append("\" alt=\"Id " + onmsOutage.getId() + "\" title=\"" + onmsOutage.getIfLostService() + "\">");
             return stringBuffer.toString();
@@ -419,7 +419,7 @@ public class TimelineRestService extends OnmsRestService {
 
         final StringBuffer htmlBuffer = new StringBuffer();
 
-        htmlBuffer.append("<img src=\"/opennms/rest/timeline/image/");
+        htmlBuffer.append("<img src=\"/stlnms/rest/timeline/image/");
         htmlBuffer.append(nodeId);
         htmlBuffer.append("/");
         htmlBuffer.append(encodedIpAddress);

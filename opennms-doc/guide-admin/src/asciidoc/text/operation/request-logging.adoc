@@ -28,7 +28,7 @@ HTTP requests logs for _Jetty_ can be enabled by uncommenting the following snip
 
 NOTE: If you do not have a `jetty.xml` in the `etc` directory, you can start by copying the example from `etc/examples/jetty.xml`.
 
-If you would like the include the usernames associated with the requests in the log file,  you must also uncomment the following snippet in `jetty-webapps/opennms/WEB-INF/web.xml`:
+If you would like the include the usernames associated with the requests in the log file,  you must also uncomment the following snippet in `jetty-webapps/stlnms/WEB-INF/web.xml`:
 
 [source,xml]
 ----

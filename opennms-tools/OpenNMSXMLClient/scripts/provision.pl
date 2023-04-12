@@ -43,7 +43,7 @@ $BUILD = (qw$LastChangedRevision 1 $)[-1];
 $XML = XML::Twig->new();
 
 # set defaults
-$url_root = 'http://localhost:8980/opennms/rest';
+$url_root = 'http://localhost:8980/stlnms/rest';
 $username = 'admin';
 $password = 'admin';
 
@@ -76,7 +76,7 @@ Defaults to 'password'.
 =item B<--url>
 
 The URL of the OpenNMS REST interface.  Defaults to
-'http://localhost:8980/opennms/rest'.
+'http://localhost:8980/stlnms/rest'.
 
 =back
 

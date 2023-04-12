@@ -104,7 +104,7 @@ The _Business Service_ response data model for the ReST API has the following ba
 </business-service>
 ----
 
-The whole model is defined in `jetty-webapps/opennms/WEB-INF/lib/org.opennms.features.bsm.rest.api-*.jar` which can be used as a dependency for a Java program to query the API.
+The whole model is defined in `jetty-webapps/stlnms/WEB-INF/lib/org.opennms.features.bsm.rest.api-*.jar` which can be used as a dependency for a Java program to query the API.
 
 ===== GETs (Reading Data)
 

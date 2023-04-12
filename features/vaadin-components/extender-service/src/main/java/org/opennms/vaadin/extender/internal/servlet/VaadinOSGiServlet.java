@@ -72,10 +72,10 @@ public class VaadinOSGiServlet extends VaadinServlet {
                     public void modifyBootstrapPage(BootstrapPageResponse response) {
                         response.getDocument().head()
                                 .getElementsByAttributeValue("rel", "shortcut icon")
-                                    .attr("href", "/opennms/favicon.ico");
+                                    .attr("href", "/stlnms/favicon.ico");
                         response.getDocument().head()
                                 .getElementsByAttributeValue("rel", "icon")
-                                    .attr("href", "/opennms/favicon.ico");
+                                    .attr("href", "/stlnms/favicon.ico");
                     }
 
                     @Override

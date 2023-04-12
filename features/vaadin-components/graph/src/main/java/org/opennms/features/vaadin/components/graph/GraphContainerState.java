@@ -39,7 +39,7 @@ import com.vaadin.shared.ui.JavaScriptComponentState;
 public class GraphContainerState extends JavaScriptComponentState {
     private static final long serialVersionUID = -6846721022019894325L;
 
-    public String baseHref = "/opennms/";
+    public String baseHref = "/stlnms/";
     public String engine = TimeSeries.getGraphEngine();
 
     public String graphName;

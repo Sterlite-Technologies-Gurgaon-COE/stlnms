@@ -74,7 +74,7 @@ public class RtcDashlet extends AbstractDashlet {
                 @Override
                 public void refresh() {
                     m_verticalLayout.removeAllComponents();
-                    m_browserFrame = new BrowserFrame(null, new ExternalResource("/opennms/rtc/fullscreen-categories-box.jsp"));
+                    m_browserFrame = new BrowserFrame(null, new ExternalResource("/stlnms/rtc/fullscreen-categories-box.jsp"));
                     m_browserFrame.setSizeFull();
                     m_verticalLayout.addComponent(m_browserFrame);
                 }

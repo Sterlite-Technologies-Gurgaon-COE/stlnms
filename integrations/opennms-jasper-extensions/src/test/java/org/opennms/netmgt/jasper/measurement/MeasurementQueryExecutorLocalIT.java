@@ -52,7 +52,7 @@ import org.springframework.test.context.ContextConfiguration;
  */
 @RunWith(OpenNMSJUnit4ClassRunner.class)
 @ContextConfiguration(
-        locations = {"/META-INF/opennms/applicationContext-measurements-test.xml"}
+        locations = {"/META-INF/stlnms/applicationContext-measurements-test.xml"}
 )
 public class MeasurementQueryExecutorLocalIT extends AbstractMeasurementQueryExecutorTest {
 
@@ -85,7 +85,7 @@ public class MeasurementQueryExecutorLocalIT extends AbstractMeasurementQueryExe
             @Override
             public void fill(Map<String, Object> params) throws Exception {
                 // We run in JVM mode, but set the url to verify that it is not called
-                params.put("MEASUREMENT_URL", "http://localhost:9999/opennms/rest/measurements");
+                params.put("MEASUREMENT_URL", "http://localhost:9999/stlnms/rest/measurements");
                 params.put("startDate", String.valueOf(DATE_FORMAT.parse("Wed Aug 26 06:05:00 CEST 2015").getTime()));
                 params.put("endDate",  String.valueOf(DATE_FORMAT.parse("Thu Aug 27 06:00:00 CEST 2015").getTime()));
             }
@@ -99,7 +99,7 @@ public class MeasurementQueryExecutorLocalIT extends AbstractMeasurementQueryExe
             @Override
             public void fill(Map<String, Object> params) {
                 // We run in JVM mode, but set the url to verify that it is not called
-                params.put("MEASUREMENT_URL", "http://localhost:9999/opennms/rest/measurements");
+                params.put("MEASUREMENT_URL", "http://localhost:9999/stlnms/rest/measurements");
                 params.put("startDate", new Date("Wed Oct 13 17:25:00 EDT 2010").getTime());
                 params.put("endDate", new Date("Wed Oct 13 21:16:30 EDT 2010").getTime());
             }

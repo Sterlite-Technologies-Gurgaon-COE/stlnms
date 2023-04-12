@@ -29,4 +29,4 @@
 
 --%>
 
-<% response.sendRedirect("/opennms/"); %>
+<% response.sendRedirect("/stlnms/"); %>

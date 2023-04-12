@@ -165,7 +165,7 @@ public class RTCPostSubscriber {
 
         String baseUrl = Vault.getProperty("opennms.rtc-client.http-post.base-url");
         if (baseUrl == null) {
-            baseUrl = "http://localhost:8080/opennms/rtc/post";
+            baseUrl = "http://localhost:8080/stlnms/rtc/post";
         }
 
         if (baseUrl.endsWith("/")) {

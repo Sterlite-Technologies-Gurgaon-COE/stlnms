@@ -49,7 +49,7 @@ public class TopologyLinkBuilder {
     public static final String PARAMETER_SEMANTIC_ZOOM_LEVEL = "szl";
     public static final String PARAMETER_GRAPH_PROVIDER = "provider";
     public static final String PARAMETER_LAYER_NAMESPACE = "layer-namespace";
-    private static final String TOPOLOGY_URL = "/opennms/topology";
+    private static final String TOPOLOGY_URL = "/stlnms/topology";
 
     private Layout layout;
     private List<String> vertexIds = new ArrayList<>();

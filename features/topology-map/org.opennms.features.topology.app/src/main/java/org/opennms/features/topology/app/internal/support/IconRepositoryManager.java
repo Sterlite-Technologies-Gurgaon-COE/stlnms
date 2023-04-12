@@ -168,8 +168,8 @@ public class IconRepositoryManager implements IconManager {
         List<String> svgUrls = Lists.newArrayList();
         try {
             URI location = Page.getCurrent().getLocation();
-            URL url = new URL(location.getScheme(), location.getHost(), location.getPort(), "/opennms");
-            Path path = Paths.get(System.getProperty("opennms.home", ""), "jetty-webapps", "opennms", "svg");
+            URL url = new URL(location.getScheme(), location.getHost(), location.getPort(), "/stlnms");
+            Path path = Paths.get(System.getProperty("opennms.home", ""), "jetty-webapps", "stlnms", "svg");
             File[] files = path.toFile().listFiles((file) -> file.isFile() && file.getName().endsWith(".svg"));
             for (File eachFile : files) {
                 svgUrls.add(String.format("%s/svg/%s", url, eachFile.getName()));

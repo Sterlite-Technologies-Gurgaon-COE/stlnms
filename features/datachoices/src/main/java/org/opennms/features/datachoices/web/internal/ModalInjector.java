@@ -50,9 +50,9 @@ public class ModalInjector implements HtmlInjector {
 
     @Override
     public String inject(HttpServletRequest request) throws TemplateException, IOException {  
-        if (isPage("/opennms/admin/index.jsp", request)) {
+        if (isPage("/stlnms/admin/index.jsp", request)) {
             return generateModalHtml(false);
-        } else if (m_stateManager.isEnabled() == null && isPage("/opennms/index.jsp", request) && isUserInAdminRole(request)) {
+        } else if (m_stateManager.isEnabled() == null && isPage("/stlnms/index.jsp", request) && isUserInAdminRole(request)) {
             return generateModalHtml(true);
         }
         return null;

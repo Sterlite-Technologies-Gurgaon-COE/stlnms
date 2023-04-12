@@ -1,6 +1,6 @@
 <#assign currentDate = .now>
 
-<nav class="navbar navbar-expand-md navbar-dark opennms-bg-chromatic-black" id="header" role="navigation">
+<nav class="navbar navbar-expand-md navbar-dark opennms-bg-chromatic-black" id="header" role="navigation" style="padding-bottom: 0px;">
     <!-- Brand and toggle get grouped for better mobile display -->
     <a class="navbar-brand" href="${baseHref}index.jsp">
         <img id="logo" src="${baseHref}images/stl_logo_main.png" alt="STL-NMS Horizon Logo" width="auto" height="22px" onerror="this.src='${baseHref}images/stl_logo_main.png'" />
@@ -32,9 +32,9 @@
             </ul>
         </#if>
 
-        <onms-central-search class="ml-auto"></onms-central-search>
+     <#--   <onms-central-search class="ml-auto"></onms-central-search>  -->
 
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto" style="font-size: 15px;">
 		<#if request.remoteUser?has_content >
 		  <#list model.entryList as entry>
               <#assign item=entry.getKey()>
@@ -70,7 +70,7 @@
                   </#if>
               </#if>
           </#list>
-            <li class="nav-item dropdown">
+    <#--   <li class="nav-item dropdown">
                 <a name="nav-help-top" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Help</a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" name="nav-admin-help" href="${baseHref}help/index.jsp">
@@ -85,7 +85,7 @@
                         </a>
                     </#if>
                 </div>
-            </li>
+            </li>  -->
             <li class="nav-item dropdown">
                 <a name="nav-user-top" href="${baseHref}account/selfService/index.jsp" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                     <span class="fa fa-user"></span>
@@ -121,7 +121,7 @@
                 </div>
             </li>
             </ul>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" >
             <#if isAdmin || isProvision >
                 <li class="nav-item">
                     <a class="nav-link" style="font-size: 1.25rem" name="nav-admin-quick-add" href="${baseHref}admin/ng-requisitions/quick-add-node.jsp#/" title="Quick-Add Node">
@@ -266,3 +266,4 @@
 
 </script>
 </#if>
+

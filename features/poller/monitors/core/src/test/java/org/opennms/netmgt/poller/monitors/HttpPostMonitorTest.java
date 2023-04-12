@@ -97,7 +97,7 @@ public class HttpPostMonitorTest {
         m.put("retry", "0");
         m.put("timeout", "500");
         m.put("banner", "");
-        m.put("uri", "/opennms/j_spring_security_check");
+        m.put("uri", "/stlnms/j_spring_security_check");
         m.put("payload", "foo");
         m.put("header0", "Authorization: Basic " + new String(Base64.encodeBase64(("admin:istrator").getBytes())));
 

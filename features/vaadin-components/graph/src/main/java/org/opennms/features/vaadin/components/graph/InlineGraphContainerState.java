@@ -38,6 +38,6 @@ import org.opennms.core.utils.TimeSeries;
 public class InlineGraphContainerState extends JavaScriptComponentState {
     private static final long serialVersionUID = -6846721022019894325L;
 
-    public String baseHref = "/opennms/";
+    public String baseHref = "/stlnms/";
     public String engine = TimeSeries.getGraphEngine();
 }

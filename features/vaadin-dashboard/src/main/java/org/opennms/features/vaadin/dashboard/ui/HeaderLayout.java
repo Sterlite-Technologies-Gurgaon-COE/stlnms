@@ -75,7 +75,7 @@ public class HeaderLayout extends HorizontalLayout implements ViewChangeListener
          */
         Label link = new Label();
         link.setContentMode(ContentMode.HTML);
-        link.setValue("<a href=\"/opennms/index.jsp\" id=\"onmslogo\"></a>");
+        link.setValue("<a href=\"/stlnms/index.jsp\" id=\"onmslogo\"></a>");
         addComponent(link);
         setExpandRatio(link, 1.0f);
 

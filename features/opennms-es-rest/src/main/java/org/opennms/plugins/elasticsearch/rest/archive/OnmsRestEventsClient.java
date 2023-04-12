@@ -63,8 +63,8 @@ import org.slf4j.LoggerFactory;
 public class OnmsRestEventsClient {
 	
 	public static final String NODE_LABEL="nodelabel";
-	public static final String EVENTS_URI="/opennms/rest/events";
-	public static final String EVENT_COUNT_URI="/opennms/rest/events/count";
+	public static final String EVENTS_URI="/stlnms/rest/events";
+	public static final String EVENT_COUNT_URI="/stlnms/rest/events/count";
 
 	private static final Logger LOG = LoggerFactory.getLogger(OnmsRestEventsClient.class);
 
@@ -115,7 +115,7 @@ public class OnmsRestEventsClient {
 			}
 			final String query = queryParts.isEmpty() ? "" : "?" + queryParts.stream().collect(Collectors.joining("&"));
 
-			// importing events generated from opennms-webapp-rest/src/main/java/org/opennms/web/rest/v1/EventRestService.java
+			// importing events generated from opennms-webapp-rest/src/main/java/org/stlnms/web/rest/v1/EventRestService.java
 			final HttpGet request = new HttpGet(baseUrl + EVENTS_URI + query);
 			request.addHeader("accept", "application/xml");
 
