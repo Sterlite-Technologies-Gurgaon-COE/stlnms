@@ -1282,7 +1282,7 @@
     <maven.metadata.legacy>true</maven.metadata.legacy>
     <root.dir>${project.basedir}</root.dir>
     <dist.dir>${root.dir}/target</dist.dir>
-    <dist.name>opennms-${project.version}</dist.name>
+    <dist.name>stlnms-${project.version}</dist.name>
 
     <!-- install.prefix: a prefix used for installation in or chroot -->
     <install.prefix/>
