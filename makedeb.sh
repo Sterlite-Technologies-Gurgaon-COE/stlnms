@@ -232,47 +232,6 @@ function build_opennms()
     dpkg-buildpackage "-p${TRUE_BIN}" -us -uc
 }
 
-function build_minion()
-{
-    echo "==== Building Debian Minion ===="
-    echo
-    echo "Version: " $VERSION
-    echo "Release: " $RELEASE
-    echo
-
-    local _extra_args=()
-    if [ "$OPENNMS_ENABLE_SNAPSHOTS" = "1" ]; then
-        _extra_args+=("-s")
-    fi
-    if [ "$OPENNMS_SKIP_COMPILE" = "1" ]; then
-        _extra_args+=("-c")
-    fi
-
-    tools/packages/minion/create-minion-assembly.sh "${_extra_args[@]}"
-
-    MINION_TARBALL="$(ls -1 $TOPDIR/opennms-assemblies/minion/target/org.opennms.assemblies.minion-*-minion.tar.gz 2>/dev/null || :)"
-    if [ -z "$MINION_TARBALL" ]; then
-        MINION_TARBALL="$(ls -1 "~/.m2/repository/org/opennms/assemblies/org.opennms.assemblies.minion/${VERSION}"/org.opennms.assemblies.minion-*-minion.tar.gz 2>/dev/null || :)"
-    fi
-
-    mkdir -p target
-    pushd target >/dev/null 2>&1
-        cp "$MINION_TARBALL" "opennms-minion_${VERSION}.orig.tar.gz"
-        tar -xzf "opennms-minion_${VERSION}.orig.tar.gz" || die "could not unpack opennms-minion tarball"
-        DIRNAME=$(echo "$MINION_TARBALL" | sed -e 's,^.*org.opennms.assemblies.,,' -e 's,-minion.tar.gz,,')
-        mv "${DIRNAME}" "opennms-minion-${VERSION}"
-        pushd "opennms-minion-${VERSION}" >/dev/null 2>&1
-            if $DO_CHANGELOG; then
-                echo "- adding auto-generated changelog entry"
-                dch -b -v "${VERSION}-${RELEASE}" "${EXTRA_INFO}${EXTRA_INFO2}" || die "failed to update minion debian/changelog"
-            fi
-            dpkg-buildpackage "-p${TRUE_BIN}" -us -uc
-        popd >/dev/null 2>&1
-
-        # move the build artifacts to the root
-        mv *.deb *.orig.tar.gz *.changes *.dsc "$TOPDIR/.."
-    popd >/dev/null 2>&1
-}
 
 function build_sentinel() {
     echo "==== Building Debian OpenNMS ===="
@@ -316,9 +275,6 @@ if $BUILD_DEB; then
 
     if [ "$PACKAGE_NAME" = "opennms" ] || [ -z "$PACKAGE_NAME" ]; then
         build_opennms
-    fi
-    if [ "$PACKAGE_NAME" = "minion" ] || [ -z "$PACKAGE_NAME" ]; then
-        build_minion
     fi
     if [ "$PACKAGE_NAME" = "sentinel" ] || [ -z "$PACKAGE_NAME" ]; then
         build_sentinel

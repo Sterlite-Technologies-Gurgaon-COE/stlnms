@@ -22,7 +22,7 @@
   </build>
 
   <modules>
-    <module>minion</module>
+    <!-- <module>minion</module> -->
     <module>sentinel</module>
     <!-- <module>system-report-onejar</module> -->
     <module>version</module>

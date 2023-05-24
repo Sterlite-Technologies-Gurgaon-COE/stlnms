@@ -50,11 +50,11 @@
                   <type>xml</type>
                   <classifier>experimental</classifier>
                 </artifact>
-                <artifact>
+                <!-- <artifact>
                   <file>${project.build.outputDirectory}/features-minion.xml</file>
                   <type>xml</type>
                   <classifier>minion</classifier>
-                </artifact>
+                </artifact> -->
                 <artifact>
                   <file>${project.build.outputDirectory}/features-sentinel.xml</file>
                   <type>xml</type>
@@ -419,13 +419,13 @@
       <type>pom</type>
       <scope>provided</scope>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>org.opennms.features.telemetry.distributed</groupId>
       <artifactId>org.opennms.features.telemetry.distributed.minion</artifactId>
       <version>${project.version}</version>
       <type>pom</type>
       <scope>provided</scope>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>org.opennms.features.telemetry.distributed</groupId>
       <artifactId>org.opennms.features.telemetry.distributed.sentinel</artifactId>

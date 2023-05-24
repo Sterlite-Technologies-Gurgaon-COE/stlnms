@@ -159,7 +159,7 @@
     <module>sentinel</module>
 
     <!-- Minion -->
-    <module>minion</module>
+    <!-- <module>minion</module> -->
     <module>scv</module>
 
     <!-- ReST Elasticsearch Integration -->
