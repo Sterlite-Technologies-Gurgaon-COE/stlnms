@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="rangerrick" id="1.6.0-rfms">
+        <validCheckSum>3:bf2fe2bd84eacb76952e7fb6c7f18f57</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="rfms" /></not>
+        </preConditions>
+        <createTable tableName="rfms">
+            <!-- Unique identifier -->
+            <column name="fmsid" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="initialEventTime" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="alarmSummary" type="varchar(256)">
+                <constraints nullable="false" />
+            </column>
+            <column name="maxFaultPosition" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="minFaultPosition" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="position" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="severity" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="probableCause" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+             <column name="rtuId" type="varchar(25)">
+                <constraints nullable="false" />
+            </column>
+            <column name="rtuName" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="rtuSiteName" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="measurementId" type="varchar(255)">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
+

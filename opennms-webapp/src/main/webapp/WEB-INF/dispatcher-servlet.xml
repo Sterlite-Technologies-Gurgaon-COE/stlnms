@@ -397,6 +397,12 @@
                                 <property name="url" value="trend/index.jsp"/>
                                 <property name="locationMatch" value="trend"/>
                             </bean>
+
+                            <bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
+                                <property name="name" value="RFMS_Alerts"/>
+                                <property name="url" value="RFMS_Alerts/index.jsp"/>
+                                <property name="locationMatch" value="event"/>
+                            </bean>
                         <!--    <bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
                                 <property name="name" value="Application"/>
                                 <property name="url" value="application/index.jsp"/>
@@ -425,6 +431,11 @@
                                 <property name="name" value="KSC Reports"/>
                                 <property name="url" value="KSC/index.jsp"/>
                                 <property name="locationMatch" value="ksc"/>
+                            </bean>
+                            <bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
+                                <property name="name" value="RFMS Analytics"/>
+                                <property name="url" value="rfms/index.jsp"/>
+                                <property name="locationMatch" value="rfms"/>
                             </bean>
                         <!--    <bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
                                 <property name="name" value="Database Reports"/>
