@@ -28,9 +28,15 @@
 
 package org.opennms.netmgt.ticketer.remedy;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.Date;
+import java.lang.Object;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import javax.xml.rpc.ServiceException;
 
@@ -55,10 +61,27 @@ import org.opennms.integration.remedy.ticketservice.VIPType;
 import org.opennms.integration.remedy.ticketservice.Work_Info_SourceType;
 import org.opennms.integration.remedy.ticketservice.Work_Info_TypeType;
 import org.opennms.integration.remedy.ticketservice.Work_Info_View_AccessType;
-
+import java.util.*;
 
 import org.opennms.api.integration.ticketing.*;
 import org.opennms.api.integration.ticketing.Ticket.State;
+
+
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpHeaders;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import org.apache.http.impl.client.HttpClientBuilder;
+
+
+
 
 /**
  * OpenNMS Trouble Ticket Plugin API implementation for Remedy
@@ -76,6 +99,7 @@ public class RemedyTicketerPlugin implements Plugin {
 	private String m_portname;
 	private String m_createendpoint; 
 	private String m_createportname; 
+	private String m_token;
 	
 	private final static String ACTION_CREATE="CREATE";
 	private final static String ACTION_MODIFY="MODIFY";
@@ -104,6 +128,8 @@ public class RemedyTicketerPlugin implements Plugin {
 		m_portname = m_configDao.getPortName();
 		m_createendpoint = m_configDao.getCreateEndPoint();
 		m_createportname = m_configDao.getCreatePortName();
+		m_token = m_configDao.gettoken();
+
 	}
 
 	/** {@inheritDoc} */
@@ -119,29 +145,90 @@ public class RemedyTicketerPlugin implements Plugin {
 		    
 		} else {
 		    LOG.debug("get: search ticket with id: {}", ticketId);
-		    HPD_IncidentInterface_WSPortTypePortType port = getTicketServicePort(m_portname,m_endpoint);
+		    //HPD_IncidentInterface_WSPortTypePortType port = getTicketServicePort(m_portname,m_endpoint);
+			
 	   
-		    if (port != null) {
-			    try {
-					GetOutputMap outputmap = port.helpDesk_Query_Service(getRemedyInputMap(ticketId) , getRemedyAuthenticationHeader());
-					LOG.info("get: found ticket: {} status: {}", ticketId, outputmap.getStatus().getValue());
-					LOG.info("get: found ticket: {} urgency: {}", ticketId, outputmap.getUrgency().getValue());
+					HttpClient httpClient = HttpClientBuilder.create().build();
+
+
+					String apiUrl = m_createendpoint+ticketId ;
+					String accessToken = m_token;
+
+
+
+					HttpGet request = new HttpGet(apiUrl);
+					request.setHeader(HttpHeaders.AUTHORIZATION, "Token " + accessToken);
+
+					HttpResponse response;
+					try {
+						response = httpClient.execute(request);
+
+					} catch (IOException e) {
+						 response = null;
+					}
+
+					HttpEntity entity = response.getEntity();
+
+
+					String responseBody = null;
+					try {
+						responseBody = EntityUtils.toString(entity);
+					} catch (IOException e) {
+						throw new RuntimeException(e);
+					}
+
+					int statusCode = response.getStatusLine().getStatusCode();
+					
+					JSONParser parser = new JSONParser();
+
+
+					JSONObject json = null;
+					try {
+						json = (JSONObject) parser.parse(responseBody);
+					} catch (ParseException e) {
+						throw new RuntimeException(e);
+					}
+
+
+					String str1 = (String) json.get("title");
+					String str2 = (String) json.get("description");
+					String str3 = "admin";
+					
+
+					int status_ticket = (int) json.get("status");
+
+					String sttatus = Integer.toString(status_ticket);
+
+
+
+					//GetOutputMap outputmap = port.helpDesk_Query_Service(getRemedyInputMap(ticketId) , getRemedyAuthenticationHeader());
+
+					
+					//LOG.info("get: found ticket: {} status: {}", ticketId, outputmap.getStatus().getValue());
+					System.out.println(ticketId);
+					//LOG.info("get: found ticket: {} urgency: {}", ticketId, outputmap.getUrgency().getValue());
 					opennmsTicket.setId(ticketId);
-					opennmsTicket.setSummary(outputmap.getSummary());
-					opennmsTicket.setDetails(outputmap.getNotes());
-					opennmsTicket.setState(remedyToOpenNMSState(outputmap.getStatus()));
-					opennmsTicket.setUser(outputmap.getAssigned_Group());
-				} catch (RemoteException e) {
-					e.printStackTrace();
-					throw new PluginException("Problem getting ticket", e);
-				}    
-		    }		
+				
+					
+					opennmsTicket.setSummary(str1);
+					opennmsTicket.setDetails(str2);
+					System.out.println(str1);
+					System.out.println(str2);
+					opennmsTicket.setState(State.valueOf(sttatus));
+					opennmsTicket.setUser(str3);
+				 
+				//  catch (RemoteException e) {
+				//  	e.printStackTrace();
+				//  	throw new PluginException("Problem getting ticket", e);
+				//  }    
+		    }	
+			return opennmsTicket;	
 		}
 
 		// add ticket basics from the Remedy ticket
-		return opennmsTicket;
+		
 
-	}
+	
 
 
 	private State remedyToOpenNMSState(StatusType status) {
@@ -165,43 +252,129 @@ public class RemedyTicketerPlugin implements Plugin {
 	}
     
     private void update(Ticket ticket) throws PluginException {
+
+
+		String tckt_id = ticket.getId();
+		
+
+		HttpClient httpClient = HttpClientBuilder.create().build();
+
+
+		String apiUrl = m_createendpoint+tckt_id ;
+
+		HttpGet request = new HttpGet(apiUrl);
+
+		HttpResponse response = null;
+		try {
+			response = httpClient.execute(request);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+		HttpEntity entity = response.getEntity();
+		String responseBody = null;
+		try {
+			responseBody = EntityUtils.toString(entity);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+		int statusCode = response.getStatusLine().getStatusCode();
+					
+		JSONParser parser = new JSONParser();
+
+		JSONObject json = null;
+		try {
+			json = (JSONObject) parser.parse(responseBody);
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
+		}
+
+
+		String str1 = (String) json.get("title");
+		String str2 = (String) json.get("description");
+
+		String status_ticket = (String) json.get("status");
+
+
+		
+		
     	
-    	HPD_IncidentInterface_WSPortTypePortType port = getTicketServicePort(m_portname,m_endpoint);
-    	if (port != null) {
-    		try {
-    			GetOutputMap remedy = port.helpDesk_Query_Service(getRemedyInputMap(ticket.getId()), getRemedyAuthenticationHeader());
-    			if (remedy == null) {
-					LOG.info("update: Remedy: Cannot find incident with incindent_number: {}", ticket.getId());
-					return;
-    			}
-    			if (remedy.getStatus().getValue().equals(StatusType._value7)) {
+    	//HPD_IncidentInterface_WSPortTypePortType port = getTicketServicePort(m_portname,m_endpoint);
+		
+    	// if ( port != null) {
+    	// 	try {
+    	// 		GetOutputMap remedy = port.helpDesk_Query_Service(getRemedyInputMap(ticket.getId()), getRemedyAuthenticationHeader());
+    	// 		if (remedy == null) {
+		// 			LOG.info("update: Remedy: Cannot find incident with incindent_number: {}", ticket.getId());
+		// 			return;
+    	// 		}
+    	// 		if (remedy.getStatus().getValue().equals(StatusType._value7)) {
+		// 			LOG.info("update: Remedy: Ticket Cancelled. Not updating ticket with incindent_number: {}", ticket.getId());
+    	// 			return;
+    	// 		}
+    	// 		if (remedy.getStatus().getValue().equals(StatusType._value6)) {
+		// 			LOG.info("update: Remedy: Ticket Closed. Not updating ticket with incindent_number: {}", ticket.getId());
+    	// 			return;
+    	// 		}
+		// 		SetInputMap output = getRemedySetInputMap(ticket,remedy); 
+				
+		// 		// The only things to update are urgency and state
+		// 		LOG.debug("update: Remedy: found urgency: {} - for ticket with incindent_number: {}", output.getUrgency().getValue(), ticket.getId());
+		// 		output.setUrgency(getUrgency(ticket));
+				
+		// 		LOG.debug("update: opennms status: {} - for ticket with incindent_number: {}", ticket.getState(), ticket.getId());
+				
+		// 		LOG.debug("update: Remedy: found status: {} - for ticket with incindent_number: {}", output.getStatus().getValue(), ticket.getId());
+		// 		State outputState = remedyToOpenNMSState(output.getStatus());
+		// 		LOG.debug("update: Remedy: found opennms status: {} - for ticket with incindent_number: {}", outputState, ticket.getId());
+		// 		if (! (ticket.getState() == outputState))
+		// 			output = opennmsToRemedyState(output,ticket.getState());
+
+		// 		port.helpDesk_Modify_Service(output , getRemedyAuthenticationHeader());
+		// 	} catch (RemoteException e) {
+		// 		e.printStackTrace();
+		// 		throw new PluginException("Problem creating ticket", e);
+		// 	}
+    	// }
+
+
+		//if ( tckt_id != "") {
+    		//try {
+    			GetOutputMap remedy = null ;
+    			// if (_id_ == null) {
+				// 	LOG.info("update: Remedy: Cannot find incident with incindent_number: {}", ticket.getId());
+				// 	return;
+    			// }
+    			if (status_ticket.toString().equals(StatusType._value7)) {
 					LOG.info("update: Remedy: Ticket Cancelled. Not updating ticket with incindent_number: {}", ticket.getId());
     				return;
     			}
-    			if (remedy.getStatus().getValue().equals(StatusType._value6)) {
+    			if (status_ticket.toString().equals(StatusType._value6)) {
 					LOG.info("update: Remedy: Ticket Closed. Not updating ticket with incindent_number: {}", ticket.getId());
     				return;
     			}
-				SetInputMap output = getRemedySetInputMap(ticket,remedy); 
-				
+				SetInputMap output = getRemedySetInputMap(ticket,remedy);
+
 				// The only things to update are urgency and state
 				LOG.debug("update: Remedy: found urgency: {} - for ticket with incindent_number: {}", output.getUrgency().getValue(), ticket.getId());
 				output.setUrgency(getUrgency(ticket));
-				
+
 				LOG.debug("update: opennms status: {} - for ticket with incindent_number: {}", ticket.getState(), ticket.getId());
-				
+
 				LOG.debug("update: Remedy: found status: {} - for ticket with incindent_number: {}", output.getStatus().getValue(), ticket.getId());
 				State outputState = remedyToOpenNMSState(output.getStatus());
 				LOG.debug("update: Remedy: found opennms status: {} - for ticket with incindent_number: {}", outputState, ticket.getId());
 				if (! (ticket.getState() == outputState))
 					output = opennmsToRemedyState(output,ticket.getState());
 
-				port.helpDesk_Modify_Service(output , getRemedyAuthenticationHeader());
-			} catch (RemoteException e) {
-				e.printStackTrace();
-				throw new PluginException("Problem creating ticket", e);
-			}
-    	}
+				//port.helpDesk_Modify_Service(output , getRemedyAuthenticationHeader());
+
+			//}
+    	//}
+
+
+
 		
 	}
 
@@ -307,7 +480,7 @@ public class RemedyTicketerPlugin implements Plugin {
     	StringBuffer summary = new StringBuffer();
     	if (ticket.getAttribute(ATTRIBUTE_NODE_LABEL_ID) != null) {
     		summary.append(ticket.getAttribute(ATTRIBUTE_NODE_LABEL_ID));
-    		summary.append(": OpenNMS: ");
+    		summary.append(": STLNMS: ");
     	}
     	summary.append(ticket.getSummary());
     	if (summary.length() > MAX_SUMMARY_CHARS)
@@ -316,27 +489,27 @@ public class RemedyTicketerPlugin implements Plugin {
     }
     
     private String getNotes(Ticket ticket) {
-    	StringBuffer notes = new StringBuffer("OpenNMS generated ticket by user: ");
+    	StringBuffer notes = new StringBuffer("STLNMS generated ticket by user: ");
     	notes.append(ticket.getUser());
     	notes.append("\n");
     	notes.append("\n");
     	if (ticket.getAttribute(ATTRIBUTE_USER_COMMENT_ID) != null ) {
-    	 	notes.append("OpenNMS user comment: ");
+    	 	notes.append("STLNMS user comment: ");
      		notes.append(ticket.getAttribute(ATTRIBUTE_USER_COMMENT_ID));
         	notes.append("\n");
         	notes.append("\n");
     	}
-    	notes.append("OpenNMS logmsg: ");
+    	notes.append("STLNMS logmsg: ");
     	notes.append(ticket.getSummary());
     	notes.append("\n");
     	notes.append("\n");
-    	notes.append("OpenNMS descr: ");
+    	notes.append("STLNMS descr: ");
     	notes.append(ticket.getDetails());
     	return notes.toString();
     }
     
     private SetInputMap opennmsToRemedyState(SetInputMap inputmap, State state) {
-		LOG.debug("getting remedy state from OpenNMS State: {}", state);
+		LOG.debug("getting remedy state from STLNMS State: {}", state);
 
         switch (state) {
             case OPEN:
@@ -353,7 +526,7 @@ public class RemedyTicketerPlugin implements Plugin {
                 inputmap.setResolution(m_configDao.getResolution());
                 break;
             default:
-            	LOG.debug("No valid OpenNMS state on ticket skipping status change");
+            	LOG.debug("No valid STLNMS state on ticket skipping status change");
         }
         
         LOG.debug("OpenNMS state was        {}", state);
@@ -420,16 +593,142 @@ public class RemedyTicketerPlugin implements Plugin {
 
     private void save(Ticket newTicket) throws PluginException {
     	HPD_IncidentInterface_Create_WSPortTypePortType port = getCreateTicketServicePort(m_createportname,m_createendpoint);
-    	try {
-			String incident_number = port.helpDesk_Submit_Service(getRemedyAuthenticationHeader(), getRemedyCreateInputMap(newTicket)).getIncident_Number();
+    	 //try {
+		 	//String incident_number = port.helpDesk_Submit_Service(getRemedyAuthenticationHeader(), getRemedyCreateInputMap(newTicket)).getIncident_Number();
+
+
+			 HttpClient httpClient = HttpClients.createDefault();
+
+			 
+	
+			 // API endpoint URL
+			 String apiUrl = m_createendpoint;
+			 System.out.println(apiUrl);
+
+			 String incident_number = "1";
+			 Long _id_ = 1L ;
+
+
+			CreateInputMap testing_ticket = getRemedyCreateInputMap(newTicket);
+			//String first_name = testing_ticket.getFirstName();
+
+			String test_str = testing_ticket.getSummary();
+			
+			String test_str1 = testing_ticket.getNotes();
+
+
+			//int test_str_2 = testing_ticket.getUrgency();
+
+			JSONObject jsonObject = new JSONObject();
+
+			jsonObject.put("queue", 1);
+        	jsonObject.put("title", test_str);
+        	jsonObject.put("description", test_str1);
+			jsonObject.put("resolution", null);
+        	jsonObject.put("submitter_email", "kevlin@stllab.in");
+        	jsonObject.put("assigned_to", null);
+			jsonObject.put("status", 1);
+        	jsonObject.put("on_hold", false);
+        	jsonObject.put("priority", 1);
+			jsonObject.put("due_date", null);
+        	jsonObject.put("merged_to", null);
+        	jsonObject.put("followup_set", "");
+			 
+			String requestData = jsonObject.toJSONString();
+
+
+
+			 try {
+				 HttpPost request = new HttpPost(apiUrl);
+ 
+				 JSONParser parser = new JSONParser();
+ 
+	 
+				 // Set the request body
+				 StringEntity requestEntity = new StringEntity(requestData, ContentType.APPLICATION_JSON);
+				 request.setEntity(requestEntity);
+	 
+				 // Set the access token in the header
+				 String accessToken = m_token;
+				 request.setHeader(HttpHeaders.AUTHORIZATION, "Token " + accessToken);
+	 
+				 // Send the request and get the response
+				 HttpResponse response = httpClient.execute(request);
+	 
+				 // Read the response
+				 HttpEntity responseEntity = response.getEntity();
+				 String responseBody = EntityUtils.toString(responseEntity);
+	 
+				 // Process the response
+				 System.out.println("Response status code: " + response.getStatusLine().getStatusCode());
+				 System.out.println("Response body: " + responseBody);
+ 
+				 
+ 
+				 JSONObject json = (JSONObject) parser.parse(responseBody);
+
+				 
+				 _id_ = (Long) json.get("id");
+
+
+				 String title = (String) json.get("title");
+ 
+				 System.out.println(_id_);
+				 System.out.println(title);
+ 
+				 
+				 System.out.println("Saved Sucessfully Please Check");
+ 
+ 
+			 } catch (Exception e) {
+				 System.out.println("Failed  Sucessfully Please Check");
+ 
+				 e.printStackTrace();
+			 }
+
+
+			
+			
+			
+			System.out.println("This is summary notes---> ");
+			System.out.println(test_str); 
+			System.out.println("Thiis is notes whuch we entered ---> ");
+			System.out.println(test_str1);
+			incident_number	= String.valueOf(_id_);
+
+			test_str = null;
+			test_str1 = null;
+			_id_ = null;
+			jsonObject = null;
+			
+
+
+
+			
+			
 			LOG.debug("created new remedy ticket with reported incident number: {}", incident_number);
-			newTicket.setId(incident_number);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			throw new PluginException("Problem saving ticket", e);
-		}
+		 	newTicket.setId(incident_number);
+		 //} catch (RemoteException e) {
+		 //	e.printStackTrace();
+		 	//throw new PluginException("Problem saving ticket", e);
+		// }
+
+
+		
     	
+
+		
+
+
+
+			
+
+
+
     }
+
+
+
     
 	/**
      * Convenience method for initializing the ticketServicePort and correctly setting the endpoint.
@@ -470,6 +769,7 @@ public class RemedyTicketerPlugin implements Plugin {
         try {
            service.setEndpointAddress(portname, endpoint);
            port = service.getHPD_IncidentInterface_Create_WSPortTypeSoap();
+
         } catch (ServiceException e) {
             LOG.error("Failed initialzing Remedy TicketServicePort", e);
             throw new PluginException("Failed initialzing Remedy TicketServicePort", e);

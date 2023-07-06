@@ -114,6 +114,10 @@ public class DefaultRemedyConfigDao {
 	String getCreatePortName() {
 		return getProperties().getString("remedy.createportname");
 	}
+	
+	String gettoken() {
+		return getProperties().getString("remedy.token");
+	}
 
 	List<String> getTargetGroups() {
 		List<String> targetGroups=new ArrayList<>();
@@ -213,5 +217,8 @@ public class DefaultRemedyConfigDao {
 	
 	String getCancelledStatusReason() {
 		return getProperties().getString("remedy.reason.cancelled");
-	}	
+	}
+	
+
+
 }
