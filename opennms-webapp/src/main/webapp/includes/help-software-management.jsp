@@ -35,7 +35,7 @@
     <div class="card-body">
         <table class="table">
             <tr>
-                <td style="border-top: none;"><a href="https://github.com/OpenNMS/opennms" target="_blank" class="btn btn-secondary" role="button" style="width: 100%">STL-NMS on GitHub</a></td>
+                <td style="border-top: none;"><a href="" target="_blank" class="btn btn-secondary" role="button" style="width: 100%">STL-NMS on GitHub</a></td>
                 <td style="border-top: none;">Our source code is version controlled with git and hosted on GitHub. Download the source code for released versions of STL-NMS or the latest development code.</td>
             </tr>
             <tr>
