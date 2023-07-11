@@ -41,7 +41,7 @@ on node %nodelabel% failed at %time%.
       <uei>uei.opennms.org/nodes/nodeAdded</uei>
       <rule>IPADDR != '0.0.0.0'</rule>
       <destinationPath>Email-Admin</destinationPath>
-      <text-message>OpenNMS has discovered a new node named
+      <text-message>STL-NMS has discovered a new node named
 %parm[nodelabel]%. Please be advised.</text-message>
       <subject>Notice #%noticeid%: %parm[nodelabel]% discovered.</subject>
       <numeric-message>111-%noticeid%</numeric-message>

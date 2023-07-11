@@ -168,7 +168,7 @@
   <div class="col-md-6">
     <div class="card">
       <div class="card-header">
-        <span>Send Event to OpenNMS</span>
+        <span>Send Event to STL-NMS</span>
       </div>
       <div class="card-body">
        <div class="form-group form-row">

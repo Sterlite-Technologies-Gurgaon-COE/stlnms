@@ -8,14 +8,14 @@
 	<META NAME="CHANGED" CONTENT="20061123;21273800">
 </HEAD>
 <BODY LANG="en-GB" DIR="LTR">
-<P STYLE="margin-bottom: 0in; page-break-after: avoid"><FONT FACE="Albany, sans-serif"><FONT SIZE=2><BR><B><U>OpenNMS
+<P STYLE="margin-bottom: 0in; page-break-after: avoid"><FONT FACE="Albany, sans-serif"><FONT SIZE=2><BR><B><U>STL-NMS
 qosdaemon</U></B></FONT></FONT></P>
 <P STYLE="margin-bottom: 0in"><BR>
 </P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2><U><B>Functionality
 Overview</B></U></FONT></P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>The qosdaemon provides an
-elementary OSS/J Qos interface for OpenNMS. </FONT>
+elementary OSS/J Qos interface for STL-NMS. </FONT>
 </P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>For more information on
 the OSS/J Qos Specification please see the OSS/J site </FONT><A HREF="http://www.ossj.org/"><FONT SIZE=2>www.ossj.org</FONT></A><FONT SIZE=2>.
@@ -24,8 +24,8 @@ see the documentation and example configuration in the
 $opennms_home/contrib/qosdaemon directory. </FONT>
 </P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>The interface can run
-natively in OpenNMS and use OSS/J XML messages to reflect the state
-of the OpenNMS internal alarm list or it can use an external ejb
+natively in STL-NMS and use OSS/J XML messages to reflect the state
+of the STL-NMS internal alarm list or it can use an external ejb
 running in JBOSS to expose the alarm list as JVT objects. Currently
 only OSS/J XVT and XML AlarmEvents have been implemented. A future
 release will service OSS/J XML queries. The interface uses the
@@ -36,16 +36,16 @@ another JMS implementation.</FONT></P>
 parts which can be run separately as two opennms daemons; </FONT>
 </P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>qosd is an OSS/J server
-which exposes the OpenNMS alarm list as an OSS/J alarm list to other
+which exposes the STL-NMS alarm list as an OSS/J alarm list to other
 systems. The changes to the local alarm list are exposed as JMS XML
 messages which can be used to update an alarm list in a remote
 client.</FONT></P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>qosdrx is an OSS/J event
 client which can listen for alarm update events from other servers.
-It updates the local OpenNMS alarm list based upon the received
+It updates the local STL-NMS alarm list based upon the received
 events.</FONT></P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>During the development of
-the qosdaemon, OpenNMS migrated to using the Spring framework. This
+the qosdaemon, STL-NMS migrated to using the Spring framework. This
 has been adopted extensively in the design of the qosdrx daemon.
 However some of the code in the qosd daemon pre-dated the
 introduction of spring and has been adapted to use spring rather than
@@ -68,15 +68,15 @@ testing etc during development. ( As an example see QosDimpl2.java )</FONT></P>
 </P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2><U>Overview</U></FONT></P>
 <P STYLE="margin-bottom: 0in; text-decoration: none"><FONT SIZE=2>The
-OssDao package provides a buffer between the internals of OpenNMS and
+OssDao package provides a buffer between the internals of STL-NMS and
 the requirements of the OSS/J code. The internal alarm definition in
-OpenNMS contains different fields and severity values to the OSS/J
+STL-NMS contains different fields and severity values to the OSS/J
 X.733 definitions. This mapping is (mostly) confined to the
 OnmsAlarmOssjMapper class. </FONT>
 </P>
 <P STYLE="margin-bottom: 0in; text-decoration: none"><FONT SIZE=2>The
-OpenNMS alarm definition has been extended to allow it to represent
-alarms from remote systems. Each OpenNMS alarm now contains an
+STL-NMS alarm definition has been extended to allow it to represent
+alarms from remote systems. Each STL-NMS alarm now contains an
 ApplicationDN which identifies the unique name of the remote system
 which generated the alarm and an OssPrimaryKey which identifies the
 local identifier for that alarm on the remote machine. When an alarm
@@ -86,7 +86,7 @@ update. (If ApplicationDN is blank then the alarm is from the local
 machine).</FONT></P>
 <P STYLE="margin-bottom: 0in; text-decoration: none"><FONT SIZE=2>Each
 OSS/J alarm contains an identifier for the managed object which
-issued the alarm. This is always mapped to an OpenNMS node. The Asset
+issued the alarm. This is always mapped to an STL-NMS node. The Asset
 Register entry for nodes now has extra fields to uniquely identify
 the managed object system wide ( ManagedObjectInstance and
 ManagedObjectClass) . The OssDao provides methods to do a rapid
@@ -132,7 +132,7 @@ work correctly.</FONT></P>
 			</TD>
 			<TD WIDTH=42%>
 				<P ALIGN=LEFT><FONT SIZE=2>This class provides methods to map
-				OSS/J AlarmValue to OpenNMS alarms. If the OpenNMS alarm model
+				OSS/J AlarmValue to STL-NMS alarms. If the STL-NMS alarm model
 				changes, then most of the changes to the qosdaemon will happen
 				here</FONT></P>
 			</TD>
@@ -147,7 +147,7 @@ work correctly.</FONT></P>
 			</TD>
 			<TD WIDTH=42%>
 				<P ALIGN=LEFT><FONT SIZE=2>This class provides a single point of
-				access to the OpenNMS alarm list and node asset table for both
+				access to the STL-NMS alarm list and node asset table for both
 				the Qosd and Qosdrx. It provides a cache which allows for rapid
 				look up of alarms by ApplicationDN and OssPrimaryKey and of nodes
 				by managedObjectInstance and managedObjectType</FONT></P>
@@ -179,10 +179,10 @@ work correctly.</FONT></P>
 </P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2><U>Overview</U></FONT></P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>The QoSD Daemon realises
-an OSS/J QoS server interface by mediating between the OpenNMS
+an OSS/J QoS server interface by mediating between the STL-NMS
 internal alarm management model and an OSS/J implementation realized
 using the OSSBeans OSS/J Qos library. The OSSbeans AlarmMonitor bean
-can run natively in the OpenNMS spring container or in a remote the
+can run natively in the STL-NMS spring container or in a remote the
 Jboss J2EE server. If it is running in the remote J2EE server then it
 exposes it's alarm list according to OSS/J semantics as JVT objects
 through a facade bean. Note that presently only a very simple query
@@ -190,7 +190,7 @@ is currently supported to get the entire alarm list. The AlarmMonitor
 bean also sends out XVT ( XML) and JVT AlarmEvents as the alarm list
 changes. In the future it is intended to extend the OssBeans alarm
 monitor to also support full JVT and XML queries. If the AlarmMonitor
-bean is running natively in OpenNMS, it cannot expose the OSS/J JVT
+bean is running natively in STL-NMS, it cannot expose the OSS/J JVT
 interface and only generates the JMS events however it is envisaged
 that this is the way most users will want to use the interface.</FONT></P>
 <P STYLE="margin-bottom: 0in"><BR>
@@ -204,14 +204,14 @@ PropertiesLoader class. ( In the future this could be picked up using
 the spring application context in a similar manner to the qosdrx
 code. )</FONT></P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>The QosD Daemon registers
-with the OpenNMS eventd daemon to receive events using the call;</FONT></P>
+with the STL-NMS eventd daemon to receive events using the call;</FONT></P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>eventIpcManager.addEventListener(this,
 ueiList); </FONT>
 </P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>The events which qosd
 responds to are determined by the ueiList object which is configured
 by the QosDConfigFactory using and the QoSDConfiguration.xml file in
-the OpenNMS /etc directory. JAXB is used to un-marshal the XML into
+the STL-NMS /etc directory. JAXB is used to un-marshal the XML into
 the ueiList according to the QoSDConfiguration.xsd file. </FONT>
 </P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>When an event which qosd
@@ -219,7 +219,7 @@ has registered for occurs its onEvent() method is called. Qosd
 responds to two types of events. Firstly any events corresponding to
 changes in the asset register are used to force an update in the
 OssDao node cache. Secondly an 'alarm changed event' causes the qosd
-to review the local OpenNMS alarm list for changes. </FONT>
+to review the local STL-NMS alarm list for changes. </FONT>
 </P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>The qosd depends upon the
 vacuumd daemon which must be configured with an automation to look
@@ -229,7 +229,7 @@ vacuumd-configuration.xml file is included in
 /contrib/qosdaemon/qos-example-configuration. </FONT>
 </P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>The vacuumd automation
-also implements the X733 alarm life cycle whereby OpenNMS correlates
+also implements the X733 alarm life cycle whereby STL-NMS correlates
 alarm raising and alarm clearing SNMP traps and removes cleared and
 acknowledged alarms from the alarm list. </FONT>
 </P>
@@ -322,7 +322,7 @@ will be picked up on the next alarm retrieval. </FONT>
 			</TD>
 			<TD WIDTH=43%>
 				<P ALIGN=LEFT><FONT SIZE=2>Implementation of interface to
-				AlarmMonitor bean running locally in OpenNMS</FONT></P>
+				AlarmMonitor bean running locally in STL-NMS</FONT></P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
@@ -380,11 +380,11 @@ will be picked up on the next alarm retrieval. </FONT>
 			</TD>
 			<TD WIDTH=43%>
 				<P ALIGN=LEFT STYLE="text-decoration: none"><FONT SIZE=2>All
-				OpenNMS daemons are started as JMX beans in the same way. The
+				STL-NMS daemons are started as JMX beans in the same way. The
 				QoSD.java and QoSDMBean.java in the qosd.jmx package are used by
 				opennms to initiate new threads for running the daemon and to
 				pass in it's spring application context in order to allow access
-				to OpenNMS Daos and other daemons.</FONT></P>
+				to STL-NMS Daos and other daemons.</FONT></P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
@@ -431,11 +431,11 @@ will be picked up on the next alarm retrieval. </FONT>
 			<TD WIDTH=43%>
 				<P ALIGN=LEFT><FONT SIZE=2>A copy of the
 				org.opennms.web.alarm.Alarm class is included in this project to
-				provide a severity mapping for OpenNMS alarms. This is done
-				because at the time of writing OpenNMS did not generate a webapp
+				provide a severity mapping for STL-NMS alarms. This is done
+				because at the time of writing STL-NMS did not generate a webapp
 				jar which could be accessed through MAVEN. If the webapp is made
 				into a maven package then this can be replaced with a reference
-				in the pom file. Alternatively ( and better ) OpenNMS could
+				in the pom file. Alternatively ( and better ) STL-NMS could
 				include the severity mapping centrally in the OnmsAlarm model.</FONT></P>
 			</TD>
 		</TR>
@@ -446,10 +446,10 @@ will be picked up on the next alarm retrieval. </FONT>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2><U><B>QoSDrx Deamon</B></U></FONT></P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2><U>Overview</U></FONT></P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>The QoSDrx daemon
-implements multiple OSS/J JMS event listener clients for OpenNMS.
+implements multiple OSS/J JMS event listener clients for STL-NMS.
 Each client connects to a different OSS/J JMS AlarmEvent Topic on a
 JMS provider (tested with JbossMQ but other providers could be used )
-. Alarm Events are used to update the local OpenNMS alarm list such
+. Alarm Events are used to update the local STL-NMS alarm list such
 that it mirrors the alarm event list in the remote OSS/J servers. The
 clients are fully configurable using an XML configuration file in the
 /etc directory. Planned future extensions to the Daemon will allow it
@@ -469,7 +469,7 @@ context XML file.</FONT></P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2>As with the QoSD daemon,
 the qosdrx.jmx classes (QoSDrx and QoSDrxMBean) are used by opennms
 to spawn the qosdrx daemon and initialise an OssDao if it does not
-already exist. The daemon passes the OpenNMS application context to
+already exist. The daemon passes the STL-NMS application context to
 the OSSBeans OSSBeanRunner class which reads the
 /etc/QoSDrxOssBeanRunnerSpringContext.xml file to generate an
 application context and spawn separate threads for each defined
@@ -483,7 +483,7 @@ OssBeanAlarmEventReceivers need to have
 AlarmEventReceiverEventHandler classes assigned which are used to
 perform appropriate actions on reception of each event. The QoSDrx
 daemon defines an AlarmEventReceiverEventHandler implementation which
-interacts with the OssDao to update the OpenNMS Alarm list database
+interacts with the OssDao to update the STL-NMS Alarm list database
 on each received event. ( The present QoSDrx demon
 AlarmEventReceiverEventHandler implementation is called
 QoSDrxAlarmEventReceiverEventHandlerImpl2 )</FONT></P>
@@ -491,9 +491,9 @@ QoSDrxAlarmEventReceiverEventHandlerImpl2 )</FONT></P>
 design is to extend the OSSbean concept in the future to make each
 OSSbean also a JMX Mbean. This would allow finer real time monitoring
 and management of each receiver client. However in the present design
-all of the OSSbeans are spawned off the root OpenNMS JMX bean which
+all of the OSSbeans are spawned off the root STL-NMS JMX bean which
 is able to report the statistics from all of the beans using the
-OpenNMS MX4J console.</FONT></P>
+STL-NMS MX4J console.</FONT></P>
 <P STYLE="margin-bottom: 0in"><BR>
 </P>
 <P STYLE="margin-bottom: 0in"><FONT SIZE=2><U>Alarm Life cycle</U></FONT></P>
@@ -507,7 +507,7 @@ QoSDrx to process AlarmEvents;</FONT></P>
 <OL>
 	<LI><P STYLE="margin-bottom: 0in"><FONT SIZE=2>When an NewAlarmEvent
 	message is received, it's ApplicationDN and OssPrimaryKey are
-	checked against the OpenNMS alarm list. If the alarm exists, there
+	checked against the STL-NMS alarm list. If the alarm exists, there
 	is an error which is logged and the NewAlarmEvent message is ignored
 	( the NewAlarmEvent messages should refer only to a new not an
 	existing alarm ).</FONT></P>
@@ -519,31 +519,31 @@ QoSDrx to process AlarmEvents;</FONT></P>
 	<P STYLE="margin-bottom: 0in"><FONT SIZE=2>a) Alarm can be logged
 	against a node which is named to represent the AlarmTopic. Each
 	OssBeanAlarmEventReceiver is given a unique name in the
-	QoSDrxOssBeanRunnerSpringContext.xml file. In this case OpenNMS
+	QoSDrxOssBeanRunnerSpringContext.xml file. In this case STL-NMS
 	should be configured with nodes named after the name of each
 	OssBeanAlarmEventReceiver. When an alarm comes in to a given topic,
-	the alarm is logged in OpenNMS against a node named with the same
+	the alarm is logged in STL-NMS against a node named with the same
 	name as the OssBeanAlarmEventReceiver. This is a good configuration
 	if you simply want to look at alarms from subordinate OSS/J servers
 	on a per server basis but you don't want to put every managed object
-	in the OpenNMS database corresponding to the managedObjectInstance
+	in the STL-NMS database corresponding to the managedObjectInstance
 	and ManagedObjectType of all the objects being monitored remotely. </FONT>
 	</P>
 	<P STYLE="margin-bottom: 0in"><FONT SIZE=2>b) Alarms can be logged
 	against nodes having the same managedObjectInstance and
 	ManagedObjectType fields as the incoming message. In this case the
-	listening OpenNMS must have a database populated with all of the
+	listening STL-NMS must have a database populated with all of the
 	nodes (with the same Asset data for managedObjectInstance and
-	ManagedObjectType) as populated in the subordinate OpenNMS's</FONT></P>
+	ManagedObjectType) as populated in the subordinate STL-NMS's</FONT></P>
 	<P STYLE="margin-bottom: 0in"><FONT SIZE=2>Note that in both the
 	above cases, regardless of how the alarm is displayed locally, it
 	will be forwarded through QosD with the same managedObjectInstance
-	and ManagedObjectType as the original message. ( i.e. OpenNMS will
+	and ManagedObjectType as the original message. ( i.e. STL-NMS will
 	not modify the origin of the message even though it displays it
 	against a different node locally )</FONT></P>
 	<LI><P STYLE="margin-bottom: 0in"><FONT SIZE=2>When an
 	AlarmClearedEvent message is received it's ApplicationDN and
-	OssPrimaryKey are checked against the OpenNMS alarm list. If the
+	OssPrimaryKey are checked against the STL-NMS alarm list. If the
 	alarm does not exist, there is an error which is logged and the
 	ClearedAlarmEvent message is ignored ( the ClearedAlarmEvent
 	messages should refer to an existing alarm ).</FONT></P>
@@ -591,7 +591,7 @@ QoSDrx to process AlarmEvents;</FONT></P>
 				<P ALIGN=LEFT><FONT SIZE=2>QoSDrxMBean.java</FONT></P>
 			</TD>
 			<TD WIDTH=33%>
-				<P ALIGN=LEFT><FONT SIZE=2>As with Qosd used by OpenNMS to start
+				<P ALIGN=LEFT><FONT SIZE=2>As with Qosd used by STL-NMS to start
 				the Daemon. </FONT>
 				</P>
 			</TD>
