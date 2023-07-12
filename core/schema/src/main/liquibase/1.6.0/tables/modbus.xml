@@ -1,29 +1,29 @@
-    <?xml version="1.0" encoding="UTF-8"?>
-    <databaseChangeLog
-        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
-            http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-        <changeSet author="rangerrick" id="1.6.0-modbus">
-            <validCheckSum>3:bf2fe2bd84eacb76952e7fb6c7f18f57</validCheckSum>
-            <preConditions onFail="MARK_RAN">
-                <not><tableExists tableName="modbus" /></not>
-            </preConditions>
-            <createTable tableName="modbus">
-                <!-- Unique identifier -->
-                <column name="timestamp" type="datetime">
-                    <constraints nullable="false" />
-                </column>
-                <column name="data" type="textA">
-                    <constraints nullable="true" />
-                </column>
-                <column name="ip_address" type="text">
-                    <constraints nullable="false" />
-                </column>
-                <column name="pkey" type="integer" autoIncrement="true">
-                    <constraints nullable="false" primaryKey="true"  />
-                </column>
-            </createTable>
-        </changeSet>
-    </databaseChangeLog>
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="rangerrick" id="1.6.0-modbus">
+        <validCheckSum>3:bf2fe2bd84eacb76952e7fb6c7f18f57</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="modbus" /></not>
+        </preConditions>
+        <createTable tableName="modbus">
+            <!-- Unique identifier -->
+            <column name="timestamp" type="datetime">
+                <constraints nullable="false" />
+            </column>
+            <column name="data" type="text">
+                <constraints nullable="true" />
+            </column>
+            <column name="ip_address" type="text">
+                <constraints nullable="false" />
+            </column>
+            <column name="pkey" type="integer" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"  />
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
