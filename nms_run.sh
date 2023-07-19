@@ -8,13 +8,17 @@ time (sudo ./stlnms/clean.pl && sudo ./stlnms/compile.pl -DskipTests -Dcheckstyl
 cd ..
 mkdir $PWD/database
 sudo $PWD/stlnms/target/stlnms-27.2.0/bin/runjava -s
-if [ "$(docker ps -aq -f status=exited -f name=^nms_db)" ]; then
-    # cleanup
-    docker rm nms_db
+if [ "$( docker container inspect -f '{{.State.Status}}' nms_db )" != "running" ]; then
+    echo "Docker down"
+    if [ "$(docker ps -aq -f status=exited -f name=^nms_db)" ]; then
+        echo "Deleting Container"
+        # cleanup
+        docker rm nms_db
+    fi
+    # run your container
+    sudo docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres --name nms_db -v './database':'/var/lib/postgresql/data' postgres:13.9
+  
 fi
-# run your container
-sudo docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres --name nms_db -v './database':'/var/lib/postgresql/data' postgres:13.9
 sudo $PWD/stlnms/target/stlnms-27.2.0/bin/install -dis
-sudo $PWD/stlnms/target/stlnms-27.2.0/bin/opennms start
-
+sudo $PWD/stlnms/target/stlnms-27.2.0/bin/opennms start  
 echo "Script completed"
