@@ -3,7 +3,9 @@ echo "Script started"
 echo "please enter name of branch you want to clone ->"
 read br
 git clone --branch $br https://github.com/Sterlite-Technologies-Gurgaon-COE/stlnms.git
-time(sudo ./stlnms/clean.pl && sudo ./stlnms/compile.pl -DskipTests -Dcheckstyle.skip && sudo ./stlnms/assemble.pl -DskipTests -Dcheckstyle.skip -p dir)
+cd stlnms
+time (sudo ./clean.pl && sudo ./stlnms/compile.pl -DskipTests -Dcheckstyle.skip && sudo ./assemble.pl -DskipTests -Dcheckstyle.skip -p dir)
+cd ..
 mkdir $PWD/database
 sudo $PWD/stlnms/target/stlnms-27.2.0/bin/runjava -s
 if [ ! "$(docker ps -a -q -f name=^nms_db)" ]; then
