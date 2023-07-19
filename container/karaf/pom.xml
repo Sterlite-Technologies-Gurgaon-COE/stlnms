@@ -45,7 +45,7 @@
                         <!-- OPENNMS: Add the OpenNMS Karaf extensions feature repository -->
                         <repository>mvn:org.opennms.karaf/opennms/${project.version}/xml/karaf-extensions</repository>
                         <!-- OPENNMS: Add the OpenNMS Minion feature repository -->
-                        <repository>mvn:org.opennms.karaf/opennms/${project.version}/xml/minion</repository>
+                        <!-- <repository>mvn:org.opennms.karaf/opennms/${project.version}/xml/minion</repository> -->
                     </bootRepositories>
                     <installedFeatures>
                         <feature>wrapper</feature>
@@ -220,14 +220,14 @@
             <type>xml</type>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.opennms.karaf</groupId>
             <artifactId>opennms</artifactId>
             <version>${project.version}</version>
             <classifier>minion</classifier>
             <type>xml</type>
             <scope>runtime</scope>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>org.apache.felix</groupId>
             <artifactId>org.apache.felix.http.bridge</artifactId>

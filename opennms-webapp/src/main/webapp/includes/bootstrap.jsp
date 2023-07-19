@@ -143,7 +143,7 @@
   <script type="text/javascript">
     // If no window.name is set, define one, to ensure it is not empty.
     // This is required for Vaadin to work properly (especially for @PreserveOnRefresh UIs).
-    // The random bits ensure that multiple windows have a different name, as well as different versions of OpenNMS
+    // The random bits ensure that multiple windows have a different name, as well as different versions of STL-NMS
     // can be used in parallel.
     if (!window.name) {
       window.name = "opennms-" + Math.random();

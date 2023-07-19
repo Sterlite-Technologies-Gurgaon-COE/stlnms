@@ -142,7 +142,7 @@
           </div>
           <div class="card-body">
             <p>Once a notice is sent, it is considered <em>outstanding</em> until 
-                someone <em>acknowledge</em>s receipt of the notice via the OpenNMS
+                someone <em>acknowledge</em>s receipt of the notice via the STL-NMS
                 Notification interface.&nbsp; If the event that 
                 triggered the notice was related to managed network devices or systems, 
                 the <strong>Network/Systems</strong> group will be notified, one by one, with a

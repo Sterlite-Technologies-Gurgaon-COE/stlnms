@@ -627,6 +627,11 @@
         </exclusion>
       </exclusions>
     </dependency>
+    <dependency>  
+    <groupId>org.json</groupId>  
+    <artifactId>json</artifactId>  
+    <version>20230618</version>
+</dependency>  
     <dependency>
       <groupId>com.opencsv</groupId>
       <artifactId>opencsv</artifactId>
@@ -890,6 +895,13 @@
       <version>3.1.6</version>
       <scope>test</scope>
     </dependency>
+    <!-- Lower added for modbus -->
+       <dependency>
+      <groupId>net.wimpi</groupId>
+      <artifactId>jamod</artifactId>
+      <version>1.2</version>
+    </dependency>
+     <!--  Upper added for modbus -->
   </dependencies>
 
   <pluginRepositories>

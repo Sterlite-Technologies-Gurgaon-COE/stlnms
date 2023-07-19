@@ -32,9 +32,12 @@ xsi:schemaLocation="
     <task:scheduler id="taskScheduler" pool-size="10"/>
     <task:annotation-driven scheduler="taskScheduler"/>
     <bean id="rfmsTask" class="org.opennms.web.rfms.GetAlarms"/>
+    <bean id="modbusTask" class="org.opennms.web.modbus.App"/>
     <task:scheduled-tasks scheduler="taskScheduler">
       <task:scheduled ref="rfmsTask" method="fetchAlarms" fixed-rate="10000"/>
+       <task:scheduled ref="modbusTask" method="modbus_ip" fixed-rate="10000"/>
     </task:scheduled-tasks>
+    
 
 
 </beans>

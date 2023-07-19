@@ -156,7 +156,7 @@
                         </p>
                         <p>
                             If you do not have a commercial support agreement, see
-                            <a href="https://www.opennms.com/support/">the OpenNMS.com support page</a> for more details.
+                            <a href="https://www.opennms.com/support/">the STL-NMS.com support page</a> for more details.
                         </p>
                         <form role="form" method="post" action="support/index.htm" class="form">
                             <div class="form-group">
