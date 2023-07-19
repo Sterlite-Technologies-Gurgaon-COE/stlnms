@@ -4,7 +4,7 @@ echo "please enter name of branch you want to clone ->"
 read br
 git clone --branch $br https://github.com/Sterlite-Technologies-Gurgaon-COE/stlnms.git
 cd stlnms
-time (sudo ./clean.pl && sudo ./stlnms/compile.pl -DskipTests -Dcheckstyle.skip && sudo ./assemble.pl -DskipTests -Dcheckstyle.skip -p dir)
+time (sudo ./clean.pl && sudo ./compile.pl -DskipTests -Dcheckstyle.skip && sudo ./assemble.pl -DskipTests -Dcheckstyle.skip -p dir)
 cd ..
 mkdir $PWD/database
 sudo $PWD/stlnms/target/stlnms-27.2.0/bin/runjava -s
