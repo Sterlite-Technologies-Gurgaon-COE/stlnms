@@ -429,6 +429,34 @@ function confirmAssetEdit() {
       </li>
     </c:if>
 
+
+    <!-- Configuration Manage Link -->
+    <c:url var="comparisionLink" value="element/configuration_manage.jsp">
+      <c:param name="node" value="${model.id}"/>
+    </c:url>
+    <li class="list-inline-item">
+      <a href="<c:out value="${comparisionLink}"/>">Run a Command</a>
+    </li>
+
+
+    <!-- Template Link -->
+    <c:url var="templateLink" value="element/templateList.jsp">
+      <c:param name="node" value="${model.id}"/>
+    </c:url>
+    <li class="list-inline-item">
+      <a href="<c:out value="${templateLink}"/>">Template List</a>
+    </li>
+
+
+    <!-- Template Link -->
+    <c:url var="modebusLink" value="element/modbusTable.jsp">
+      <c:param name="node" value="${model.id}"/>
+    </c:url>
+    <li class="list-inline-item">
+      <a href="<c:out value="${modebusLink}"/>">ModBus Page</a>
+    </li>
+
+
     <c:if test="${model.existsInRequisition && (model.admin || model.provision)}">
         <li class="list-inline-item">
             <a href="<c:out value="admin/ng-requisitions/index.jsp#/requisitions/${model.foreignSource}/nodes/${model.foreignId}"/>">Edit in Requisition</a>

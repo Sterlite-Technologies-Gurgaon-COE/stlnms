@@ -51,5 +51,7 @@
 	<include file="1.6.0/tables/rfms.xml" />
 	<include file="1.6.0/tables/modbus.xml" />
 	<include file="1.6.0/tables/modbus_nodes.xml" />
+	<include file="1.6.0/tables/configuration_mgmt.xml" />
+	<include file="1.6.0/tables/schedule_task.xml" />
 
 </databaseChangeLog>

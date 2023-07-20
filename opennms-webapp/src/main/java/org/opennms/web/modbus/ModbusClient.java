@@ -79,7 +79,7 @@ public class ModbusClient {
 		String sqlInsertIntoModbusTable = "INSERT INTO modbus values (?,?,?);";
         LOG.debug("\nEntered saveToDB");          
 		try (
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/opennms", "postgres", "postgres");
+			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/stlnms", "postgres", "postgres");
             
 		) {
     

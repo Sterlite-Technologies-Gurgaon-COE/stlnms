@@ -310,6 +310,11 @@
                     <property name="url" value="index.jsp"/>
                     <property name="locationMatch" value="dashboard"/>
                 </bean>
+                <bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
+                    <property name="name" value="RFMS Dashboard"/>
+                    <property name="url" value="rfms/index.jsp"/>
+                    <property name="locationMatch" value="rfms"/>
+                </bean>
             <!--<bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
                     <property name="name" value="Ops Board"/>
                     <property name="url" value="vaadin-wallboard"/>
@@ -399,9 +404,9 @@
                             </bean>
 
                             <bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
-                                <property name="name" value="RFMS_Alerts"/>
+                                <property name="name" value="RFMS Alerts"/>
                                 <property name="url" value="RFMS_Alerts/index.jsp"/>
-                                <property name="locationMatch" value="event"/>
+                                <property name="locationMatch" value="rfms_alert"/>
                             </bean>
                         <!--    <bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
                                 <property name="name" value="Application"/>
@@ -433,16 +438,11 @@
                                 <property name="locationMatch" value="ksc"/>
                             </bean>
                             <bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
-                                <property name="name" value="RFMS Analytics"/>
-                                <property name="url" value="rfms/index.jsp"/>
-                                <property name="locationMatch" value="rfms"/>
-                            </bean>
-                        <!--    <bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
                                 <property name="name" value="Database Reports"/>
                                 <property name="url" value="report/database/index.jsp"/>
                                 <property name="locationMatch" value="database-reports"/>
                             </bean>
-                            <bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
+                           <!-- <bean class="org.opennms.web.navigate.LocationBasedNavBarEntry">
                                 <property name="name" value="Statistics"/>
                                 <property name="url" value="statisticsReports/index.htm"/>
                                 <property name="locationMatch" value="reports"/>

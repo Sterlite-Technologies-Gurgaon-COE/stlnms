@@ -32,7 +32,7 @@ public class App
 
         // Step 1: Establishing a Connection
          LOG.debug("\nEntered modbus_ip");
-        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost/opennms", "postgres", "postgres");
+        try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost/stlnms", "postgres", "postgres");
             // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_QUERY);) {
             // System.out.println(preparedStatement);

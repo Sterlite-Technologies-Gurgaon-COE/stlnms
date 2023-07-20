@@ -18,7 +18,7 @@
 </jsp:include>
 
 <%
-    Connection dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/opennms", "postgres", "postgres");
+    Connection dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/stlnms", "postgres", "postgres");
     Statement getFromDb = dbConnection.createStatement();
     
     ResultSet forchart3 = getFromDb.executeQuery("SELECT \"rtuName\",\"rtuSiteName\",COUNT(*) as count FROM PUBLIC.rfms GROUP BY \"rtuName\",\"rtuSiteName\" ORDER BY count ASC ");
@@ -314,7 +314,7 @@
                 <tr>
                     <td><%= table1.getString(9) %></td>
                     <td><%= table1.getString(10) %></td>
-                    <td><%= table1.getString(7) %></td>
+                    <td style="color:red ; font-weight: bold;"><%= table1.getString(7) %></td>
                     <td><%= table1.getString(8) %></td>
                     <td><%= table1.getString(3) %></td>
                     <td><%= table1.getString(6) %></td>

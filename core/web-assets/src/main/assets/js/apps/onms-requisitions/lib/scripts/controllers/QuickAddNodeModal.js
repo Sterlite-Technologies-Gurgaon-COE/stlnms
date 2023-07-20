@@ -14,6 +14,8 @@ require('../services/Requisitions');
   const quickAddPanelCategoriesView = require('../../views/quick-add-panel-categories.html');
   const quickAddPanelCliView = require('../../views/quick-add-panel-cli.html');
   const quickAddPanelHelpView = require('../../views/quick-add-panel-help.html');
+  const quickAddPanelModBusView = require('../../views/quick-add-panel-modbus.html');
+
 
   angular.module('onms-requisitions')
 
@@ -37,6 +39,7 @@ require('../services/Requisitions');
     $scope.quickAddPanelCategoriesView = quickAddPanelCategoriesView;
     $scope.quickAddPanelCliView = quickAddPanelCliView;
     $scope.quickAddPanelHelpView = quickAddPanelHelpView;
+    $scope.quickAddPanelModBusView = quickAddPanelModBusView;
 
     /**
     * @description Provision the current node and close the modal operation

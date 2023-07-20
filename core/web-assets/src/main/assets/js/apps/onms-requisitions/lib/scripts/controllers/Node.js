@@ -24,6 +24,7 @@ const RequisitionMetaDataEntry = require('../model/RequisitionMetaDataEntry');
   const nodeAssetsView = require('../../views/node-assets.html');
   const nodeMetaDataView = require('../../views/node-metadata.html');
   const nodeCategoriesView = require('../../views/node-categories.html');
+  const quickAddPanelModBusView = require('../../views/quick-add-panel-modbus.html');
 
   angular.module('onms-requisitions')
 
@@ -50,6 +51,7 @@ const RequisitionMetaDataEntry = require('../model/RequisitionMetaDataEntry');
     $scope.nodeAssetsView = nodeAssetsView;
     $scope.nodeMetaDataView = nodeMetaDataView;
     $scope.nodeCategoriesView = nodeCategoriesView;
+    $scope.quickAddPanelModBusView = quickAddPanelModBusView;
 
     /**
     * @description The timing status.
