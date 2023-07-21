@@ -16,7 +16,7 @@ if [ "$( docker container inspect -f '{{.State.Status}}' nms_db )" != "running" 
         docker rm nms_db
     fi
     # run your container
-    sudo docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres --name nms_db -v $pwd/database:/var/lib/postgresql/data postgres:13.9
+    sudo docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres --name nms_db -v $(pwd)/database:/var/lib/postgresql/data postgres:13.9
   
 fi
 sudo $PWD/stlnms/target/stlnms-27.2.0/bin/install -dis
