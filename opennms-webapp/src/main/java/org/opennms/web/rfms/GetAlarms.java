@@ -10,27 +10,63 @@ import org.springframework.web.client.RestTemplate;
 
 import org.opennms.web.rfms.alarms.ResponseAlarms;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.security.cert.Certificate;
+import java.security.cert.X509Certificate;
 import java.sql.SQLException;
 import java.util.List;
+import java.time.Duration;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
+import java.time.LocalDateTime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class GetAlarms {
     private static final Logger log = LoggerFactory.getLogger(GetAlarms.class);    
-    
+
 	private static final GetAccessToken getToken = new GetAccessToken();
-    String bearerToken = getToken.fetchToken();
+    String bearerToken = "none";
+    LocalDateTime lastApiFetchTime;      
+    Duration timeDifference;
 
     public void fetchAlarms() throws SQLException, JSONException {
+        String url = "https://alarm.demo.novafiber-fms.com/v1/alarms?$top=10&$filter=alarmState/state";
+        try {
+            int result = verifySSLCertificate(url);
+            if (result == 1) {
+                System.out.println("The SSL certificate is valid.");
+            } else {
+                System.out.println("The SSL certificate is invalid.");
+                log.info("---> RFMS URL certificate expired");
+                return ;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ;
+        }
         String alarmURI = "https://alarm.demo.novafiber-fms.com/v1/alarms?$top=10&$filter=alarmState/state eq 'new' and severity eq 'critical'";
-
+ 
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.set("Content-Type", "application/json");
         
         // verify why this is required
+            if (bearerToken.equals("none")) {
+                String bearerToken = getToken.fetchToken();
+                lastApiFetchTime = LocalDateTime.now();  
+            }
+            else if (timeDifference.between(lastApiFetchTime, LocalDateTime.now()).toHours() >= 24) {
+                String bearerToken = getToken.fetchToken();
+                lastApiFetchTime = LocalDateTime.now();  
+            }
+
         headers.add("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X)");
         headers.add("Authorization", "Bearer " + bearerToken);
 
@@ -107,5 +143,59 @@ public class GetAlarms {
             log.info("AlarmID already exists in Database");
             return;
         }
+    }
+    public static int verifySSLCertificate(String url) throws IOException {
+        try {
+            URL serverUrl = new URL(url);
+
+            // Create a custom TrustManager that bypasses certificate validation
+            TrustManager[] trustAllCertificates = new TrustManager[] {
+                new X509TrustManager() {
+                    public X509Certificate[] getAcceptedIssuers() {
+                        return null;
+                    }
+
+                    public void checkClientTrusted(X509Certificate[] certs, String authType) {
+                    }
+
+                    public void checkServerTrusted(X509Certificate[] certs, String authType) {
+                    }
+                }
+            };
+
+            // Set the custom TrustManager to the SSLContext
+            SSLContext sslContext = SSLContext.getInstance("TLS");
+            sslContext.init(null, trustAllCertificates, new java.security.SecureRandom());
+
+            HttpURLConnection conn = (HttpURLConnection) serverUrl.openConnection();
+            if (conn instanceof HttpsURLConnection) {
+                HttpsURLConnection httpsConn = (HttpsURLConnection) conn;
+                httpsConn.setSSLSocketFactory(sslContext.getSocketFactory());
+                httpsConn.connect();
+
+                // Retrieve the server's SSL certificate
+                Certificate[] certificates = httpsConn.getServerCertificates();
+                if (certificates.length > 0) {
+                    // Check the expiration date of the first certificate (usually the server's certificate)
+                    X509Certificate serverCertificate = (X509Certificate) certificates[0];
+                    if (serverCertificate.getNotAfter().getTime() < System.currentTimeMillis()) {
+                        // Certificate is expired
+                        return 0;
+                    } else {
+                        // Certificate is still valid
+                        return 1;
+                    }
+                }
+            } else {
+                // The URL does not use HTTPS, so no SSL certificate to verify
+                System.out.println("The URL does not use HTTPS.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // Invalid or error case
+        return 0;
     }
 }
