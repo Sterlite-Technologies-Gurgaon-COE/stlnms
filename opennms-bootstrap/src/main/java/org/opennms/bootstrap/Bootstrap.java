@@ -67,7 +67,7 @@ public abstract class Bootstrap {
      */
     private static final boolean DEBUG = Boolean.getBoolean("opennms.bootstrap.debug");
 
-    protected static final Path VERSION_PROPERTIES = Paths.get("jetty-webapps", "opennms", "WEB-INF", "version.properties");
+    protected static final Path VERSION_PROPERTIES = Paths.get("jetty-webapps", "stlnms", "WEB-INF", "version.properties");
     protected static final String BOOT_PROPERTIES_NAME = "bootstrap.properties";
     protected static final String RRD_PROPERTIES_NAME = "rrd-configuration.properties";
     protected static final String LIBRARY_PROPERTIES_NAME = "libraries.properties";
