@@ -73,6 +73,10 @@
   }
 </script>
 
+
+
+
+
 <c:choose>
   <c:when test="${fn:length(resultSets) <= 0}">
   <div class="card">
@@ -83,20 +87,95 @@
       <p>There are no graphs defined for this report.</p>
     </div>
   </div>
+  
   </c:when>
+
+  
 
   <c:otherwise>
     <div class="card">
       <div class="card-header">
+        
         <span>Custom View: ${title}</span>
       </div>
       <div class="card-body">
+
+
         <form class="form-horizontal" name="view_form" method="get" action="<%= baseHref %>KSC/formProcView.htm">
           <input type="hidden" name="<%=FormProcViewController.Parameters.type%>" value="${reportType}" >
           <input type="hidden" name="<%=FormProcViewController.Parameters.action%>" value="none">
           <c:if test="${!empty report}">
             <input type="hidden" name="<%=FormProcViewController.Parameters.report%>" value="${report}">
           </c:if>
+
+
+
+        <div style="margin-top: 1%;margin-left: 0.5%;">
+          <!-- Select Timespan Input --> 
+          <c:if test="${!empty timeSpan}">
+            <div class="form-group" style="display: inline-flex;width: 48%;">
+              <label class="col-md-2 label-control" style="max-width:100% ;flex: 0 0 25%;">Override Graph Timespan</label>
+              <div class="col-md-4" style="max-width:100% ;flex: 0 0 50%;">
+                <select class="form-control custom-select" name="timespan">
+                  <c:forEach var="option" items="${timeSpans}">
+                    <c:choose>
+                      <c:when test="${timeSpan == option.key}">
+                        <c:set var="selected">selected="selected"</c:set>
+                      </c:when>
+                      <c:otherwise>
+                        <c:set var="selected" value=""/>
+                      </c:otherwise>
+                    </c:choose>
+                    <option value="${option.key}" ${selected}>${option.value.replaceAll("_", " ")}</option>
+                  </c:forEach>
+                </select>
+                <span class="form-text text-muted">Press update button to reflect option changes to ALL graphs</span>
+              </div>
+            </div>
+          </c:if>
+
+          <!-- Select Graph Type --> 
+          <c:if test="${!empty graphType}">
+            <div class="form-group" style="display: inline-flex;width: 48%;">
+              <label class="col-md-2 label-control" style="max-width:100% ;flex: 0 0 25%;">Override Graph Type</label>
+              <div class="col-md-4" style="max-width:100% ;flex: 0 0 50%;">
+                <select class="form-control custom-select" name="graphtype">
+                  <c:forEach var="option" items="${graphTypes}">
+                    <c:choose>
+                      <c:when test="${graphType == option.key}">
+                        <c:set var="selected">selected="selected"</c:set>
+                      </c:when>
+                      <c:otherwise>
+                        <c:set var="selected" value=""/>
+                      </c:otherwise>
+                    </c:choose>
+                    <option value="${option.key}" ${selected}>${option.value}</option>
+                  </c:forEach>
+                </select>
+                <span class="form-text text-muted">Press update button to reflect option changes to ALL graphs</span>
+              </div>
+            </div>
+          </c:if>
+        </div>
+
+
+          <!-- Button bar -->
+          <div class="btn-group" style="margin: 1%;">
+            <button id="printButton" class="btn btn-secondary" onclick="handleButtonClick()" type="button">Print Report</button>
+            <button class="btn btn-secondary" type="button" onclick="exitReport()">Exit Report Viewer</button>
+            <c:if test="${!empty timeSpan || !empty graphType}">
+              <button class="btn btn-secondary" type="button" onclick="updateReport()">Update Report View</button>
+            </c:if>
+            <c:if test="${showCustomizeButton}">
+              <button class="btn btn-secondary" type="button" onclick="customizeReport()">Customize This Report</button>
+            </c:if>
+            
+          </div>
+          <!-- target/stlnms-27.2.0/jetty-webapps/stlnms/WEB-INF/jsp/KSC/company-logo.png -->
+
+
+
+         
           <table id="graph-results" class="table table-sm" align="center">
             <c:set var="graphNum" value="0"/>
             <c:set var="showFootnote1" value="false"/>
@@ -164,66 +243,68 @@
               </tr>
             </c:forEach>
           </table>
-          <!-- Select Timespan Input --> 
-          <c:if test="${!empty timeSpan}">
-            <div class="form-group">
-              <label class="col-md-2 label-control">Override Graph Timespan</label>
-              <div class="col-md-4">
-                <select class="form-control custom-select" name="timespan">
-                  <c:forEach var="option" items="${timeSpans}">
-                    <c:choose>
-                      <c:when test="${timeSpan == option.key}">
-                        <c:set var="selected">selected="selected"</c:set>
-                      </c:when>
-                      <c:otherwise>
-                        <c:set var="selected" value=""/>
-                      </c:otherwise>
-                    </c:choose>
-                    <option value="${option.key}" ${selected}>${option.value.replaceAll("_", " ")}</option>
-                  </c:forEach>
-                </select>
-                <span class="form-text text-muted">Press update button to reflect option changes to ALL graphs</span>
-              </div>
-            </div>
-          </c:if>
-          <!-- Select Graph Type --> 
-          <c:if test="${!empty graphType}">
-            <div class="form-group">
-              <label class="col-md-2 label-control">Override Graph Type</label>
-              <div class="col-md-4">
-                <select class="form-control custom-select" name="graphtype">
-                  <c:forEach var="option" items="${graphTypes}">
-                    <c:choose>
-                      <c:when test="${graphType == option.key}">
-                        <c:set var="selected">selected="selected"</c:set>
-                      </c:when>
-                      <c:otherwise>
-                        <c:set var="selected" value=""/>
-                      </c:otherwise>
-                    </c:choose>
-                    <option value="${option.key}" ${selected}>${option.value}</option>
-                  </c:forEach>
-                </select>
-                <span class="form-text text-muted">Press update button to reflect option changes to ALL graphs</span>
-              </div>
-            </div>
-          </c:if>
-          <!-- Button bar -->
-          <div class="btn-group">
-            <button class="btn btn-secondary" type="button" onclick="exitReport()">Exit Report Viewer</button>
-            <c:if test="${!empty timeSpan || !empty graphType}">
-              <button class="btn btn-secondary" type="button" onclick="updateReport()">Update Report View</button>
-            </c:if>
-            <c:if test="${showCustomizeButton}">
-              <button class="btn btn-secondary" type="button" onclick="customizeReport()">Customize This Report</button>
-            </c:if>
-          </div>
-        </form>
+        </form>        
       </div> <!-- card-body -->
     </div> <!-- panel -->
   </c:otherwise>
 </c:choose>
+<link href='https://fonts.googleapis.com/css?family=Varela Round' rel='stylesheet'>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  
+  function printDivAsPDF() {
+    return new Promise((resolve, reject) => {
+      const graphDiv = document.getElementById('graph-results');
+      const button = document.getElementById('printButton');
+      const pdf = new window.html2pdf();
+      const options = {
+        margin: 10,
+        filename: "${title}",
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a2', orientation: 'landscape' },
+      };
+
+      const pdfContentDiv = document.createElement('div');
+      const headerDiv = document.createElement('div');
+      headerDiv.setAttribute('id','headerDiv');
+      headerDiv.innerHTML = `
+        <div id="header1" style="display:inline;font-size: xxx-large;">Report Name: ${title} </div>
+        <div id="picDiv" style="font-family: 'Varela Round';display:inline;margin-right:1%;float:right;font-size: 100px;color:blue; font-weight:900;">STL<a style="color:green;font-weight:2000;font-size:50px;"></a></div>
+        </br>
+      `;
+
+        var x = document.getElementById("header1");
+        console.log(headerDiv.innerText);
+      pdfContentDiv.appendChild(headerDiv);
+      const graphDivClone = graphDiv;
+      pdfContentDiv.appendChild(graphDivClone);
+
+     
+      button.disabled = true;
+      pdf.from(pdfContentDiv).set(options).save().then(() => {
+        button.disabled = false;
+
+      });
+      
+      setTimeout(() => {
+        console.log("Function work is done");
+        resolve();
+      }, 2000);
+    });
+  }
+
+  async function handleButtonClick() {
+    try {
+      await printDivAsPDF();
+      window.location.reload();
+    } catch (error) {
+      console.error("Error occurred:", error);
+    }
+  }
+</script>
 <c:if test="${showFootnote1 == true}">
   <jsp:include page="/includes/footnote1.jsp" flush="false" />
 </c:if>

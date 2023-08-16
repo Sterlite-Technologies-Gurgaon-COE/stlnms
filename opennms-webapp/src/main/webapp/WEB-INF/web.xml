@@ -531,6 +531,31 @@
     <servlet-class>org.opennms.web.admin.discovery.DiscoveryScanServlet</servlet-class>
   </servlet>
 
+
+
+<!-- Servlet for Post and Get for Templates of Configuration -->
+  <servlet>
+    <servlet-name>postTemplate</servlet-name>
+    <servlet-class>org.opennms.web.postgetservice.PostTemplateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>getTemplate</servlet-name>
+    <servlet-class>org.opennms.web.postgetservice.GetTemplateServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>postTemplate</servlet-name>
+    <url-pattern>element/postTemplate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>getTemplate</servlet-name>
+    <url-pattern>element/getTemplate</url-pattern>
+  </servlet-mapping>
+
+
+
+
   <servlet>
     <servlet-name>importAssets</servlet-name>
     <servlet-class>org.opennms.web.asset.ImportAssetsServlet</servlet-class>

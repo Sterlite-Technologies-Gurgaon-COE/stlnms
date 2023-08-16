@@ -2,7 +2,7 @@
 .heading {
   text-align: center;
 }
-.heading h1 {
+.heading h2 {
   margin-bottom: 3rem;
   font-weight: 300;
   position: relative;
@@ -62,11 +62,11 @@
   justify-content: flex-start;
   transition: 0.25s;
 }
-.container .list .num h5 {
+.container .list .num h3 {
   position: relative;
   left: -1.5rem;
   color: #3d3d3d;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight:bold;
   transition: 0.25s;
 }
@@ -77,7 +77,7 @@
 .container .list .num:hover:before {
   opacity: 0.2;
 }
-.container .list .num:hover h5 {
+.container .list .num:hover h3 {
   left: 5rem;
 }
 .message {
@@ -86,3 +86,5 @@
   text-transform: uppercase;
   margin-top: 2rem;
 }
+
+

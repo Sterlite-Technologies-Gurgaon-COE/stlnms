@@ -59,6 +59,9 @@
         org.springframework.web.context.WebApplicationContext,
         org.springframework.web.context.support.WebApplicationContextUtils"
 %>
+<%@ page import="java.util.*" %>
+<%@ page import = "java.sql.*"%>
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
@@ -157,6 +160,10 @@
         map.put("url", linkPrefix + ip + linkSuffix);
         return Collections.singleton(map);
     }%>
+
+    <%!
+      Boolean tempvalue = false;
+    %>
 
 <%
 	OnmsNode node_db = ElementUtil.getNodeByParams(request, getServletContext());
@@ -268,7 +275,25 @@
 
 	pageContext.setAttribute("schedOutages", schedOutages.isEmpty() ? null : StringUtils.collectionToDelimitedString(schedOutages, ", "));
     pageContext.setAttribute("maxInterfaceCount", System.getProperty("org.opennms.interfaceAvailabilityBox.maxInterfaceCount", "10"));
-%>
+    
+    
+    
+    Connection dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/stlnms", "postgres", "postgres");
+    PreparedStatement st = dbConnection.prepareStatement("SELECT * FROM public.node WHERE nodeId = ?");
+  
+
+    st.setInt(1, nodeId);
+    ResultSet rs = st.executeQuery();
+
+    while (rs.next()) {
+      tempvalue = rs.getBoolean("config_flag");
+      }
+    rs.close(); 
+    st.close();
+
+    %>
+
+
 
 <%@page import="org.opennms.core.resource.Vault"%>
 <jsp:include page="/includes/bootstrap.jsp" flush="false" >
@@ -434,28 +459,41 @@ function confirmAssetEdit() {
     <c:url var="comparisionLink" value="element/configuration_manage.jsp">
       <c:param name="node" value="${model.id}"/>
     </c:url>
-    <li class="list-inline-item">
-      <a href="<c:out value="${comparisionLink}"/>">Run a Command</a>
-    </li>
+    
 
 
     <!-- Template Link -->
-    <c:url var="templateLink" value="element/templateList.jsp">
+    <c:url var="templateLink" value="element/getTemplate">
       <c:param name="node" value="${model.id}"/>
     </c:url>
-    <li class="list-inline-item">
-      <a href="<c:out value="${templateLink}"/>">Template List</a>
-    </li>
 
+    <%
+    if (tempvalue) {
+    %>
 
-    <!-- Template Link -->
-    <c:url var="modebusLink" value="element/modbusTable.jsp">
+        <li class="list-inline-item">
+          <a href="<c:out value="${comparisionLink}"/>">Run a Command</a>
+        </li>
+
+        <li class="list-inline-item">
+            <a href="<c:out value="${templateLink}"/>">Template List</a>
+        </li>        
+    <%
+        }
+    %>
+
+     <!-- ModBus Link -->
+     <c:url var="modebusLink" value="element/modebusTable.jsp">
       <c:param name="node" value="${model.id}"/>
     </c:url>
     <li class="list-inline-item">
       <a href="<c:out value="${modebusLink}"/>">ModBus Page</a>
     </li>
 
+   
+
+    
+    
 
     <c:if test="${model.existsInRequisition && (model.admin || model.provision)}">
         <li class="list-inline-item">
