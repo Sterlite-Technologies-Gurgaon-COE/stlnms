@@ -94,3 +94,22 @@
             opennms-base-assembly/src/main/filtered/etc/report-templates/assets/images/logo_flat.png
 
         (Note:- I have not deleted the previous logos, it's still there in the folder.)
+
+
+<!-- Changes pushed on 16th August 2023 -->
+1) Servlet for Template of Configuration Management :-
+    files :-
+        opennms-webapp/src/main/java/org/opennms/web/postgetservice/GetTemplateServlet.java
+        opennms-webapp/src/main/java/org/opennms/web/postgetservice/PostTemplateServlet.java
+        opennms-webapp/src/main/webapp/WEB-INF/web.xml
+        opennms-webapp/src/main/webapp/element/templateList.jsp
+        opennms-webapp/src/main/webapp/element/css/template_list.css
+        opennms-webapp/src/main/webapp/element/js/beautify.js
+
+2) KSC Report Print Button :-
+    files :-
+        opennms-webapp/src/main/webapp/WEB-INF/jsp/KSC/customView.jsp
+
+3) Logo Change for Database Reports (Jasper Reports) :-
+    files :-
+        opennms-base-assembly/src/main/resources/etc/reports/logo.gif
