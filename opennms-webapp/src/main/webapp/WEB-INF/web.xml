@@ -543,6 +543,11 @@
     <servlet-class>org.opennms.web.postgetservice.GetTemplateServlet</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>getDates</servlet-name>
+    <servlet-class>org.opennms.web.postgetservice.GetCompareServlet</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>postTemplate</servlet-name>
     <url-pattern>element/postTemplate</url-pattern>
@@ -553,6 +558,10 @@
     <url-pattern>element/getTemplate</url-pattern>
   </servlet-mapping>
 
+  <servlet-mapping>
+      <servlet-name>getDates</servlet-name>
+      <url-pattern>element/getDates</url-pattern>
+    </servlet-mapping>
 
 
 

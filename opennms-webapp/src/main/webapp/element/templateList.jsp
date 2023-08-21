@@ -78,7 +78,6 @@
         .row{
           display:grid;
         }
-
     </style>
 
 
@@ -98,7 +97,7 @@
           
           var templateTextArea = document.getElementById("contentField");
           templateTextArea.value = vkbeautify.xml(templateMapping[selectedValue]);
-          // console.log(templateMapping[selectedValue]);
+          console.log(templateMapping[selectedValue]);
 
           var divElement = document.getElementById("selectListDiv");
           divElement.innerHTML = "";
@@ -124,7 +123,6 @@
           let nodeId = "${nodeId}";
           // console.log(nodeId);
 
-
           let textareaData = document.getElementById("contentField").value;
           // console.log(textareaData);
 
@@ -142,7 +140,7 @@
                   console.log(xhr.responseText);
                   var responseBody = xhr.responseText.split("Response Body: ")[1];
                   console.log(responseBody);
-                  alert("Posted SuccessFully " + '<br>' + "Response : "+ responseBody + '<br>' + "with Status :")
+                  alert("Posted SuccessFully " + '<br>' + "Status of Received Response : " + xhr.status+ " Okay"+ '<br>' + '<b>'+"Response : "+'</b>'+'</br>'+ '&nbsp' + responseBody )
                 }else{
                   console.error("Request failed with status:", xhr.status);
               }

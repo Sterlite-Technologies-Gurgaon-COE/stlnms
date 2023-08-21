@@ -321,17 +321,17 @@ function confirmAssetEdit() {
     "synchronized (typically every 24 hours) or the node manually rescanned.\n\n" +
     "To learn the best way to make permanent asset changes, talk to your " +
     "STL-NMS administrator.";
-<c:if test="${model.foreignSource != null}">
-<% if (!request.isUserInRole(Authentication.ROLE_READONLY)) { %>
-    return confirm(confirmText);
-<% } else { %>
-    return true;
-<% } %>
-</c:if>
-<c:if test="${model.foreignSource == null}">
-  return true;
-</c:if>
-}
+    <c:if test="${model.foreignSource != null}">
+    <% if (!request.isUserInRole(Authentication.ROLE_READONLY)) { %>
+        return confirm(confirmText);
+    <% } else { %>
+        return true;
+    <% } %>
+    </c:if>
+    <c:if test="${model.foreignSource == null}">
+      return true;
+    </c:if>
+    }
 </script>
 
 <h5>
@@ -456,7 +456,7 @@ function confirmAssetEdit() {
 
 
     <!-- Configuration Manage Link -->
-    <c:url var="comparisionLink" value="element/configuration_manage.jsp">
+    <c:url var="comparisionLink" value="element/getDates">
       <c:param name="node" value="${model.id}"/>
     </c:url>
     

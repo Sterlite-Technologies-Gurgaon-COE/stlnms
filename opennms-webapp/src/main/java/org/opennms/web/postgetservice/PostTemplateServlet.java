@@ -20,7 +20,6 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
-// import java.io.IOException;
 
 public class PostTemplateServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,7 +40,7 @@ public class PostTemplateServlet extends HttpServlet {
 
         try {
             JSONObject jsonObject = new JSONObject();
-            if(parameter2 == "SSH"){
+            if(parameter2.equals("SSH")){
                 String[] items = parameter1.split(",");
                 List<String> itemList = Arrays.asList(items);
                 System.out.println(itemList);
@@ -58,6 +57,8 @@ public class PostTemplateServlet extends HttpServlet {
 
             }
             System.out.println(jsonObject);
+
+            System.out.println("Dhimanti");
 
             String jsonData = jsonObject.toJSONString();
             System.out.println(jsonData);
@@ -76,6 +77,14 @@ public class PostTemplateServlet extends HttpServlet {
             String responseBody = EntityUtils.toString(responseEntity);
 
             EntityUtils.consume(responseEntity);
+
+            System.out.println("dhimanti 5");
+                System.out.println("<h1>Response Status Code: " + statusCode + "</h1>");
+                System.out.println("dhimanti 6");
+
+                System.out.println("<p>Response Body: " + responseBody + "</p>");
+                System.out.println("dhimanti 7");
+
 
             response.getWriter().write("Status Code: " + statusCode + "</br>");
             response.getWriter().write("Response Body: " + responseBody);
