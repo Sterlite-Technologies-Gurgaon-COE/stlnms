@@ -1,56 +1,83 @@
-<%@page language="java"
-        contentType="text/html; charset=UTF-8"
-            pageEncoding="UTF-8"
+<%@ page contentType="text/html;charset=UTF-8" language="java" 
+  import="
+    org.opennms.web.api.Authentication,
+    org.springframework.security.core.GrantedAuthority,
+    org.springframework.security.core.context.SecurityContextHolder"
 %>
-<%@ page import="java.sql.*"%>
-<%@ page import="com.google.gson.*"%>
-         <jsp:include page="/includes/bootstrap.jsp" flush="false">
-         <jsp:param name="title" value="RFMS Reports" />
-         <jsp:param name="headTitle" value="RFMS" />
-         <jsp:param name="breadcrumb" value="RFMS" />
-         <jsp:param name="location" value="rfms" />
-         </jsp:include>
-      <h1>RFMS Demo Table</h1>
-      <%
-         Connection dbConnection = DriverManager.getConnection("jdbc:postgresql://10.100.101.202:5432/opennms", "postgres", "postgres");
-         Statement getFromDb = dbConnection.createStatement();
-         ResultSet resultset = getFromDb.executeQuery("SELECT * FROM public.rfms");
-      %>
-      <link rel="stylesheet" href="RFMS_Alerts/style.css"> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ page import="java.util.*" %>
+<%@ page import = "java.sql.*"%>
+
+<jsp:include page="/includes/bootstrap.jsp" flush="false">
+    <jsp:param name="title" value="RFMS Data" />
+    <jsp:param name="headTitle" value="RFMS" />
+    <jsp:param name="location" value="rfms" />
+    <jsp:param name="breadcrumb" value="RFMS Table" />
+</jsp:include>
 
 
-      <div class="container">
-         <h2>Responsive Tables Using LI <small>Triggers on 767px</small></h2>
-         <ul class="responsive-table">
-           <li class="table-header">
-             <div class="col col-2">FMS Id</div>
-             <div class="col col-2">Event Time</div>
-             <div class="col col-2">Alarm Summary</div>
-             <div class="col col-2">Max Fault Position</div>
-             <div class="col col-2">Min Fault Position</div>
-             <div class="col col-2">Position</div>
-             <div class="col col-2">Severity</div>
-             <div class="col col-2">Probable Cause</div>
-             <div class="col col-2">RTU Id</div>
-             <div class="col col-2">RTU Name</div>
-           </li>
+<div class="container-fluid" style="padding-left: 0px;">
 
-           <% while(resultset.next()){ %>
-           <li class="table-row">
-             <div class="col col-2" > <%= resultset.getString(1) %></div>
-             <div class="col col-2" > <%= resultset.getString(2) %></div>
-             <div class="col col-2" > <%= resultset.getString(3) %></div>
-             <div class="col col-2" > <%= resultset.getString(4) %></div>
-             <div class="col col-2" > <%= resultset.getString(5) %></div>
-             <div class="col col-2" > <%= resultset.getString(6) %></div>
-             <div class="col col-2" > <%= resultset.getString(7) %></div>
-             <div class="col col-2" > <%= resultset.getString(8) %></div>
-             <div class="col col-2" > <%= resultset.getString(9) %></div>
-             <div class="col col-2" > <%= resultset.getString(10) %></div>
-           </li>
-           <% } %>
-           
-         </ul>
-       </div>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
 
-       <jsp:include page="/includes/bootstrap-footer.jsp" flush="false" />
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+    <%
+        Connection dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/stlnms", "postgres", "postgres");
+        Statement getFromDb = dbConnection.createStatement();
+        ResultSet resultset = getFromDb.executeQuery("SELECT * FROM PUBLIC.rfms LIMIT 50");
+
+    %>
+        <br>
+        
+            <table id="myTable" class="table table-sm severity display"  style="margin: 20px;">
+                <thead>
+                    <tr>
+                        <th>RTU ID</th>
+                        <th>RTU Name</th>
+                        <th>RTU SiteName</th>
+                        <th>FMS ID</th>
+                        <th>Severity</th>
+                        <th>Initial Event Time</th>
+                        <th>Alarms Summary</th>
+                        <th>MAX Fault Position</th>
+                        <th>Min Fault Position</th>
+                        <th>Position</th>
+                        <th>Probable Cause</th>
+                        <th>Measurement ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% while(resultset.next()){ %>
+                        <tr>
+                            <td> <%= resultset.getString(9) %></td>
+                            <td> <%= resultset.getString(10) %></td>
+                            <td> <%= resultset.getString(11) %></td>
+                            <td> <%= resultset.getString(1) %></td>
+                            <td style="color:red ; font-weight: bold;"> <%= resultset.getString(7) %></td>
+                            <td> <%= resultset.getString(2) %></td>
+                            <td> <%= resultset.getString(3) %></td>
+                            <td> <%= resultset.getString(4) %></td>
+                            <td> <%= resultset.getString(5) %></td>
+                            <td> <%= resultset.getString(6) %></td>
+                            <td> <%= resultset.getString(8) %></td>
+                            <td> <%= resultset.getString(12) %></td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        <br>
+
+</div> 
+
+
+
+<jsp:include page="/includes/bootstrap-footer.jsp" flush="false" />

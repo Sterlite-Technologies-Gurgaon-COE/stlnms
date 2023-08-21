@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="rangerrick" id="1.6.0-schedule_task">
+        <validCheckSum>3:bf2fe2bd84eacb76952e7fb6c7f18f57</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="schedule_task" /></not>
+        </preConditions>
+        <createTable tableName="schedule_task">
+            <!-- Unique identifier -->
+            <column name="schedule_id" type="integer" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="pk_schedule_id" />
+            </column>
+            <column name="schedule_nodeid" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="schedule_nodelabel" type="varchar(256)">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- Local Date Time -->
+            <column name="task_creation_time" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- Daily, Weekly, Month -->
+            <column name="schedule_type" type="varchar(256)">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- Time - HH:MM:SS -->
+            <column name="schedule_time" type="TIME">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- Weekdays - sunday,monday,... -->
+            <column name="schedule_day" type="varchar(256)" />
+
+            <!-- every date on months -->
+            <column name="schedule_date" type="DATE" />
+
+
+            <column name="column1" type="text" />
+            <column name="column2" type="text" />
+            <column name="column3" type="text" />
+        </createTable>
+
+		<!-- <addAutoIncrement tableName="schedule_task" columnName="schedule_id" /> -->
+
+    </changeSet>
+</databaseChangeLog>

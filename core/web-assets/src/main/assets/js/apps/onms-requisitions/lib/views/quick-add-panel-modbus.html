@@ -1,0 +1,30 @@
+<div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="modbus" name="modbus" ng-model="node.modbus">
+                ModBus Flag
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" for="ipAddress">IP Address</label>
+        <input class="form-control" type="text" id="modbus_ip" name="modbus_ip"
+            placeholder="IP Address" ng-model="node.modbus_ip" ng-disabled="!(node.modbus === true)"></input>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" for="modbus_port">Port</label>
+        <input class="form-control" type="text" id="modbus_port" name="modbus_port"
+            placeholder="ModBus Port" ng-model="node.modbus_port" ng-disabled="!(node.modbus === true)"></input>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" for="modbus_address">Register Start Address</label>
+        <input class="form-control" type="text" id="modbus_address" name="modbus_address"
+            placeholder="Register Start Address" ng-model="node.modbus_address" ng-disabled="!(node.modbus === true)"></input>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" for="modbus_port">Register Count</label>
+        <input class="form-control" type="text" id="modbus_count" name="modbus_count"
+            placeholder="Register Count" ng-model="node.modbus_count" ng-disabled="!(node.modbus === true)"></input>
+    </div>
+</div>

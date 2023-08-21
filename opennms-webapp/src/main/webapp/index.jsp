@@ -1,29 +1,29 @@
 <%@page language="java" contentType="text/html" session="true"  %>
 <%--
 /*******************************************************************************
- * This file is part of STL-NMS(R).
+ * This file is part of OpenNMS(R).
  *
- * Copyright (C) 2002-2017 The STL-NMS Group, Inc.
- * STL-NMS(R) is Copyright (C) 1999-2017 The STL-NMS Group, Inc.
+ * Copyright (C) 2002-2017 The OpenNMS Group, Inc.
+ * OpenNMS(R) is Copyright (C) 1999-2017 The OpenNMS Group, Inc.
  *
- * STL-NMS(R) is a registered trademark of The STL-NMS Group, Inc.
+ * OpenNMS(R) is a registered trademark of The OpenNMS Group, Inc.
  *
- * STL-NMS(R) is free software: you can redistribute it and/or modify
+ * OpenNMS(R) is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published
  * by the Free Software Foundation, either version 3 of the License,
  * or (at your option) any later version.
  *
- * STL-NMS(R) is distributed in the hope that it will be useful,
+ * OpenNMS(R) is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with STL-NMS(R).  If not, see:
+ * along with OpenNMS(R).  If not, see:
  *      http://www.gnu.org/licenses/
  *
  * For more information contact:
- *     STL-NMS(R) Licensing <license@opennms.org>
+ *     OpenNMS(R) Licensing <license@opennms.org>
  *     http://www.opennms.org/
  *     http://www.opennms.com/
  *******************************************************************************/
@@ -69,6 +69,10 @@
 
 	<!-- Left Column -->
 	<div class="col-md-3" id="index-contentleft" style="background-color: cadetblue; border-top-right-radius: 30px; border-bottom-right-radius: 30px;">
+		<div style="width:100%;height:45%;margin-top: 5% ;background-color: white;border-radius: 25px;box-shadow: 7px 10px 8px -5px darkslategrey;">
+			<jsp:include page="/rfms/pie.jsp" flush="false" />
+		</div>
+		
 		<!-- Situations box -->
 		<% String showSituations = System.getProperty("opennms.situations.show", "true");
 		   if (Boolean.parseBoolean(showSituations)) { %>
@@ -83,12 +87,7 @@
 		<% String showNodesWithOutages = System.getProperty("opennms.nodesWithOutages.show", "true");
            if (Boolean.parseBoolean(showNodesWithOutages)) { %>
 		<jsp:include page="/outage/servicesdown-box.htm" flush="false" />
-        <% } %>
-		<!-- Business Services box -->
-		<% String showBusinessServicesProblems = System.getProperty("opennms.businessServicesWithProblems.show", "true");
-			if (Boolean.parseBoolean(showBusinessServicesProblems)) { %>
-		<jsp:include page="/bsm/summary-box.htm" flush="false" />
-		<% } %>
+        <% } %>	
 		
 	</div>
 

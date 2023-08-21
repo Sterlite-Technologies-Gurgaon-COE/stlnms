@@ -38,7 +38,7 @@
         } else {
             outputDate = dateParam;
         }
-        Connection dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/opennms", "postgres", "postgres");
+        Connection dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/stlnms", "postgres", "postgres");
         Statement getFromDb = dbConnection.createStatement();
         ResultSet resultset = getFromDb.executeQuery("SELECT * FROM public.garv_ec2 WHERE DATE(timecode) = '%"+outputDate+"%' ");
        

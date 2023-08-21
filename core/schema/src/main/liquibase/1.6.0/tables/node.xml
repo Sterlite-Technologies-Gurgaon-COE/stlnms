@@ -82,6 +82,19 @@
 
 			<!-- When importing nodes this contains the id of the node as known to the foreign source, null otherwise -->
 			<column name="foreignid" type="varchar(64)" />
+
+
+
+
+
+			<!-- configuration management falg -->
+			<column name="config_flag" type="BOOLEAN" defaultValueBoolean="false">
+				<constraints nullable="false" />
+			</column>
+
+			<!-- Configuration Schedule Time,  when configuration was changed. Format="HH:MM:SS" -->
+			<column name="config_schedule_time" type="TIMESTAMP" defaultValueDate="CURRENT_TIMESTAMP" />
+
 		</createTable>
 
 		<addForeignKeyConstraint constraintName="fk_dpname"

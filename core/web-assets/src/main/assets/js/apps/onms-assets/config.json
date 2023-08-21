@@ -284,6 +284,55 @@
           "class": "col-md-6",
           "panels": [
             {
+              "title": "Authentication",
+              "fields": [
+                {
+                  "label": "Config Flag",
+                  "tooltip": "Config Flag",
+                  "model": "config_flag",
+                  "type": "boolean"
+                },
+                {
+                  "label": "Username",
+                  "tooltip": "Username",
+                  "model": "username",
+                  "type": "text"
+                },
+                {
+                  "label": "Password",
+                  "tooltip": "Password",
+                  "model": "password",
+                  "type": "password"
+                },
+                {
+                  "label": "Enable Password",
+                  "tooltip": "Enable Password: used only if AutoEnable is not set to 'A'",
+                  "model": "enable",
+                  "type": "password"
+                },
+                {
+                  "label": "Connection",
+                  "tooltip": "Connection",
+                  "model": "connection",
+                  "type": "select",
+                  "options": [ "telnet", "ssh", "rsh", "" ]
+                },
+                {
+                  "label": "Auto Enable",
+                  "tooltip": "Whether the provided authentication user goes directly into 'enable' mode on this node upon login.",
+                  "model": "autoenable",
+                  "type": "select",
+                  "options": [ "A", "" ]
+                },
+                {
+                  "label": "SNMP Community",
+                  "tooltip": "SNMP Community String (it is recommended to use snmp-config.xml instead)",
+                  "model": "snmpcommunity",
+                  "type": "text"
+                }
+              ]
+            },
+            {
               "title": "Hardware",
               "fields": [
                 {
@@ -358,49 +407,6 @@
                   "label": "HDD 6",
                   "tooltip": "Hard disk drive information",
                   "model": "hdd6",
-                  "type": "text"
-                }
-              ]
-            },
-            {
-              "title": "Authentication",
-              "fields": [
-                {
-                  "label": "Username",
-                  "tooltip": "Username",
-                  "model": "username",
-                  "type": "text"
-                },
-                {
-                  "label": "Password",
-                  "tooltip": "Password",
-                  "model": "password",
-                  "type": "password"
-                },
-                {
-                  "label": "Enable Password",
-                  "tooltip": "Enable Password: used only if AutoEnable is not set to 'A'",
-                  "model": "enable",
-                  "type": "password"
-                },
-                {
-                  "label": "Connection",
-                  "tooltip": "Connection",
-                  "model": "connection",
-                  "type": "select",
-                  "options": [ "telnet", "ssh", "rsh", "" ]
-                },
-                {
-                  "label": "Auto Enable",
-                  "tooltip": "Whether the provided authentication user goes directly into 'enable' mode on this node upon login.",
-                  "model": "autoenable",
-                  "type": "select",
-                  "options": [ "A", "" ]
-                },
-                {
-                  "label": "SNMP Community",
-                  "tooltip": "SNMP Community String (it is recommended to use snmp-config.xml instead)",
-                  "model": "snmpcommunity",
                   "type": "text"
                 }
               ]

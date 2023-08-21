@@ -1300,7 +1300,7 @@
     <install.pid.file>${install.logs.dir}/opennms.pid</install.pid.file>
 
     <install.postgresql.service>postgresql</install.postgresql.service>
-    <install.database.name>opennms</install.database.name>
+    <install.database.name>stlnms</install.database.name>
     <install.database.user>postgres</install.database.user>
     <install.database.password>postgres</install.database.password>
     <install.database.admin.user>postgres</install.database.admin.user>

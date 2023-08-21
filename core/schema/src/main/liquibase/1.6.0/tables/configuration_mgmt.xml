@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="rangerrick" id="1.6.0-configuration_mgmt">
+        <validCheckSum>3:bf2fe2bd84eacb76952e7fb6c7f18f57</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="configuration_mgmt" /></not>
+        </preConditions>
+        <createTable tableName="configuration_mgmt">
+            <!-- Unique identifier -->
+            <column name="config_id" type="integer">
+				<constraints nullable="false" primaryKey="true" primaryKeyName="pk_config_id" />
+            </column>
+            <column name="config_nodeid" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="config_nodelabel" type="varchar(256)">
+                <constraints nullable="false" />
+            </column>
+            <column name="triggertime" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false" />
+            </column>
+            <column name="responsetime" type="TIMESTAMP WITHOUT TIME ZONE" defaultValueDate="CURRENT_TIMESTAMP"></column>
+                
+            <column name="configuration" type="text">
+                <constraints nullable="false" />
+            </column>
+            <column name="column4" type="text" />
+            <column name="column5" type="text" />
+            <column name="column6" type="text" />
+        </createTable>
+
+		<!-- <ext:addAutoIncrement tableName="configuration_mgmt" columnName="config_id" /> -->
+
+    </changeSet>
+</databaseChangeLog>
+

@@ -36,7 +36,7 @@ String getTimeQuery(String st, String en) {
 %>
 
 
-<% Connection dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/opennms", "postgres", "postgres");
+<% Connection dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/stlnms", "postgres", "postgres");
    Statement getFromDb = dbConnection.createStatement();
    String ki = request.getParameter("kiosk_id");
    String day1 = request.getParameter("day1");
