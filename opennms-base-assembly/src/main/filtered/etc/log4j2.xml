@@ -207,7 +207,7 @@
         <KeyValuePair key="telemetryd"           value="WARN" />
         <KeyValuePair key="tl1d"                 value="WARN" />
         <KeyValuePair key="trapd"                value="WARN" />
-        <KeyValuePair key="trouble-ticketer"     value="DEBUG" />
+        <KeyValuePair key="trouble-ticketer"     value="WARN" />
         <KeyValuePair key="vacuumd"              value="WARN" />
         <KeyValuePair key="web"                  value="WARN" />
       </DynamicThresholdFilter>
