@@ -70,6 +70,23 @@
     while(lastrtu.next()){
         lastRTU = lastrtu.getString(1);
     }
+
+    ResultSet box3 = getFromDb.executeQuery("SELECT \"rtuName\", COUNT(*) AS count FROM public.rfms GROUP BY \"rtuName\" order by count desc LIMIT 1");
+    String mostRTUName = "";
+    String mostRTUNameCount = "";
+    while(box3.next()){
+        mostRTUName = box3.getString(1);
+        mostRTUNameCount = box3.getString(2);
+    }
+
+    ResultSet box4 = getFromDb.executeQuery("SELECT \"rtuSiteName\", COUNT(*) AS count FROM public.rfms GROUP BY \"rtuSiteName\" order by count desc LIMIT 1");
+    String mostRTUSite = "";
+    String mostRTUSiteCount = "";
+    while(box4.next()){
+        mostRTUSite = box4.getString(1);
+        mostRTUSiteCount = box4.getString(2);
+    }
+    
 %>
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">	
@@ -188,9 +205,9 @@
         <div style="display:inline-block;height:100%; width: 23%; margin-right: 0.4%;">
             <div style="height:49%;margin-bottom: 2%;">
                 <div style="float:left;height:98%;width:48%;margin-right:1.5%; border-radius: 25px;">
-                    <div style="height:90%;width:100%;">
-                        <div class="card card-stats" style="border-radius: 25px;">
-                            <div class="card-body">
+                    <div style="height:100%;width:100%;">
+                        <div class="card card-stats" style="border-radius: 25px;height:100%">
+                            <div class="card-body" style="height:100%;overflow: hidden;">
                                 <div class="row">
                                     <div class="col">
                                         <h5 class="card-title text-uppercase text-muted mb-0">Total  Alerts</h5>
@@ -209,22 +226,15 @@
                 </div>
                 
                 <div style="float: left;height:98%;width:48%;margin-left:2%;border-radius: 25px;">
-                    <div style="height:90%;width:100%; ">
-                        <div class="card card-stats" style="border-radius: 25px;">
-                            <div class="card-body">
+                    <div style="height:100%;width:100%; ">
+                        <div class="card card-stats" style="border-radius: 25px;height:100%">
+                            <div class="card-body" style="height:100%;overflow: hidden;">
                                 <div class="row">
                                     <div class="col">
                                         <h5 class="card-title text-uppercase text-muted mb-0">Total RTUs</h5>
                                         <span class="h2 font-weight-bold mb-0"><%=Total2%></span>
                                     </div>
-                                
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                                            <i class="ni ni-active-40"></i>
-                                        </div>
-                                    </div>
                                 </div>
-    
                                 <p class="mt-3 mb-0 text-sm">
                                     <span class="text-success mr-2 font-weight-bold"></i><%=lastRTU%></span>
                                     <span class="text-nowrap">Last Alert RTU</span>
@@ -238,51 +248,44 @@
             <div style="height:49%;">  
                 
                 <div style="float: left;height:98%;width:48%;margin-right:1.5%;border-radius: 25px;">
-                    <div style="height:90%;width:100%">
-                        <div class="card card-stats" style="border-radius: 25px;">
-                            <div class="card-body">
+                    <div style="height:100%;width:100%">
+                        <div class="card card-stats" style="border-radius: 25px;height:100%">
+                            <div class="card-body" style="height:100%;overflow: hidden;">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">RTU DATA</h5>
-                                        <span class="h2 font-weight-bold mb-0">350,897</span>
-                                    </div>
-                                
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                                            <i class="ni ni-active-40"></i>
-                                        </div>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Max Alert RTU</h5>
+                                        <span class="h5 font-weight-bold mb-0" style="color:#FF0000"><%=mostRTUName%></span>
                                     </div>
                                 </div>
-    
                                 <p class="mt-3 mb-0 text-sm">
-                                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                    <span class="text-nowrap">RTU TEMP DATA</span>
+                                    <span class="text-nowrap">Last Time: </span>
+                                    <span class="text-success font-weight-bold mr-2" style="color:#0f9c22!important"> <%=critical%></span>
+                                    <br>
+                                    <span class="text-nowrap">Severity: </span>
+                                    <span class="text-success font-weight-bold mr-2" style="color:#CC0000!important"> Critical</span>
+                                    <br>    
+                                    <span class="text-nowrap">Position: </span>
+                                    <span class="text-success font-weight-bold mr-2" style="color:#0a00cc!important"> <%=critical%></span>
                                 </p>
                             </div>
                         </div>     
-                        
+
                     </div>
                 </div>
                 <div style="float: left;height:98%;width:48%;margin-left:2%;border-radius: 25px;">
-                    <div style="height:90%;width:100%">
-                        <div class="card card-stats" style="border-radius: 25px;">
-                            <div class="card-body">
+                    <div style="height:100%;width:100%">
+                        <div class="card card-stats" style="border-radius: 25px;height:100%">
+                            <div class="card-body" style="height:100%;overflow: hidden;">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">RTU DATA</h5>
-                                        <span class="h2 font-weight-bold mb-0">350,897</span>
-                                    </div>
-                                
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                                            <i class="ni ni-active-40"></i>
-                                        </div>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Most Down RTU Site</h5>
+                                        <span class="h5 font-weight-bold mb-0"><%=mostRTUSite%></span>
                                     </div>
                                 </div>
     
                                 <p class="mt-3 mb-0 text-sm">
-                                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                    <span class="text-nowrap">RTU TEMP DATA</span>
+                                    <span class="text-nowrap">Total Alerts From Site </span>
+                                    <span class="text-success font-weight-bold mr-2" style="color:#0f9c22!important"> <%=mostRTUSiteCount%></span>
                                 </p>
                             </div>
                         </div>     
