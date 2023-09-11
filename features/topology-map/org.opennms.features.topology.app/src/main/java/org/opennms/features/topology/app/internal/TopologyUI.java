@@ -141,7 +141,7 @@ import com.vaadin.v7.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
 @Theme("topo_default")
-@Title("OpenNMS Topology Map")
+@Title("STL-NMS Topology Map")
 @PreserveOnRefresh
 public class TopologyUI extends UI implements MenuUpdateListener, ContextMenuHandler, WidgetUpdateListener, WidgetContext, UriFragmentChangedListener, GraphContainer.ChangeListener, MapViewManagerListener, VertexUpdateListener, SelectionListener, VerticesUpdateManager.VerticesUpdateListener {
 
