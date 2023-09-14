@@ -15,9 +15,10 @@
 </jsp:include>
 <html>
 <body>
-    <link rel="stylesheet" href="garvgraph/button.css">    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <link rel="stylesheet" href="./element/css/google_button.css">  
+
+    <script type="text/javascript" src="./garvgraph/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./rfms/js/canvasjs.min.js"></script>
     <div style="float:right;">
         <form action="" method="POST">
             <input id="postdate" class="button-17" type="date" name="date" required>

@@ -88,8 +88,6 @@
     }
     
 %>
-<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">	
 <link rel="stylesheet" href="./rfms/css/style.css">
 <style>
     th{
@@ -343,8 +341,5 @@
 
 </div>
 
-
-
-
-<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+<script type="text/javascript" src="./rfms/js/canvasjs.min.js"></script>
 <jsp:include page="/includes/bootstrap-footer.jsp" flush="false" />

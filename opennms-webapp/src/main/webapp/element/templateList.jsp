@@ -43,12 +43,10 @@
     <link rel="stylesheet" type="text/css" href="./element/css/template_list.css" />
     <link rel="stylesheet" type="text/css" href="./element/css/google_button.css" />
     <link rel="stylesheet" type="text/css" href="./element/css/expand_button.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Raleway:wght@700&amp;display=swap'>
-    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./element/css/dark.css" />
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script type="text/javascript" src="./element/js/beautify.js"></script>
+    <script type="text/javascript" src="./element/js/sweetalert2.min.js"></script>
 
 
     <style>
