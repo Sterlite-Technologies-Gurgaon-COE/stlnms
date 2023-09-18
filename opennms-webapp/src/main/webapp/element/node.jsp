@@ -483,7 +483,7 @@ function confirmAssetEdit() {
     %>
 
      <!-- ModBus Link -->
-     <c:url var="modebusLink" value="element/modebusTable.jsp">
+     <c:url var="modebusLink" value="element/modbusTable.jsp">
       <c:param name="node" value="${model.id}"/>
     </c:url>
     <li class="list-inline-item">

@@ -312,8 +312,7 @@ chart2.render();
 
 <div id="chartContainer" style="height: 370px; width: 100%; margin-bottom: 10px;"></div>
 
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript" src="./garvDashboard/js/canvasjs.min.js"></script>
 
 
 <jsp:include page="/includes/bootstrap-footer.jsp" flush="false" />
-

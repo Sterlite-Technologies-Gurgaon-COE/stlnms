@@ -43,9 +43,10 @@
     <link rel="stylesheet" type="text/css" href="./element/css/google_button.css" />
     <link rel="stylesheet" type="text/css" href="./element/css/compare_button.css" />
     <link rel="stylesheet" type="text/css" href="./element/css/expand_button.css" />
+    <link rel="stylesheet" type="text/css" href="./element/css/font-awesome.min.css" />
+
     <script type="text/javascript" src="./element/js/diffview.js"></script>
     <script type="text/javascript" src="./element/js/difflib.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style type="text/css">
         h2 {

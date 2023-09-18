@@ -24,10 +24,6 @@
 </jsp:include>
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Raleway:wght@700&amp;display=swap'>
-
-
 <div id="mainDiv" class="container-fluid" ng-controller="NodeAssetsCtrl" ng-init="init(${nodeId})" style="padding-left: 0px;">
     <div>    
         <h2>
@@ -41,9 +37,9 @@
     </script>
 
 
+    <link rel="stylesheet" href="./rfms/css/jquery.dataTables.css">
+    <script type="text/javascript" src="./rfms/js/jquery.dataTables.js"></script>
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 
     <%
         Connection dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/stlnms", "postgres", "postgres");

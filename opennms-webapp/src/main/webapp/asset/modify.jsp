@@ -345,24 +345,17 @@
   function configuration() {
     let checkbox = document.getElementById("configCheckbox")
     if (checkbox.checked) {
-      // console.log(checkbox.checked);
       let current_timestamp = getTimeStamp();
-      // console.log(current_timestamp);
       var username = document.getElementById("username").value;
-      // console.log(username);
       if (username === "") {
-        // alert("Please Enter Username, Password and Enable Password for Configuration");
-        // username.addClass( 'required', true );
-        username.required = true;
+        alert("Please Enter Username, Password and Enable Password for Configuration");
       }
-
-
     }
   }
 </script>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="element/js/jquery.min.js"></script>
 <script>
   $(document).ready(function () {
     var nodeId = <%= Integer.valueOf(request.getParameter("node")) %> ;
